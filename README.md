@@ -1,6 +1,7 @@
 <h1 align="center"> Cơ Sở Dữ Liệu Phân Tán <h1>
 <h2 align="center"> Đề tài: Quản Lý Vật Tư <h2>
-Đồ án Quản Lý Vật Tư môn Cơ Sở Dữ Liệu Phân Tán của mình tại năm cuối đại học
+![image](https://user-images.githubusercontent.com/58034430/131850536-9434840c-7857-4062-9638-2b727af38d26.png)
+
 
 # [**Table Of Content**](#table-of-content)
 - [**Table Of Content**](#table-of-content)
@@ -15,6 +16,12 @@
  Thôi, không vòng vo Tam Quốc nữa. Mình sẽ giới thiệu cho các bạn cách xem và tham khảo đồ án của mình sao cho hiệu quả nhất nhé. Nào chúng ta bắt đầu thôi !!
 # [**FAQ**](#faq)
   FAQ hay viết tắt của cụm từ Frequently Asked Questions, là những câu hỏi thường gặp trong quá trình chúng ta làm đồ án này. Những câu hỏi được liệt kê bên dưới bao gồm những câu hỏi mình tổng hợp lại trong suốt quá trình học môn này. Bao gồm câu hỏi của sinh viên với thầy & những kiến thứ dễ gây lú do mình tự đúc kết ra trong quá trình làm nhé
+  ***
+  >Hỏi: Thầy ơi cho em hỏi đề tài 3 phiếu nhập và phiếu xuất sao mã kho không phải là khóa ngoại vậy ạ? Script chạy lên cũng ko có luôn ạ (Tức là thiếu mã kho trong các bảng này ấy)
+  
+  >Đáp: Makho là khóa ngoại, các em thêm vào database nhé.
+  
+  >Note: Phần [**Tools**](#tools) ở cuối bài viết có chứa script chuẩn nha. 
   ***
   >Hỏi: Thầy ơi cho em hỏi phân mảnh 3 tra cứu chỉ có bảng Nhân viên , kho và chi nhánh thôi hả thầy ?
   
@@ -79,7 +86,7 @@
   
   **Visual Studio 2019** - cái này thì quen thuộc quá rồi, ai học đến năm 4 rồi mà chưa cài thì toang CMNR
   
-  **DevExpress** - thư viện hỗ trợ làm Winform siêu đẹp, siên tiện. Các bạn nhấn vào [**đây**](https://drive.google.com/file/d/1Rik18mGgDjt2xVSKkcWv3HTw5raQ2lRn/view) để tải nha.
+  **DevExpress** - thư viện hỗ trợ làm Winform siêu đẹp, siên tiện. Các bạn nhấn vào [**đây**](https://drive.google.com/file/d/1Rik18mGgDjt2xVSKkcWv3HTw5raQ2lRn/view) để tải nha. Cái này đã crack tận 16 năm rồi, dùng tẹt cmn bô luôn.
   
   **SQL Server 2014** - cái này do thầy Thư chia sẻ cho sinh viên tụi mình. Bao uy tín. Tải tại [**đây**](https://drive.google.com/file/d/12r_yzyKRxnyIA1Q2ZajFsUAMAJ_6DoA8/view) nhé.
   
