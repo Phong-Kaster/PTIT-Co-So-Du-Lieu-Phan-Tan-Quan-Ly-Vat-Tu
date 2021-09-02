@@ -1,6 +1,9 @@
 <h1 align="center"> Cơ Sở Dữ Liệu Phân Tán <h1>
 <h2 align="center"> Đề tài: Quản Lý Vật Tư <h2>
-![image](https://user-images.githubusercontent.com/58034430/131850536-9434840c-7857-4062-9638-2b727af38d26.png)
+   <p align="center"> 
+      ![image](https://user-images.githubusercontent.com/58034430/131850536-9434840c-7857-4062-9638-2b727af38d26.png)
+   </p>
+   
 
 
 # [**Table Of Content**](#table-of-content)
