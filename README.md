@@ -1,7 +1,9 @@
-<h1 align="center"> Cơ Sở Dữ Liệu Phân Tán <h1>
-<h2 align="center"> Đề tài: Quản Lý Vật Tư <h2>
+<h1 align="center"> Cơ Sở Dữ Liệu Phân Tán <br/>
+ Đề tài: Quản Lý Vật Tư
+<h1>
+
    <p align="center"> 
-      ![image](https://user-images.githubusercontent.com/58034430/131850536-9434840c-7857-4062-9638-2b727af38d26.png)
+      <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/amazon-rivet-furniture-1533048038.jpg?crop=1.00xw:0.502xh;0,0.423xh&resize=1200:*">
    </p>
    
 
