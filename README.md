@@ -148,3 +148,6 @@
   
   > Note: Mình rất khuyến khích các bạn cài đặt toàn bộ những phần mềm bên trên bởi trong quá trình học thì thầy hướng dẫn trên những phần mềm này. Ngoài ra, nếu chẳng may gặp lỗi gì đó, các bạn có thể hỏi thầy hoặc bạn bè của mình dễ hơn so với việc chọn làm bằng một phần mềm khác.
 # [**Post Script**](#post-script)
+ Ngày bắt đầu: 01-09-2021
+ 
+ Ngày kết thúc: xx-xx-2021
