@@ -21,7 +21,29 @@
   
  Thôi, không vòng vo Tam Quốc nữa. Mình sẽ giới thiệu cho các bạn cách xem và tham khảo đồ án của mình sao cho hiệu quả nhất nhé. Nào chúng ta bắt đầu thôi !!
 # [**Stored Procedure**](#stored-procedure)
+   Ở đây, mình sẽ nói sơ lược về một số điều cần lưu ý khi viết Stored Procedure.
  
+   Đầu tiên, theo kinh nghiệm của chính mình & do thầy Thư truyền đạt, chúng ta nên viết Stored Procedure ngay trên một phân mảnh để xem nó có hoạt động đúng không ? Nếu Stored Procedure hoạt động đúng thì mới quay về server gốc rồi lưu nó lại. Cuối cùng mới đẩy về các server phân mảnh.
+   
+   Các bước để đẩy một Stored Procedure về phân mảnh
+ 
+    Bước 1 : Vào replication chọn phân mảnh muốn đẩy xuống
+ 
+    Bước 2 : Nhấn chuột phải chọn Properties
+ 
+    Bước 3 : Chọn Articles -> bỏ dấu tích "show only checked articles of the list"
+ 
+    Bước 4 : Đánh dấu các stored procedure muốn sử dụng tại phân mảnh đó
+ 
+    Bước 5 : Nhấn OK để kết thúc.
+ 
+    Bước 6 : Chuột phải lại vào phân mảnh chọn "view snapshot agent status" -> start để nó đẩy xuống phân mảnh
+ 
+   Khi các bạn tải đồ án này về máy, hãy tìm tới thư mục Stored Procedure, thư mục này chứa tất cả các Stored Procedue kèm chú thích cụ thể nhé.
+ 
+   Một đơn vị phân tán có thể truyền xuống các server phân mảnh chỉ có thể là table - stored procedure - view - user defined function
+ 
+   > Note: Đảm bảo dịch vụ SQL Server Agent phải đang hoạt động thì quá trình mới thành công
 # [**FAQ**](#faq)
   FAQ hay viết tắt của cụm từ Frequently Asked Questions, là những câu hỏi thường gặp trong quá trình chúng ta làm đồ án này. Những câu hỏi được liệt kê bên dưới bao gồm những câu hỏi mình tổng hợp lại trong suốt quá trình học môn này. Bao gồm câu hỏi của sinh viên với thầy & những kiến thứ dễ gây lú do mình tự đúc kết ra trong quá trình làm nhé
   ***
@@ -94,6 +116,26 @@
   >Hỏi: Mình không thích chơi DevExpress & mình muốn dùng cái khác có được không ?
   
   >Đáp: Dĩ nhiên là được rồi. Về cơ bản DevExpress là một thư viện hỗ trợ Winform. Các bạn hoàn toàn có thể dùng thư việc đều được ( làm bằng Winform truyền thống luôn cho máu )
+  ***
+  >Hỏi: Có 2 cách để viết Stored Procedure. Cách 1 đã được trình bình ở mục [**Stored Procedure**](#stored-procedure). Cách số 2 là viết Stored Procedure thủ công tại từng phân mảnh. Cách làm nào hiệu quả hơn ?
+ 
+ >Đáp: Cách làm thứ nhất hay hơn. Nếu ta chỉnh sửa stored procedure trên server gốc thì sự thay đổi sẽ tự động được cập nhật xuống các server phân mảnh. Còn cách thứ 2 thì phải sửa thủ công trên từng phân mảnh.
+ ***
+ >Hỏi: Nếu sửa Stored Procedure trên phân mảnh thì nó có đồng bộ về các phân mảnh khác và server gốc, điều này là đúng hay sai ?
+ 
+ >Đáp: Sai. Code chỉ đồng bộ theo một chiều từ server gốc tới các phân mảnh. Không có chiều ngược lại.
+ ***
+ >Hỏi: Khi không tìm được trên server hiện tại, em muốn sang phân mảnh khác để tìm thay về server gốc có được không ?
+ 
+ >Đáp: Có 2 lý do để không nên sử dụng cách này
+ 
+ >Lý do 1: Về lý thuyết thì được nhưng nếu chẳng may server phân mảnh đó offline thì sẽ không hoạt động được. Ngược lại, server gốc thì luôn online.
+ 
+ >Lý do 2: Giả sử có 3 phân mảnh và thông tin cần tìm ở server 3. Tuy nhiên, khi viết stored procedure thì chúng ta lại tìm kiếm theo trình tự 1 -> 2 -> 3. Nếu chẳng may server 2 không hoạt động thì câu lệnh sẽ trả về lỗi và chấm dứt thực thi luôn. Trong khi server 3 thì lại hoạt động bình trường. Do đó về server gốc là hợp lý hơn.
+ ***
+ >Hỏi: Sửa dữ liệu tại server gốc thì phân mảnh có nhận được không ? Nếu ngược lại, từ server phân mảnh về server gốc thì có nhận được không ?
+ 
+ >Đáp: Có, dữ liệu đồng bộ theo 2 chiều.
 # [**Tools**](#tools)
   
   **Visual Studio 2019** - cái này thì quen thuộc quá rồi, ai học đến năm 4 rồi mà chưa cài thì toang CMNR
