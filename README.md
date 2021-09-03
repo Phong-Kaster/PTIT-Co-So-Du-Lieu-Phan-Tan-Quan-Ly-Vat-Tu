@@ -11,6 +11,7 @@
 # [**Table Of Content**](#table-of-content)
 - [**Table Of Content**](#table-of-content)
 - [**Introduce**](#introduce)
+- [**Stored Procedure**](#stored-procedure)
 - [**FAQ**](#faq)
 - [**Tools**](#tools)
 - [**Post Script**](#post-script)
@@ -19,6 +20,8 @@
   > *Không ai trở nên nghèo túng vì cho đi*
   
  Thôi, không vòng vo Tam Quốc nữa. Mình sẽ giới thiệu cho các bạn cách xem và tham khảo đồ án của mình sao cho hiệu quả nhất nhé. Nào chúng ta bắt đầu thôi !!
+# [**Stored Procedure**](#stored-procedure)
+ 
 # [**FAQ**](#faq)
   FAQ hay viết tắt của cụm từ Frequently Asked Questions, là những câu hỏi thường gặp trong quá trình chúng ta làm đồ án này. Những câu hỏi được liệt kê bên dưới bao gồm những câu hỏi mình tổng hợp lại trong suốt quá trình học môn này. Bao gồm câu hỏi của sinh viên với thầy & những kiến thứ dễ gây lú do mình tự đúc kết ra trong quá trình làm nhé
   ***
