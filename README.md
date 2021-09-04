@@ -65,6 +65,20 @@
   
   >Đáp: Về site chủ em nhé
   ***
+  >Hỏi: Chúng ta phân tán ra server 3 - Tra Cứu nhưng trong chương trình thì người đăng nhập ở vai trò nào sẽ dùng server 3 ? Nhiều đồ án khi demo chỉ đăng nhập vào chi nhánh 1 và 2 mà không thấy ai dùng server 3 để xem cả.
+ 
+  >Đáp: Server 3 mục đích là để tra cứu, có nghĩa là đứng ở server 1 hoặc server 2 LINK tới server 3 chứ không được đứng ở ngay server 3 rồi thao tác với dữ liệu.
+ 
+  >Chẳng hạn, ta sẽ dùng server 3 ở trong Stored Procedure, muốn kiểm tra mã của trường dữ liệu - ví dụ như mã nhân viên, mã đơn hàng -  có tồn tại ở server khác không thì dùng LINK tới server 3 rồi kiểm tra, chứ không phải đứng tại server 3 để thao tác.
+
+  >Note: Form đăng nhập thì ở ô chọn chi nhánh chỉ được hiện chi nhánh 1 và 2 thôi. Nếu có chi nhánh 3 thì bị trừ điểm.
+  ***
+  >Hỏi: Em thấy trong đề không có yêu cầu server 3 là phân mảnh dọc ?
+ 
+  >Đáp: Theo đề bài: "QLVT được đặt trên server 3: chứa thông tin các nhân viên, kho của cả 2 chi nhánh 1 và 2. Server này dùng để tra cứu thông tin của nhân viên, kho của cả 2 chi nhánh".
+ 
+  >Đề nói như này thì phải dùng phân mảnh dọc. Vì phân mảnh dọc sẽ lấy theo cột, nên row vẫn vậy, vẫn đầy đủ, không bị tách. thỏa mãn yêu cầu là có dữ liệu của cả 2 chi nhánh. Còn nếu dùng phân mảnh ngang thì em sẽ chỉ phân mảnh một quan hệ dựa trên một vị từ được định nghĩa. VD: CHINHANH = 'CN1' -> thiếu dữ liệu của CN2.
+  ***
   >Hỏi: Login Name là gì ? Username là gì ? Mà chúng gây lú thế nhỉ ?!
   
   >Đáp: 
