@@ -65,6 +65,11 @@
   
   >Đáp: Về site chủ em nhé
   ***
+  >Hỏi: Thầy ơi cho em hỏi, trong tập tin word đề bài, Bảng Vật Tư không có cột Số lượng tồn, bảng Nhân viên không có Trạng thái Xóa, khác so với database
+Thầy cho em hỏi là có cần 2 cột đó không ạ ?
+ 
+  >Đáp: Nên có 2 cột đó !
+  ***
   >Hỏi: Chúng ta phân tán ra server 3 - Tra Cứu nhưng trong chương trình thì người đăng nhập ở vai trò nào sẽ dùng server 3 ? Nhiều đồ án khi demo chỉ đăng nhập vào chi nhánh 1 và 2 mà không thấy ai dùng server 3 để xem cả.
  
   >Đáp: Server 3 mục đích là để tra cứu, có nghĩa là đứng ở server 1 hoặc server 2 LINK tới server 3 chứ không được đứng ở ngay server 3 rồi thao tác với dữ liệu.
@@ -123,9 +128,9 @@
   
   > Thì ở phân mảnh còn lại bạn cũng phải tạo 2 LINK với tên giống nhau. Điều này là vô cùng quan trọng bởi khi viết các Stored Procedure từ server gốc rồi đẩy về các phân mảnh thì các chữ LINK dùng trong Server phân mảnh nếu khác Server khác thì Stored Procedure đó sẽ bị lỗi & không thể hoạt động được
   ***
-  >Hỏi: Mình không thích dùng C# có được không thì dùng ngôn ngữ khác có được không ?
+  >Hỏi: Mình không thích dùng C#, có được dùng ngôn ngữ khác có được không ?
  
-  >Đáp: Chắc chắn là không rồi. Thầy Thư đã ra yêu cầu là bắt buộc phải dùng ngôn ngữ C# thì thầy mới chấm bài nha.
+  >Đáp: Được chứ. Thầy Thư cho phép chúng ta chọn ngôn ngữ tùy thích để xây dựng đồ án.
   ***
   >Hỏi: Mình không thích chơi DevExpress & mình muốn dùng cái khác có được không ?
   
