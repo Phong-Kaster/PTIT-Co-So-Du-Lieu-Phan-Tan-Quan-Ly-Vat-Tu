@@ -11,6 +11,8 @@
 # [**Table Of Content**](#table-of-content)
 - [**Table Of Content**](#table-of-content)
 - [**Introduce**](#introduce)
+- [**Architecture**](#architecture)
+- [**Link Server**](#link-server)
 - [**Stored Procedure**](#stored-procedure)
 - [**FAQ**](#faq)
 - [**Tools**](#tools)
@@ -20,6 +22,8 @@
   > *Không ai trở nên nghèo túng vì cho đi*
   
  Thôi, không vòng vo Tam Quốc nữa. Mình sẽ giới thiệu cho các bạn cách xem và tham khảo đồ án của mình sao cho hiệu quả nhất nhé. Nào chúng ta bắt đầu thôi !!
+# [**Architecture**](#architecture)
+# [**Link Server**](#link-server)
 # [**Stored Procedure**](#stored-procedure)
    Ở đây, mình sẽ nói sơ lược về một số điều cần lưu ý khi viết Stored Procedure.
  
