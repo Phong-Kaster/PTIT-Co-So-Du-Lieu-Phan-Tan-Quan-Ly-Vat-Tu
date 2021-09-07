@@ -15,6 +15,7 @@
 - [**Link Server**](#link-server)
 - [**Stored Procedure**](#stored-procedure)
 - [**FAQ**](#faq)
+- [**Timeline**](#timeline)
 - [**Tools**](#tools)
 - [**Post Script**](#post-script)
 # [**Introduce**](#introduce)
@@ -159,6 +160,8 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  >Hỏi: Sửa dữ liệu tại server gốc thì phân mảnh có nhận được không ? Nếu ngược lại, từ server phân mảnh về server gốc thì có nhận được không ?
  
  >Đáp: Có, dữ liệu đồng bộ theo 2 chiều.
+ 
+# [**Timeline**](#timeline)
 # [**Tools**](#tools)
   
   **Visual Studio 2019** - cái này thì quen thuộc quá rồi, ai học đến năm 4 rồi mà chưa cài thì toang CMNR
