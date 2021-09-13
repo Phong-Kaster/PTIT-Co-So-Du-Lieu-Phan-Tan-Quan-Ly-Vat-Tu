@@ -13,6 +13,7 @@
 - [**Introduce**](#introduce)
 - [**Architecture**](#architecture)
 - [**Link Server**](#link-server)
+- [**Authorization**](#authorization)
 - [**Stored Procedure**](#stored-procedure)
 - [**FAQ**](#faq)
 - [**Timeline**](#timeline)
@@ -24,7 +25,43 @@
   
  Thôi, không vòng vo Tam Quốc nữa. Mình sẽ giới thiệu cho các bạn cách xem và tham khảo đồ án của mình sao cho hiệu quả nhất nhé. Nào chúng ta bắt đầu thôi !!
 # [**Architecture**](#architecture)
+  Với đề tài này chúng ta cần 3 server phân mảnh đề làm việc. Các bạn coi hình ảnh bên dưới để dễ hình dung
+ 
+  Đối với phân mảnh 1 và 2
+ 
+  Đối với phân mảnh 3
+ 
 # [**Link Server**](#link-server)
+  Theo đề tài này chúng ta có 3 server phân mảnh. Server 1 và server 2 chứa thông tin của chi nhánh 1 và chi nhánh 2. Server chứa toàn bộ thông tin của kho & nhân viên. Do trong đề tài này chúng ta có hẳn một server phục vụ cho việc tra cứu. Do đó trong quá trình viết [**Stored Procedure**](#stored-procedure), chúng ta bắt buộc phải viết sao cho có sự tham gia của phân mảnh 3 trong một số Stored Procedure. Ví dụ như tìm kiếm xem mã nhân viên đã tồn tại hay chưa thì dùng server 3 thay vì quay về server chủ.
+ 
+ Chúng ta sẽ có 2 LINK cho mỗi server phân mảnh 1 và 2 như sau
+ 
+    LINK0 đi từ phân mảnh này tới phân mảnh 3
+    LINK1 đi từ phân mảnh này tới phân mảnh còn lại
+  
+ >Note: nếu bài không có phân mảnh 3 thì chúng ta quay trở về server gốc để tìm.
+# [**Authorization**](#authorization)
+   Đối với phân quyền, chúng ta sẽ cùng nhau phân tích đề bài:
+   > Phân quyền: Chương trình có 3 nhóm : Công ty , ChiNhanh, User
+   > -  Nếu login thuộc nhóm CongTy thì login đó có thể đăng nhập vào bất kỳ chi nhánh nào để xem số liệu bằng cách chọn tên chi nhánh, và chỉ có các chức năng sau:
+
+   >1.Chỉ có thể xem dữ liệu của phân mảnh tương ứng.
+ 
+   >2.Xem được các báo cáo.
+ 
+   >3.Tạo login thuộc nhóm Congty
+ 
+ 
+   >-  Nếu login thuộc nhóm ChiNhanh thì chỉ cho phép toàn quyền làm việc trên chi nhánh đó , không được log vào chi nhánh khác ; Tạo login thuộc nhóm ChiNhanh, User .
+   >- Nếu login thuộc nhóm User thì chỉ được quyền cập nhật dữ liệu, không được tạo tài khoản mới cho hệ thống.
+Chương trình cho phép ta tạo các login, password và cho login này làm việc với quyền hạn gì. Căn cứ vào quyền này khi user login vào hệ thống, ta sẽ biết người đó được quyền làm việc với mảnh phân tán nào hay trên tất cả các phân mảnh. 
+
+  Công Ty có thể chuyển qua lại giữa các chi nhánh để xem dữ liệu nhưng không thể thêm - xóa - sửa với nó, có thể tạo tài khoản với cùng vai trò Công ty.
+ 
+  Chi nhánh không thể chuyển qua lại giữa các chi nhánh để xem dữ liệu nhưng có thể thêm - xóa - sửa thoải mái với phân mảnh đang đăng nhập, có thể tạo tài khoản.
+ 
+  User cũng không thể chuyển qua lại giữa các chi nhánh để xem dữ liệu nhưng có thể thêm - xóa - sửa thoải mái với phân mảnh đang đăng nhập, không thể tạo tài khoản.
+ 
 # [**Stored Procedure**](#stored-procedure)
    Ở đây, mình sẽ nói sơ lược về một số điều cần lưu ý khi viết Stored Procedure.
  
@@ -160,8 +197,32 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  >Hỏi: Sửa dữ liệu tại server gốc thì phân mảnh có nhận được không ? Nếu ngược lại, từ server phân mảnh về server gốc thì có nhận được không ?
  
  >Đáp: Có, dữ liệu đồng bộ theo 2 chiều.
+ ***
+ >Hỏi: Nêu ưu và nhược điểm khi ưu tiên tìm kiếm trên site phân mảnh trước khi về site chủ.
+ 
+ >Đáp: 
+ 
+ >Ưu điểm: server gốc lúc nào cũng hoạt động nên luôn truy vấn được dữ liệu mong muốn
+ 
+ >Nhược điểm: Không thể che dấu được hoàn toàn các thông tin nhạy cảm giữa các site phân mảnh. Việc cấp 1 tài khoản để vào site chủ có thể giúp người dùng đó xem được dữ liệu của site khác
  
 # [**Timeline**](#timeline)
+## **Phase 1** : **01-09-2021 to 05-09-2021**
+ 
+  1. Phân tán cơ sở dữ liệu
+  2. Tạo LINK server
+  3. Phân quyền
+ 
+ ## **Phase 2** : **06-09-2021 to xx-09-2021**
+ 
+  1. Thiết kế form Chính
+  2. Khởi tạo các biến toàn cục
+  3. Thiết kế form đăng nhập
+  4. Hoàn thiện các nút chức năng Đăng nhập và Thoát
+  5. Thiết kết form nhân viên
+  6. Hoàn thiện chức năng Thêm, Xóa & Hoàn tác
+  7. Hoàn thiện chức năng Ghi
+  8. Hoàn thiện chức năng Hoàn tác ngay cả khi đã nhân Ghi
 # [**Tools**](#tools)
   
   **Visual Studio 2019** - cái này thì quen thuộc quá rồi, ai học đến năm 4 rồi mà chưa cài thì toang CMNR
@@ -173,6 +234,7 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
   **Database Script** - cái này là phần script tiêu chuẩn do chính thầy Thư gửi cho tụi mình nha. Tải tại [**đây**](https://drive.google.com/file/d/1ahRASX5mvGY8v4JLNmdPdiXirotPikhQ/view?usp=sharing)
   
   > Note: Mình rất khuyến khích các bạn cài đặt toàn bộ những phần mềm bên trên bởi trong quá trình học thì thầy hướng dẫn trên những phần mềm này. Ngoài ra, nếu chẳng may gặp lỗi gì đó, các bạn có thể hỏi thầy hoặc bạn bè của mình dễ hơn so với việc chọn làm bằng một phần mềm khác.
+
 # [**Post Script**](#post-script)
  Ngày bắt đầu: 01-09-2021
  
