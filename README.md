@@ -210,19 +210,29 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
 ## **Phase 1** : **01-09-2021 to 05-09-2021**
  
   1. Phân tán cơ sở dữ liệu
+ 
   2. Tạo LINK server
+ 
   3. Phân quyền
  
  ## **Phase 2** : **06-09-2021 to xx-09-2021**
  
   1. Thiết kế form Chính
+ 
   2. Khởi tạo các biến toàn cục
+ 
   3. Thiết kế form đăng nhập
+ 
   4. Hoàn thiện các nút chức năng Đăng nhập và Thoát
+ 
   5. Thiết kết form nhân viên
+
   6. Hoàn thiện chức năng Thêm, Xóa & Hoàn tác
+ 
   7. Hoàn thiện chức năng Ghi
-  8. Hoàn thiện chức năng Hoàn tác ngay cả khi đã nhân Ghi
+ 
+  8. Hoàn thiện chức năng Hoàn tác ngay cả khi đã nhấn Ghi để lưu vào cơ sở dữ liệu
+ 
 # [**Tools**](#tools)
   
   **Visual Studio 2019** - cái này thì quen thuộc quá rồi, ai học đến năm 4 rồi mà chưa cài thì toang CMNR
