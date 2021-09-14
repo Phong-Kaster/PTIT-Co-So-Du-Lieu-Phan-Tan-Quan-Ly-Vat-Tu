@@ -11,10 +11,11 @@
 # [**Table Of Content**](#table-of-content)
 - [**Table Of Content**](#table-of-content)
 - [**Introduce**](#introduce)
-- [**Architecture**](#architecture)
+- [**Publication and Subcription**](#publication-and-subcription)
 - [**Link Server**](#link-server)
 - [**Authorization**](#authorization)
 - [**Stored Procedure**](#stored-procedure)
+- [**Data Set**](#data-set)
 - [**FAQ**](#faq)
 - [**Timeline**](#timeline)
 - [**Tools**](#tools)
@@ -24,12 +25,18 @@
   > *Không ai trở nên nghèo túng vì cho đi*
   
  Thôi, không vòng vo Tam Quốc nữa. Mình sẽ giới thiệu cho các bạn cách xem và tham khảo đồ án của mình sao cho hiệu quả nhất nhé. Nào chúng ta bắt đầu thôi !!
-# [**Architecture**](#architecture)
+ 
+# [**Publication and Subcription**](#publication-and-subcription)
   Với đề tài này chúng ta cần 3 server phân mảnh đề làm việc. Các bạn coi hình ảnh bên dưới để dễ hình dung
  
-  Đối với phân mảnh 1 và 2
+  Đối với phân mảnh 1 và 2: các bạn chọn hết tất cả các bảng trừ bảng sysdiagram(dbo)
  
-  Đối với phân mảnh 3
+ ![image](https://user-images.githubusercontent.com/58034430/133271162-3521acd5-7851-405d-a404-f29569b3d2bb.png)
+
+  Đối với phân mảnh 3: các bạn chọn các cột như hình rồi nhấn next liên tục cho tới khi kết thúc tác vụ thì thôi. Do là phân mảnh dùng cho tra cứu nên cần nhân bản để đảm bảo toàn vẹn dữ liệu
+ 
+ ![Ssms_r9bSDYDM3D](https://user-images.githubusercontent.com/58034430/133271440-2aa8c8ce-9098-4c4b-88e3-04519e7f6d9c.png)
+
  
 # [**Link Server**](#link-server)
   Theo đề tài này chúng ta có 3 server phân mảnh. Server 1 và server 2 chứa thông tin của chi nhánh 1 và chi nhánh 2. Server chứa toàn bộ thông tin của kho & nhân viên. Do trong đề tài này chúng ta có hẳn một server phục vụ cho việc tra cứu. Do đó trong quá trình viết [**Stored Procedure**](#stored-procedure), chúng ta bắt buộc phải viết sao cho có sự tham gia của phân mảnh 3 trong một số Stored Procedure. Ví dụ như tìm kiếm xem mã nhân viên đã tồn tại hay chưa thì dùng server 3 thay vì quay về server chủ.
@@ -86,6 +93,9 @@ Chương trình cho phép ta tạo các login, password và cho login này làm 
    Một đơn vị phân tán có thể truyền xuống các server phân mảnh chỉ có thể là table - stored procedure - view - user defined function
  
    > Note: Đảm bảo dịch vụ SQL Server Agent phải đang hoạt động thì quá trình mới thành công
+# [**Data Set**](#data-set)
+  Phần này mình sẽ nói cho các bạn biết về chức năng của các Data Set mình sử dụng và chúng tham gia vào form nào
+  1. dataSet là cái data set chứa nội dung của toàn bộ cơ sở dữ liệu. Data Set này tham gia vào mọi form chính của chương trình gồm: nhân viên, kho, vật tư, đặt hàng.
 # [**FAQ**](#faq)
   FAQ hay viết tắt của cụm từ Frequently Asked Questions, là những câu hỏi thường gặp trong quá trình chúng ta làm đồ án này. Những câu hỏi được liệt kê bên dưới bao gồm những câu hỏi mình tổng hợp lại trong suốt quá trình học môn này. Bao gồm câu hỏi của sinh viên với thầy & những kiến thứ dễ gây lú do mình tự đúc kết ra trong quá trình làm nhé
   ***
@@ -231,7 +241,7 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  
   7. Hoàn thiện chức năng Ghi
  
-  8. Hoàn thiện chức năng Hoàn tác ngay cả khi đã nhấn Ghi để lưu vào cơ sở dữ liệu
+  8. Hoàn thiện chức năng Hoàn tác ngay cả khi đã nhấn Ghi để lưu vào cơ sở dữ liệu với nút Thêm và Ghi
  
 # [**Tools**](#tools)
   
