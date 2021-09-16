@@ -1,0 +1,18 @@
+- Mục đính: Lấy được tên, mã nhân viên, nhóm quyền từ login name khi ai đó đăng nhập vào server.
+- Cú pháp:
+CREATE PROC sp_DangNhap
+	@TENLOGIN NVARCHAR( 100)
+AS
+	DECLARE @UID INT
+	DECLARE @MANV NVARCHAR(100)
+	SELECT @UID= uid , @MANV= NAME FROM sys.sysusers 
+  	WHERE sid = SUSER_SID(@TENLOGIN)
+
+	SELECT  MAGV= @MANV, 
+       		HOTEN = (SELECT HO+ ' '+TEN FROM dbo.NHANVIEN WHERE MANV=@MANV ), 
+       		TENNHOM=NAME
+  	FROM sys.sysusers
+    	WHERE UID = (SELECT groupuid FROM sys.sysmembers WHERE memberuid=@uid)
+
+- NAME chứa cả username & lẫn tên nhóm quyền
+- sys.sysmembers chứa groupUid và memberUid

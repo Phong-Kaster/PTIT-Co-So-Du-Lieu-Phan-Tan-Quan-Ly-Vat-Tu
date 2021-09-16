@@ -1,0 +1,88 @@
+* Mục đích: chuyển nhân viên từ chi nhánh này sang chi nhánh khác
+
+
+* Trong stored procedure này có sử dụng kiến thức TRANSACTION ISOLATION có thể tóm gọn như sau
+	1. Isolation level là một thuộc tính của transaction, qui định mức độ cô lập của dữ liệu mà transaction có thể truy nhập vào khi dữ liệu đó đang được cập nhật bởi một transaction khác
+	2. Khi một transaction cập nhật dữ liệu đang diễn ra, một phần dữ liệu sẽ bị thay đổi (ví dụ một số bản ghi của bảng được sửa đổi hoặc bị xóa bỏ, một số được thêm mới), vậy các transaction hoặc truy vấn khác xảy ra đồng thời và cùng tác động vào các bản ghi đó sẽ diễn ra thế nào? Chúng sẽ phải đợi đến khi transaction đầu hoàn thành hay có thể thực hiện song song, kết quả dữ liệu nhận được là trong khi hay sau khi cập nhật?
+	3. SQL Server cung cấp các mức isolation level sau xếp theo thứ tự tăng dần của mức độ cô lập của dữ liệu: Read Uncommitted, Read Commited, Repeatable Read, và Serializable. 
+
+* Mình có thể tóm tắt nhanh 4 mức transaction với ví dụ 2 tiến trình gồm tiến trình 1 & tiến trình 2 ( mình gọi tắt là TT1 & TT2):
+- Read Uncommitted - mức yếu nhất - TT1 đang sửa đổi & TT2 có thể vào xem dữ liệu ngay cả khi TT1 chưa lưu thay đổi lại. Nói nôm na là “tôi không cần biết dữ liệu có đang được cập nhật hay không, hãy cho tôi dữ liệu hiện có ngay tại thời điểm này”. 
+- Read Commited - mức mặc định - TT1 đang sửa đổi dữ liệu thì TT2 không thể xem dữ liệu này. Chỉ khi TT1 xong thì TT2 mới xem được dữ liệu. Nếu TT2 sửa dữ liệu thì TT1 sẽ có được dữ liệu được sửa đổi từ TT2.
+- Repeatable Read - mức an toàn - TT2 đang đọc một bảng dữ liệu thì TT1 không thể chỉnh sửa bảng dữ liệu này cho đến khi TT2 hoàn tất việc đọc dữ liệu đó. Nói nôm na là dữ liệu đang được đọc sẽ được bảo vệ khỏi cập nhật bởi các transaction khác
+- Serializable - mức an toàn cao - TT1 đang sửa đổi một bảng dữ liệu thì TT2 không thể làm bất cứ hành động gì với bảng dữ liệu đó như: INSERT, UPDATE, DELETE,.....
+
+* SET XACT_ABORT ON: nếu stored procedure này bị lỗi trong lúc chạy, toàn bộ câu lệnh này sẽ bị hủy bỏ & dữ liệu được phục hồi lại như trước khi hành động này diễn ra.
+
+* Cú pháp:
+CREATE PROCEDURE sp_ChuyenChiNhanh 
+	@MANV INT, 
+	@MACN nchar(10)
+AS
+DECLARE @LGNAME VARCHAR(50)
+DECLARE @USERNAME VARCHAR(50)
+SET XACT_ABORT ON;
+SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
+BEGIN TRY
+	BEGIN TRAN
+		-- Kiểm tra xem bên Site chuyển tới đã có dữ liệu nhân viên đó chưa. Nếu có rồi thì đổi trạng thái, chưa thì thêm vào
+		IF EXISTS(SELECT * FROM LINK1.QLVT_DATHANG.dbo.NhanVien WHERE MANV = @MANV)
+		BEGIN
+			UPDATE LINK1.QLVT_DATHANG.dbo.NhanVien
+			SET TrangThaiXoa = 0
+			WHERE MANV = @MANV;
+			--UPDATE dbo.NhanVien
+			--SET TrangThaiXoa = 1
+			--WHERE MANV = @MANV;
+		END
+		ELSE
+		-- nếu chưa tồn tại thì thêm mới hoàn toàn vào chi nhánh mới
+		BEGIN
+			INSERT INTO LINK1.QLVT_DATHANG.dbo.NhanVien (MANV, HO, TEN, DIACHI, NGAYSINH, LUONG, MACN, TRANGTHAIXOA)
+			SELECT MANV, HO, TEN, DIACHI, NGAYSINH, LUONG, MACN = @MACN, TRANGTHAIXOA
+			FROM dbo.NhanVien
+			WHERE MANV = @MANV;
+			--UPDATE dbo.NhanVien
+			--SET TrangThaiXoa = 1
+			--WHERE MANV = @MANV;
+		END
+		--Kiểm tra tại phân mảnh hiện tại xem Nhân viên được chuyển có lập bất kì đơn nào chưa. Nếu chưa xóa luôn nhân viên đó
+		IF EXISTS(SELECT 1 FROM NhanVien
+				WHERE NhanVien.MANV = @MANV AND				
+				(EXISTS(SELECT 1 FROM PhieuNhap WHERE PhieuNhap.MANV = NhanVien.MANV) 
+					OR EXISTS(SELECT MAPX FROM PhieuXuat WHERE PhieuXuat.MANV = NhanVien.MANV) 
+						OR EXISTS(SELECT MasoDDH FROM DatHang WHERE DatHang.MANV = NhanVien.MANV)))
+		BEGIN 
+			UPDATE dbo.NhanVien
+			SET TrangThaiXoa = 1
+			WHERE MANV = @MANV;
+		END
+		ELSE
+		-- nếu có thì đổi trạng thái xóa
+		BEGIN
+			DELETE FROM NhanVien Where NhanVien.MANV = @MANV
+		END
+		COMMIT TRAN;
+		-- Kiểm tra xem Nhân viên đã có login chưa. Có thì xóa
+		IF EXISTS(SELECT SUSER_SNAME(sid) FROM sys.sysusers WHERE name = CAST(@MANV AS NVARCHAR))
+		BEGIN
+		SET @LGNAME = CAST((SELECT SUSER_SNAME(sid) FROM sys.sysusers WHERE name = CAST(@MANV AS NVARCHAR)) AS VARCHAR(50))
+		SET @USERNAME = CAST(@MANV AS VARCHAR(50))
+		EXEC SP_DROPUSER @USERNAME;
+		EXEC SP_DROPLOGIN  @LGNAME;
+		END
+END TRY
+-- bắt trường hợp nếu đã có trasaction mở rồi mà mở thêm
+BEGIN CATCH
+	--@@TRANCOUNT trả về số lượng transaction đang hoạt động
+	IF (@@TRANCOUNT > 0)
+	BEGIN
+		ROLLBACK TRAN;
+	END;
+	THROW;
+END CATCH
+*Chú ý: sau khi tạo ra sp_ChuyenChiNhanh và chạy thử lần đầu tiên, các bạn sẽ dính lỗi "MSDTC on server is unavailable". Lỗi này nghĩa là dịch vụ MSDTC chưa được bật. Để chữa lỗi này các bạn làm như sau:
+Bước 1. Nhấn nút Start( nút có hình logo Window ấy má) -> SETTINGS > CONTROL PANEL > ADMINISTRATIVE TOOLS > SERVICES.
+Bước 2. Tìm dòng chữ 'Distributed Transaction Coordinator' và chuột phải vào nó chọn start.
+Bước 3. Vào Properties, chỗ startup type, hãy chọn thành automatic để sau này nó tự khởi động lên cho mình.
+*Cú pháp mẫu để chạy: exec sp_ChuyenChiNhanh 14, 'CN1';

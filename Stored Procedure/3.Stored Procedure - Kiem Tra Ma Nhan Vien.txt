@@ -1,0 +1,19 @@
+- Mục đích: kiểm tra xem mã nhân viên được truyền vào tồn tại hay chưa ?
+- Cú pháp: 
+
+create procedure sp_TraCuu_KiemTraMaNhanVien
+	@MANHANVIEN int
+as
+begin
+	if exists( select * from LINK0.QLVT_DATHANG.DBO.NHANVIEN as NV where NV.MANV = @MANHANVIEN)
+		return 1; -- ma nhan vien ton tai
+	return 0; -- ma nhan vien khong ton tai
+end
+- Lưu ý:
++ LINK0 nối server phân mảnh tới server 3 - tra cứu
++ LINK1 nối server phân mảnh này với server phân mảnh còn lại
+
+- Cách xem kết quả:
+declare @returnedResult int
+exec @returnedResult = sp_TraCuu_KiemTraMaNhanVien '20'
+select @returnedResult

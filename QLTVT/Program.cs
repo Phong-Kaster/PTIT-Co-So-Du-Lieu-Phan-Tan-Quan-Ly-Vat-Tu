@@ -40,6 +40,9 @@ namespace QLTVT
         /**********************************************
          * servername: tên server(phân mảnh) sẽ kết nối tới
          * 
+         * serverNameLeft: chứa tên phân mảnh còn lại. Ví dụ đăng nhập vào 
+         * chi nhánh 1 thì serverNameLeft là chi nhánh 2
+         * 
          * username: tên username trong database sẽ kết nối.
          * Ví dụ: LT, TT là username trong mục users của database QLVT_DATHANG
          * 
@@ -47,6 +50,7 @@ namespace QLTVT
          * đăng nhập vào server(phân mảnh)
          ***********************************************/
         public static String serverName = "";//servername
+        public static String serverNameLeft = "";
         public static String userName = "";//username
 
         public static String loginName = "";//mlogin

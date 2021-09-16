@@ -1,0 +1,17 @@
+- Mục đích: lấy ra danh sách nhân viên vẫn đang làm việc kèm mã số nhân viên của hộ
+
+- Cú pháp:
+CREATE VIEW [dbo].[view_DanhSachNhanVien] 
+AS
+	SELECT MANV, CONCAT(HO, ' ', TEN, ' - ', MANV) as HOTEN
+	FROM NHANVIEN 
+	WHERE TrangThaiXoa = 0 
+	AND NOT EXISTS( SELECT SUSER_SNAME(sid) 
+				FROM sys.sysusers 
+				WHERE name = CAST(MANV AS NVARCHAR))
+
+- Kết quả trả về: 
+	MANV 		HOTEN
+	1		LƯƠNG TRANG - 1
+	3		TRẦN THANH - 3
+	...		...............

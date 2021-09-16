@@ -32,7 +32,13 @@ namespace QLTVT.SubForm
             cmbCHINHANH.SelectedIndex = Program.brand;
 
         }
-
+        private Form CheckExists(Type ftype)
+        {
+            foreach (Form f in this.MdiChildren)
+                if (f.GetType() == ftype)
+                    return f;
+            return null;
+        }
         private void cmbCHINHANH_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -60,9 +66,14 @@ namespace QLTVT.SubForm
                 MessageBox.Show("Vui lòng chọn chi nhánh", "Thông báo", MessageBoxButtons.OK);
                 return;
             }
-      
-            branchTransfer(cmbCHINHANH.SelectedValue.ToString());
-            //MessageBox.Show("Chi nhánh chọn là : " + cmbCHINHANH.SelectedValue.ToString());
+            /*Step 2*/
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn chuyển nhân viên này đi ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if( dialogResult == DialogResult.OK)
+            {
+                branchTransfer(cmbCHINHANH.SelectedValue.ToString());
+            }
+                
             this.Dispose();
         }
 

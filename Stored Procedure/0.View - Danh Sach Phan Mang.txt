@@ -1,0 +1,18 @@
+- Mục đích: View Get_Subscribes cài đặt trên CSDL gốc (Publisher) để lấy về danh sách các phân mảnh, và các server Subscriber tương ứng.Ví dụ trả ra chi nhanh 1 và 2.
+
+- Đổi tên phân mảnh: để đổi tên các phân mảnh về Chi nhanh 1 - Chi nhanh 2 - Tra cuu thì chúng ta làm như sau:
+	Bước 1: Đứng tại server gốc.
+	Bước 2: Tìm đến mục Replication & chọn nó
+	Bước 3: Xuât hiện Local Publication & Local Subscription thì chọn Local Publication
+	Bước 4: Các phân mảnh hiện ra, chọn chuột phải lên một phân mảnh -> Properties
+	Bước 5: Chọn vào mục description và đổi tên theo ý muốn
+
+- Cú pháp:
+CREATE VIEW view_DanhSachPhanManh
+AS
+	SELECT TENCN=PUBS.description, TENSERVER=subscriber_server
+	 FROM sysmergepublications  PUBS, sysmergesubscriptions SUBS
+ 	WHERE PUBS.pubid = SUBS.pubid AND  publisher <> subscriber_server
+GO
+
+- De xem view: select * from view_DanhSachPhanManh

@@ -215,8 +215,8 @@ namespace QLTVT
          * Vi du: statement = INSERT | DELETE | CHANGEBRAND
          * 
          * bdsNhanVien.CancelEdit() - phuc hoi lai du lieu neu chua an btnGHI
-         * Step 0: da an btnTHEM nhung chua an btnGHI
-         * Step 1: Lay kieu cau lenh hien tai ra
+         * Step 0: trường hợp đã ấn btnTHEM nhưng chưa ấn btnGHI
+         * Step 1: kiểm tra undoList có trông hay không ?
          * Step 2: Neu undoList khong trống thì lấy ra khôi phục
          *********************************************************************/
         private void btnHOANTAC_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -257,18 +257,64 @@ namespace QLTVT
                 return;
             }
 
-            /*Lay y nghia cau chuc nang vua thuc hien*/
+            /*Step 2*/
             bdsNhanVien.CancelEdit();
-            if (Program.KetNoi() == 0)
+            String cauTruyVanHoanTac = undoList.Pop().ToString();
+            Console.WriteLine(cauTruyVanHoanTac);
+
+            /*Step 2.1*/
+            if ( cauTruyVanHoanTac.Contains("sp_ChuyenChiNhanh") )
             {
-                return;
+                try
+                {
+                    String chiNhanhHienTai = Program.serverName;
+                    String chiNhanhChuyenToi = Program.serverNameLeft;
+
+                    Program.serverName = chiNhanhChuyenToi;
+                    Program.loginName = Program.remoteLogin;
+                    Program.loginPassword = Program.remotePassword;
+
+                    if (Program.KetNoi() == 0)
+                    {
+                        return;
+                    }
+
+
+                    int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
+
+                    MessageBox.Show("Chuyển nhân viên trở lại thành công", "Thông báo", MessageBoxButtons.OK);
+                    Program.serverName = chiNhanhHienTai;
+                    Program.loginName = Program.currentLogin;
+                    Program.loginPassword = Program.currentPassword;
+                }catch( Exception ex)
+                {
+                    MessageBox.Show("Chuyển nhân viên thất bại \n"+ex.Message, "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+                
             }
+            /*Step 2.2*/
+            else
+            {
+                if (Program.KetNoi() == 0)
+                {
+                    return;
+                }
+                int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
+                
+            }
+            this.nhanVienTableAdapter.Fill(this.dataSet.NhanVien);
+
+
+
+
+            /*
+            bdsNhanVien.CancelEdit();
             String cauTruyVanHoanTac = undoList.Pop().ToString();
             Console.WriteLine(cauTruyVanHoanTac);
             int n = Program.ExecSqlNonQuery(cauTruyVanHoanTac);
             this.nhanVienTableAdapter.Fill(this.dataSet.NhanVien);
-            
-            
+             */
         }
 
         private void btnLAMMOI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -625,49 +671,115 @@ namespace QLTVT
         }
 
 
-        /**
+        /**************************************************************
          * Step 1: kiêm tra xem có nằm trên cùng chi nhánh không
-         * Step 2:
-         */
+         * Step 2: chuẩn bị các biến để lưu tên chi nhánh hiện tại và chi nhánh chuyển tới, tên nhân viên được chuyển
+         * Step 3: trước khi thực hiện, lưu sẵn câu lệnh hoàn tác vào undoList + tên chi nhánh tới
+         * Step 4: thực hiện chuyển chi nhánh với sp_ChuyenChiNhanh
+         **************************************************************/
         public void chuyenChiNhanh(String chiNhanh )
         {
-            Console.WriteLine("Chi nhánh được chọn là " + chiNhanh);
-            if( Program.serverName == chiNhanh)
+            //Console.WriteLine("Chi nhánh được chọn là " + chiNhanh);
+            
+            /*Step 1*/
+            if ( Program.serverName == chiNhanh)
             {
                 MessageBox.Show("Hãy chọn chi nhánh khác chi nhánh bạn đang đăng nhập", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            
 
-            Console.WriteLine("Chuyển chi nhánh thành công");
+
+            /*Step 2*/
+            String maChiNhanhHienTai = "";
+            String maChiNhanhMoi = "";
+            int viTriHienTai = bdsNhanVien.Position;
+            String maNhanVien = ((DataRowView)bdsNhanVien[viTriHienTai])["MANV"].ToString();
+
+            if (chiNhanh.Contains("1"))
+            {
+                maChiNhanhHienTai = "CN2";
+                maChiNhanhMoi = "CN1";
+            }
+            else if( chiNhanh.Contains("2"))
+            {
+                maChiNhanhHienTai = "CN1";
+                maChiNhanhMoi = "CN2";
+            }
+            else
+            {
+                MessageBox.Show("Mã chi nhánh không hợp lệ","Thông báo",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            Console.WriteLine("Ma chi nhanh hien tai : " + maChiNhanhHienTai);
+            Console.WriteLine("Ma chi nhanh Moi : " + maChiNhanhMoi);
+
+
+
+            /*Step 3*/
+            String cauTruyVanHoanTac = "EXEC sp_ChuyenChiNhanh "+maNhanVien+",'"+maChiNhanhHienTai+"'";
+            undoList.Push(cauTruyVanHoanTac);
+           
+            Program.serverNameLeft = chiNhanh; /*Lấy tên chi nhánh tới để làm tính năng hoàn tác*/
+            Console.WriteLine("Ten server con lai" + Program.serverNameLeft);
+
+
+
+            /*Step 4*/
+            String cauTruyVan = "EXEC sp_ChuyenChiNhanh " + maNhanVien + ",'" + maChiNhanhMoi + "'";
+            Console.WriteLine("Cau Truy Van: " + cauTruyVan);
+            Console.WriteLine("Cau Truy Van Hoan Tac: " + cauTruyVanHoanTac);
+
+            SqlCommand sqlcommand = new SqlCommand(cauTruyVan, Program.conn);
+            try
+            {
+                Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
+                MessageBox.Show("Chuyển chi nhánh thành công", "thông báo", MessageBoxButtons.OK);
+
+                if (Program.myReader == null)
+                {
+                    return;/*khong co ket qua tra ve thi ket thuc luon*/
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("thực thi database thất bại!\n\n" + ex.Message, "thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
+                return;
+            }
+            this.nhanVienTableAdapter.Update(this.dataSet.NhanVien);
+
+
         }
         private void btnCHUYENCHINHANH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             int viTriHienTai = bdsNhanVien.Position;
             int trangThaiXoa = int.Parse( ( (DataRowView) (bdsNhanVien[viTriHienTai]) )["TrangThaiXoa"].ToString());
-            /*Kiem tra trang thai xoa*/
-            if( trangThaiXoa == 1 )
+
+            /*Step 1 - Kiem tra trang thai xoa*/
+            if ( trangThaiXoa == 1 )
             {
                 MessageBox.Show("Nhân viên này không có ở chi nhánh này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
 
-            /*Kiem tra xem form da co trong bo nho chua*/
+            /*Step 2 Kiem tra xem form da co trong bo nho chua*/
             Form f = this.CheckExists(typeof(FormChuyenChiNhanh));
             if (f != null)
             {
                 f.Activate();
             }
-
             FormChuyenChiNhanh form = new FormChuyenChiNhanh();
-            /*Chay dong lenh ben duoi lam cho form nam trong form chinh*/
-            //form.MdiParent = Program.formChinh;
             form.Show();
 
-
-
+            /*Step 3*/
             /*đóng gói hàm chuyenChiNhanh từ formNHANVIEN đem về formChuyenChiNhanh để làm việc*/
             form.branchTransfer = new FormChuyenChiNhanh.MyDelegate(chuyenChiNhanh);
+            
+            /*Step 4*/
+            this.btnHOANTAC.Enabled = true;
         }
     }
 }
