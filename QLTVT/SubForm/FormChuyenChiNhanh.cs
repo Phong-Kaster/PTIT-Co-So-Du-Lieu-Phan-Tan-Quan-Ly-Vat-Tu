@@ -33,7 +33,7 @@ namespace QLTVT.SubForm
             /*sao chep bingding source tu form dang nhap*/
             tENCNComboBox.DisplayMember = "tencn";
             tENCNComboBox.ValueMember = "tenserver";
-            //tENCNComboBox.SelectedIndex = Program.brand;
+            tENCNComboBox.SelectedIndex = Program.brand;
 
         }
 
