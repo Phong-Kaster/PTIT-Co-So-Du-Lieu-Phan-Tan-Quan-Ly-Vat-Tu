@@ -225,7 +225,7 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  
   3. Phân quyền
  
- ## **Phase 2** : **06-09-2021 to xx-09-2021**
+ ## **Phase 2** : **06-09-2021 to 16-09-2021**
  
   1. Thiết kế form Chính
  
@@ -242,6 +242,12 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
   7. Hoàn thiện chức năng Ghi
  
   8. Hoàn thiện chức năng Hoàn tác ngay cả khi đã nhấn Ghi để lưu vào cơ sở dữ liệu với nút Thêm và Ghi
+ 
+  9. Thiết kế form chuyển chi nhánh
+ 
+ 10. Hoàn thiện tính năng chuyển chi nhánh
+ 
+ 11. Hoàn thiện chức năng Hoàn tác ngay cả khi đã nhấn chuyển chi nhánh.
  
 # [**Tools**](#tools)
   
