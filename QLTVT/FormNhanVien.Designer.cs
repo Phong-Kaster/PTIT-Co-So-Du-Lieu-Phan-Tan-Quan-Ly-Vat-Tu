@@ -353,6 +353,7 @@ namespace QLTVT
             this.cmbCHINHANH.Name = "cmbCHINHANH";
             this.cmbCHINHANH.Size = new System.Drawing.Size(316, 24);
             this.cmbCHINHANH.TabIndex = 1;
+            this.cmbCHINHANH.SelectedIndexChanged += new System.EventHandler(this.cmbCHINHANH_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -426,6 +427,7 @@ namespace QLTVT
             this.colMANV.FieldName = "MANV";
             this.colMANV.MinWidth = 25;
             this.colMANV.Name = "colMANV";
+            this.colMANV.OptionsColumn.AllowEdit = false;
             this.colMANV.Visible = true;
             this.colMANV.VisibleIndex = 0;
             this.colMANV.Width = 94;
@@ -452,6 +454,7 @@ namespace QLTVT
             // 
             // colDIACHI
             // 
+            this.colDIACHI.Caption = "Địa chỉ";
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.MinWidth = 25;
             this.colDIACHI.Name = "colDIACHI";
@@ -461,6 +464,7 @@ namespace QLTVT
             // 
             // colNGAYSINH
             // 
+            this.colNGAYSINH.Caption = "Ngày sinh";
             this.colNGAYSINH.FieldName = "NGAYSINH";
             this.colNGAYSINH.MinWidth = 25;
             this.colNGAYSINH.Name = "colNGAYSINH";
@@ -470,6 +474,7 @@ namespace QLTVT
             // 
             // colLUONG
             // 
+            this.colLUONG.Caption = "Lương";
             this.colLUONG.DisplayFormat.FormatString = "n0";
             this.colLUONG.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.colLUONG.FieldName = "LUONG";
@@ -481,6 +486,7 @@ namespace QLTVT
             // 
             // colMACN
             // 
+            this.colMACN.Caption = "Mã chi nhánh";
             this.colMACN.FieldName = "MACN";
             this.colMACN.MinWidth = 25;
             this.colMACN.Name = "colMACN";
@@ -491,6 +497,7 @@ namespace QLTVT
             // 
             // colTrangThaiXoa
             // 
+            this.colTrangThaiXoa.Caption = "Trạng thái";
             this.colTrangThaiXoa.FieldName = "TrangThaiXoa";
             this.colTrangThaiXoa.MinWidth = 25;
             this.colTrangThaiXoa.Name = "colTrangThaiXoa";
@@ -570,6 +577,11 @@ namespace QLTVT
             this.txtLUONG.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtLUONG.Properties.EditFormat.FormatString = "n0";
             this.txtLUONG.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.txtLUONG.Properties.Increment = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.txtLUONG.Size = new System.Drawing.Size(125, 24);
             this.txtLUONG.TabIndex = 13;
             // 

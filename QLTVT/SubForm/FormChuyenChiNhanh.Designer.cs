@@ -29,22 +29,11 @@ namespace QLTVT.SubForm
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label tENCNLabel;
             this.label1 = new System.Windows.Forms.Label();
+            this.cmbCHINHANH = new System.Windows.Forms.ComboBox();
             this.btnXACNHAN = new System.Windows.Forms.Button();
             this.btnTHOAT = new System.Windows.Forms.Button();
-            this.tENCNComboBox = new System.Windows.Forms.ComboBox();
-            tENCNLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // tENCNLabel
-            // 
-            tENCNLabel.AutoSize = true;
-            tENCNLabel.Location = new System.Drawing.Point(121, 112);
-            tENCNLabel.Name = "tENCNLabel";
-            tENCNLabel.Size = new System.Drawing.Size(56, 17);
-            tENCNLabel.TabIndex = 3;
-            tENCNLabel.Text = "TENCN:";
             // 
             // label1
             // 
@@ -57,49 +46,48 @@ namespace QLTVT.SubForm
             this.label1.Text = "CHUYỂN CHI NHÁNH";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // cmbCHINHANH
+            // 
+            this.cmbCHINHANH.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCHINHANH.FormattingEnabled = true;
+            this.cmbCHINHANH.Location = new System.Drawing.Point(106, 109);
+            this.cmbCHINHANH.Name = "cmbCHINHANH";
+            this.cmbCHINHANH.Size = new System.Drawing.Size(294, 24);
+            this.cmbCHINHANH.TabIndex = 4;
+            // 
             // btnXACNHAN
             // 
             this.btnXACNHAN.BackColor = System.Drawing.Color.Blue;
-            this.btnXACNHAN.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnXACNHAN.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.btnXACNHAN.ForeColor = System.Drawing.Color.White;
-            this.btnXACNHAN.Location = new System.Drawing.Point(106, 222);
+            this.btnXACNHAN.Location = new System.Drawing.Point(106, 190);
             this.btnXACNHAN.Name = "btnXACNHAN";
-            this.btnXACNHAN.Size = new System.Drawing.Size(113, 38);
-            this.btnXACNHAN.TabIndex = 1;
+            this.btnXACNHAN.Size = new System.Drawing.Size(136, 35);
+            this.btnXACNHAN.TabIndex = 5;
             this.btnXACNHAN.Text = "XÁC NHẬN";
             this.btnXACNHAN.UseVisualStyleBackColor = false;
-            this.btnXACNHAN.Click += new System.EventHandler(this.button1_Click);
+            this.btnXACNHAN.Click += new System.EventHandler(this.btnXACNHAN_Click);
             // 
             // btnTHOAT
             // 
             this.btnTHOAT.BackColor = System.Drawing.Color.Red;
-            this.btnTHOAT.Font = new System.Drawing.Font("Tahoma", 7.8F, System.Drawing.FontStyle.Bold);
+            this.btnTHOAT.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
             this.btnTHOAT.ForeColor = System.Drawing.Color.White;
-            this.btnTHOAT.Location = new System.Drawing.Point(287, 222);
+            this.btnTHOAT.Location = new System.Drawing.Point(264, 190);
             this.btnTHOAT.Name = "btnTHOAT";
-            this.btnTHOAT.Size = new System.Drawing.Size(113, 37);
-            this.btnTHOAT.TabIndex = 2;
+            this.btnTHOAT.Size = new System.Drawing.Size(136, 35);
+            this.btnTHOAT.TabIndex = 6;
             this.btnTHOAT.Text = "THOÁT";
             this.btnTHOAT.UseVisualStyleBackColor = false;
-            this.btnTHOAT.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // tENCNComboBox
-            // 
-            this.tENCNComboBox.FormattingEnabled = true;
-            this.tENCNComboBox.Location = new System.Drawing.Point(183, 112);
-            this.tENCNComboBox.Name = "tENCNComboBox";
-            this.tENCNComboBox.Size = new System.Drawing.Size(184, 24);
-            this.tENCNComboBox.TabIndex = 4;
             // 
             // FormChuyenChiNhanh
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 310);
-            this.Controls.Add(tENCNLabel);
-            this.Controls.Add(this.tENCNComboBox);
+            this.ClientSize = new System.Drawing.Size(502, 285);
             this.Controls.Add(this.btnTHOAT);
             this.Controls.Add(this.btnXACNHAN);
+            this.Controls.Add(this.cmbCHINHANH);
             this.Controls.Add(this.label1);
             this.Name = "FormChuyenChiNhanh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -113,11 +101,8 @@ namespace QLTVT.SubForm
         #endregion
 
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbCHINHANH;
         private System.Windows.Forms.Button btnXACNHAN;
         private System.Windows.Forms.Button btnTHOAT;
-        private QLVT_DATHANGDataSet qLVT_DATHANGDataSet;
-        private QLVT_DATHANGDataSetTableAdapters.view_DanhSachPhanManhTableAdapter view_DanhSachPhanManhTableAdapter;
-        private QLVT_DATHANGDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ComboBox tENCNComboBox;
     }
 }

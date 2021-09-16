@@ -93,7 +93,7 @@ namespace QLTVT
             else
             {
                 FormDangNhap form = new FormDangNhap();
-                form.MdiParent = this;
+                //form.MdiParent = this;
                 form.Show();
             }
 

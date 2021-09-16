@@ -82,11 +82,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QLVT_DATHANGDataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>QLVT_DATHANGDataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="SubForm\FormChuyenChiNhanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,17 +131,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="QLVT_DATHANGDataSet1.xsc">
-      <DependentUpon>QLVT_DATHANGDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="QLVT_DATHANGDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLVT_DATHANGDataSet1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="QLVT_DATHANGDataSet1.xss">
-      <DependentUpon>QLVT_DATHANGDataSet1.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
