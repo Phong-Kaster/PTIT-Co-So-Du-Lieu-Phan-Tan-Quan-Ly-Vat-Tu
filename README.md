@@ -16,6 +16,7 @@
 - [**Authorization**](#authorization)
 - [**Stored Procedure**](#stored-procedure)
 - [**Data Set**](#data-set)
+- [**How To Build and How To Read**](#how-to-build-and-how-to-read)
 - [**FAQ**](#faq)
 - [**Timeline**](#timeline)
 - [**Tools**](#tools)
@@ -96,6 +97,33 @@ Chương trình cho phép ta tạo các login, password và cho login này làm 
 # [**Data Set**](#data-set)
   Phần này mình sẽ nói cho các bạn biết về chức năng của các Data Set mình sử dụng và chúng tham gia vào form nào
   1. dataSet là cái data set chứa nội dung của toàn bộ cơ sở dữ liệu. Data Set này tham gia vào mọi form chính của chương trình gồm: nhân viên, kho, vật tư, đặt hàng.
+# [**How To Build and How To Read**](#how-to-build-and-how-to-read)
+  Ui đọc đến đây là quá trời thứ phải học rồi. Vậy học thế nào cho hiệu quả đây nhỉ ??? Dễ lắm mình những thứ mình liệt kê bên dưới là theo thứ tự mình đã học và làm để tự xây dựng được đồ án này. Nói cách khác phần này hướng dẫn các bạn làm sao để tự mình solo môn này luôn ý, hehe 😎😎😎
+ 
+  1. Hiểu khái niệm phân mảnh ngang là gì ? phân mảnh dọc là gì ? phân mảnh hỗn hợp là gì ?🔀
+ 
+  2. Phân mảnh là cái chi chi ? Làm sao để phân tán cho một cơ sở dữ liệu ? 📅
+ 
+  3. Phân quyền là cái quần què gì vậy ? ( Sao lắm phân quá zợ 💩💩💩) ? Quyền công ty làm được gì, rùi còn chi nhánh và user thì làm được những gì nhỉ ? Cái này thì phần [**Authorization**](#authorization) mình trả lời rất rõ rồi nè.
+ 
+ 4. Tạo stored procedure như nào ? Làm sao lấy được thông tin từ đăng nhập ? 😫 Phần này thì trong thư mục Stored Procedure mình có đủ rùi nè
+ 
+ 5. Làm sao để tạo form đăng nhập với DevExpress nhỉ ? 🔐
+ 
+ 6. Form chính và Form Nhân viên được tạo và kết nối với nhau ra sao ? 🤝
+ 
+ 7. Tạo mấy cái biểu mẫu báo cáo như nào ý nhỉ ?📈
+ 
+ Mình liệt kê ra các câu hỏi này để các bạn dễ hình dung từng bước để xây dựng đồ án này. Khi bạn tự trả lời được từng câu hỏi này thì các bạn sẽ dần dần có cái nhìn bao quát cái "của nợ" này. NHƯNG, một chữ nhưng TO ĐÙNG, vẫn còn một vấn đề nữa.....
+ 
+ UI CHA !! SAO NHIỀU CÂU HỎI QUÁ ZỢ 😵😵😵. VẬY HỌC CÁI NÀY Ở ĐÂU ĐỂ MÀ LÀM ?? Đừng lo, đừng lo. Bạn tới đúng nơi rồi đó. Mình rất hiểu tâm lý của các bạn khi gặp lại thầy Thư ( "lại" nếu như bạn đã học cấu trúc dữ liệu & giải thuật ở năm 2 của thầy ). Chắc nhiều bạn ám ảnh thầy lắm - y như mình vậy 😋😋.
+ 
+ Và mình đã chuẩn bị cho các bạn một danh sách đầy đủ cái video cho môn cơ sở phân tán của thầy Lưu Nguyễn Kì Thư tại [**đây**](https://www.youtube.com/playlist?list=PLkPVg51dQOyYQc-jkT9BOEooS2IsaNWyH). 
+ 
+ Điều quan trọng là những video này đều do thầy Thư trực tiếp giảng dạy và có làm hướng dẫn chi tiết nên chỉ cần các bạn chăm chỉ học theo đầy đủ thì **100%** một mình cân hết đồ án luôn 😎😎😎
+ 
+ >Note: xem xong thì để cho mình một like 👍 video nha ! 
+ 
 # [**FAQ**](#faq)
   FAQ hay viết tắt của cụm từ Frequently Asked Questions, là những câu hỏi thường gặp trong quá trình chúng ta làm đồ án này. Những câu hỏi được liệt kê bên dưới bao gồm những câu hỏi mình tổng hợp lại trong suốt quá trình học môn này. Bao gồm câu hỏi của sinh viên với thầy & những kiến thứ dễ gây lú do mình tự đúc kết ra trong quá trình làm nhé
   ***
@@ -215,7 +243,22 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  >Ưu điểm: server gốc lúc nào cũng hoạt động nên luôn truy vấn được dữ liệu mong muốn
  
  >Nhược điểm: Không thể che dấu được hoàn toàn các thông tin nhạy cảm giữa các site phân mảnh. Việc cấp 1 tài khoản để vào site chủ có thể giúp người dùng đó xem được dữ liệu của site khác
+ ***
+ >Hỏi: Thầy cho em hỏi là Chức Năng đặt hàng thì nhân viên thuộc chi nhánh và user có được phép chỉnh sửa Mã Nhân Viên không ạ
  
+ >Đáp: Lấy MANV đăng nhập áp cho các phiếu, không cho sửa MANV ( nghĩa là người đăng đăng nhập thì lấy mã nhân viên của họ áp dụng vào các phiếu luôn)
+ ***
+ >Hỏi: Thầy cho em hỏi là Chi nhánh với user đăng nhập vào thì thấy hết tất cả đơn đặt hàng , phiếu nhập, phiếu xuất luôn hả thầy, hay chỉ mỗi phiếu của chính họ thôi ạ 
+ 
+ >Đáp: Thấy hết, nhưng chỉ cho chỉnh sửa các phiếu do mình lập
+ ***
+ >Hỏi: Thầy ơi cho em hỏi đề tài Vật Tư, NV01 có thể lập phiếu nhập trên đơn đặt hàng của NV02 không ạ?
+ 
+ >Đáp: Không
+ ***
+ >Hỏi: Đề 3 QLVT trong table chi tiết đơn đặt hàng có phần đơn giá, thầy cho e hỏi lúc lập đơn đặt hàng thì đơn giá của vật tư lấy ở đâu ạ 
+ 
+ >Đáp: Nhập tay em
 # [**Timeline**](#timeline)
 ## **Phase 1** : **01-09-2021 to 05-09-2021**
  
@@ -248,6 +291,9 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  10. Hoàn thiện tính năng chuyển chi nhánh
  
  11. Hoàn thiện chức năng Hoàn tác ngay cả khi đã nhấn chuyển chi nhánh.
+ 
+  ## **Phase 3** : **16-09-2021 to 17-09-2021**
+  1. Hoàn thiện toàn bộ tính năng của form vật tư
  
 # [**Tools**](#tools)
   
