@@ -118,9 +118,11 @@ Chương trình cho phép ta tạo các login, password và cho login này làm 
  
  UI CHA !! SAO NHIỀU CÂU HỎI QUÁ ZỢ 😵😵😵. VẬY HỌC CÁI NÀY Ở ĐÂU ĐỂ MÀ LÀM ?? Đừng lo, đừng lo. Bạn tới đúng nơi rồi đó. Mình rất hiểu tâm lý của các bạn khi gặp lại thầy Thư ( "lại" nếu như bạn đã học cấu trúc dữ liệu & giải thuật ở năm 2 của thầy ). Chắc nhiều bạn ám ảnh thầy lắm - y như mình vậy 😋😋.
  
- Và mình đã chuẩn bị cho các bạn một danh sách đầy đủ cái video cho môn cơ sở phân tán của thầy Lưu Nguyễn Kì Thư tại [**đây**](https://www.youtube.com/playlist?list=PLkPVg51dQOyYQc-jkT9BOEooS2IsaNWyH). 
+ Và mình đã chuẩn bị cho các bạn một danh sách đầy đủ các video cho môn cơ sở phân tán của thầy Lưu Nguyễn Kì Thư tại [**đây**](https://www.youtube.com/playlist?list=PLkPVg51dQOyYQc-jkT9BOEooS2IsaNWyH). 
  
  Điều quan trọng là những video này đều do thầy Thư trực tiếp giảng dạy và có làm hướng dẫn chi tiết nên chỉ cần các bạn chăm chỉ học theo đầy đủ thì **100%** một mình cân hết đồ án luôn 😎😎😎
+ 
+ Ngoài ra, trình tự các video là theo đúng quá trình thầy Thư dạy nên các bạn hãy học theo đúng trình tự này. Đừng nhảy cóc vội vàng nhé vì `dục tốc bất đạt` mà.
  
  >Note: xem xong thì để cho mình một like 👍 video nha ! 
  
