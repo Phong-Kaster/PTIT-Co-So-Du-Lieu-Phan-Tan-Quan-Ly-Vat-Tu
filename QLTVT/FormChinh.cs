@@ -174,5 +174,20 @@ namespace QLTVT
                 form.Show();
             }
         }
+
+        private void btnVatTu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormVatTu));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormVatTu form = new FormVatTu();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
     }
 }

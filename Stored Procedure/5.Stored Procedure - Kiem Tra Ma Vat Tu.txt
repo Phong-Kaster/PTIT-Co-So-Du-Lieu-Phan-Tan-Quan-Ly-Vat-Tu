@@ -1,0 +1,25 @@
+*Mục đích: kiểm tra xem mã vật tư tồn tại hay chưa ?
+
+*Cú pháp: 
+CREATE PROC sp_KiemTraMaVatTu
+@MAVT nchar(4)
+AS
+BEGIN
+	-- lấy chỉ cột mã vật tư mà thôi
+	-- kiểm tra mẫ vật tư ở phân mảnh hiện tại
+	IF EXISTS(SELECT 1 
+			  FROM Vattu VT  
+			  WHERE VT.MAVT = @MAVT)
+			RETURN 1; -- Mã Vattu đang dùng ở phân mảnh hiện tại
+	-- -- kiểm tra mẫ vật tư ở phân mảnh khác
+	ELSE IF EXISTS(SELECT 1
+				   FROM LINK1.QLVT_DATHANG.DBO.Vattu VT  
+				   WHERE VT.MAVT = @MAVT)
+			RETURN 1; -- Mã Vattu đang dùng ở phân mảnh khác
+	RETURN 0; -- Chưa tồn tại
+END
+
+*Cú phép xem:
+declare @returnedResult int
+exec @returnedResult = sp_KiemTraMaVatTu 'M02'
+select @returnedResult

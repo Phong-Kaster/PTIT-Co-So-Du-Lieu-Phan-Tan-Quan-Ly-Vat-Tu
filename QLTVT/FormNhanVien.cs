@@ -542,6 +542,13 @@ namespace QLTVT
                 dteNGAYSINH.Focus();
                 return;
             }
+            if(CalculateAge(dteNGAYSINH.DateTime) > 60)
+            {
+                MessageBox.Show("Nhân viên này đã trên trên 60 tuổi - nằm ngoài độ tuổi lao động", "Thông báo", MessageBoxButtons.OK);
+                dteNGAYSINH.Focus();
+                return;
+            }
+
             if (txtLUONG.Value < 4000000 || txtLUONG.Value == 0)
             {
                 MessageBox.Show("Mức lương không thể bỏ trống & tối thiểu 4.000.000 đồng", "Thông báo", MessageBoxButtons.OK);
@@ -551,8 +558,21 @@ namespace QLTVT
 
 
 
-            /*Step 1 - viet ham thuc hien kiem tra ma nhan vien da ton tai hay chua ??*/
+            /*Step 1*/
+            /*Lay du lieu truoc khi chon btnGHI - phuc vu btnHOANTAC - sau khi OK thi da la du lieu moi*/
             String maNhanVien = txtMANV.Text.Trim();// Trim() de loai bo khoang trang thua
+            DataRowView drv = ((DataRowView)bdsNhanVien[bdsNhanVien.Position]);
+            String ho = drv["HO"].ToString();
+            String ten = drv["TEN"].ToString();
+
+            String diaChi = drv["DIACHI"].ToString();
+            DateTime ngaySinh = (DateTime)drv["NGAYSINH"];
+
+            int luong = int.Parse(drv["LUONG"].ToString());
+            String maChiNhanh = drv["MACN"].ToString();
+            int trangThai = (trangThaiXoaCheckBox.Checked == true) ? 1 : 0;
+
+
             /*declare @returnedResult int
               exec @returnedResult = sp_TraCuu_KiemTraMaNhanVien '20'
               select @returnedResult*/
@@ -595,7 +615,7 @@ namespace QLTVT
             }
             else/*them moi | sua nhan vien*/
             {
-                DialogResult dr = MessageBox.Show("Bạn có chắc muốn ghi dữ liệu vào Database?", "Thông báo",
+                DialogResult dr = MessageBox.Show("Bạn có chắc muốn ghi dữ liệu vào cơ sở dữ liệu ?", "Thông báo",
                         MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if ( dr == DialogResult.OK)
                 {
@@ -628,22 +648,20 @@ namespace QLTVT
                         /*trước khi ấn btnGHI là sửa thông tin nhân viên*/
                         else
                         {
-                            int trangThai = (trangThaiXoaCheckBox.Checked == true) ? 1 : 0;
-                            /*Lấy ngày sinh trong grid view*/
-                            DateTime ngaySinh = (DateTime)((DataRowView)bdsNhanVien[viTriConTro])["NGAYSINH"];
+                            
 
                             cauTruyVanHoanTac = 
                                 "UPDATE DBO.NhanVien "+
                                 "SET " +
-                                "HO = '" + txtHO.Text + "'," +
-                                "TEN = '" + txtTEN.Text + "'," +
-                                "DIACHI = '" + txtDIACHI.Text + "'," +
+                                "HO = '" + ho + "'," +
+                                "TEN = '" + ten + "'," +
+                                "DIACHI = '" + diaChi + "'," +
                                 "NGAYSINH = CAST('" + ngaySinh.ToString("yyyy-MM-dd") + "' AS DATETIME)," +
-                                "LUONG = '" + txtLUONG.Value + "',"+
+                                "LUONG = '" + luong + "',"+
                                 "TrangThaiXoa = " + trangThai + " " +
-                                "WHERE MANV = " + txtMANV.Text;
+                                "WHERE MANV = '" + maNhanVien + "'";
                         }
-                        //Console.WriteLine(cauTruyVanHoanTac);
+                        Console.WriteLine(cauTruyVanHoanTac);
 
                         /*Đưa câu truy vấn hoàn tác vào undoList 
                          * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
@@ -659,7 +677,6 @@ namespace QLTVT
                         MessageBox.Show("Thất bại. Vui lòng kiểm tra lại!\n" + ex.Message, "Lỗi",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    
                 }
             }
             

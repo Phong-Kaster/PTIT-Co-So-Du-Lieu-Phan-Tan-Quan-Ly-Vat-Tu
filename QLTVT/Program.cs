@@ -102,11 +102,15 @@ namespace QLTVT
         public static FormNhanVien formNhanVien;
 
         public static FormChuyenChiNhanh formChuyenChiNhanh;
-        /**
+        public static FormVatTu formVatTu;
+
+
+
+        /*****************************************************
          * mở kết nối tới server 
          * @return trả về 1 nếu thành công
          *         trả về 0 nếu thất bại
-         */
+         *****************************************************/
         public static int KetNoi()
         {
             if (Program.conn != null && Program.conn.State == ConnectionState.Open)
@@ -133,7 +137,7 @@ namespace QLTVT
 
         /**********************************************
          *  ExecSqlDataReader thực hiện câu lệnh mà dữ liệu trả về chỉ dùng
-         *để xem & không thao tác với nó.
+         *  để xem & không thao tác với nó.
          *
          *  Ví dụ: SELECT * FROM view_DanhSachPhanManh
          **********************************************/

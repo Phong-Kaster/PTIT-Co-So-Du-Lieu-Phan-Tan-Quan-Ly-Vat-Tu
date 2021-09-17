@@ -283,3 +283,4 @@ D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly
 D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu\QLTVT\obj\Debug\QLVT.csproj.CopyComplete
 D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu\QLTVT\obj\Debug\QLTVT.exe
 D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu\QLTVT\obj\Debug\QLTVT.pdb
+D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu\QLTVT\obj\Debug\QLTVT.FormVatTu.resources
