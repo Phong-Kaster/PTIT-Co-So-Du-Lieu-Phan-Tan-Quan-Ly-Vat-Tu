@@ -1,0 +1,21 @@
+*Mục đích: kiểm tra mã kho hàng đã tồn tại hay chưa ?
+
+*Cú pháp:
+create procedure sp_TraCuu_KiemTraMaKho
+	@MAKHO nchar(4)
+as
+begin
+	if( exists( select 1 
+				from LINK0.QLVT_DATHANG.DBO.KHO as K 
+				where K.MAKHO = @MAKHO ) )
+		return 1; -- ton tai
+	return 0;-- khong ton tai
+end
+
+*Cú pháp hủy stored procedure và xem dữ liệu
+1.drop procedure sp_TraCuu_KiemTraMaKho
+
+2.
+	declare @result int
+	exec @result = sp_TraCuu_KiemTraMaKho 'TX'
+	select @result

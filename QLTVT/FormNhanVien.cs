@@ -86,7 +86,11 @@ namespace QLTVT
             this.tableAdapterManager.UpdateAll(this.dataSet);
 
         }
-
+        /*
+         *Step 1: tat kiem tra khoa ngoai & do du lieu vao form
+         *Step 2: lay du lieu dang nhap tu form dang nhap
+         *Step 3: bat nut chuc nang theo vai tro khi dang nhap
+         */
         private void FormNhanVien_Load(object sender, EventArgs e)
         {
             /*Step 1*/
@@ -125,7 +129,7 @@ namespace QLTVT
 
                 this.btnHOANTAC.Enabled = false;
                 this.btnLAMMOI.Enabled = true;
-                this.btnCHUYENCHINHANH.Enabled = true;
+                this.btnCHUYENCHINHANH.Enabled = false;
                 this.btnTHOAT.Enabled = true;
 
                 this.panelNhapLieu.Enabled = false;
@@ -165,7 +169,7 @@ namespace QLTVT
          * nhung neu chon btnHOANTAC, con tro chuot phai quay lai vi 
          * tri nhan vien thu 2, thay vi o vi tri duoi cung - tuc nhan vien so 5
          * 
-         * neu nhap chu cho txtMANV thi se khong chuyen sang cac o khac duoc nua
+         * neu nhap chu cho txtMANV thi se khong chuyen sang cac o khac duoc nua - bat buoc ghi so
          * 
          * Step 1: Kich hoat panel Nhap lieu & lay vi tri cua nhan vien hien tai
          * dat dangThemMoi = true
@@ -185,7 +189,7 @@ namespace QLTVT
             /*AddNew tự động nhảy xuống cuối thêm 1 dòng mới*/
             bdsNhanVien.AddNew();
             txtMACN.Text = maChiNhanh;
-            dteNGAYSINH.EditValue = "";
+            dteNGAYSINH.EditValue = "2000-05-01";
             txtLUONG.Value = 4000000;// dat san muc luong toi thieu
 
 
@@ -345,7 +349,6 @@ namespace QLTVT
          ***************************************************************************/
         private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //Int32 manv = 0;
             String tenNV = ((DataRowView)bdsNhanVien[bdsNhanVien.Position])["MANV"].ToString();
             /*Step 1*/
 
@@ -427,6 +430,10 @@ namespace QLTVT
                     //bdsNhanVien.Position = bdsNhanVien.Find("MANV", manv);
                     return;
                 }
+            }
+            else
+            {
+                undoList.Pop();
             }    
         }
 
@@ -542,12 +549,12 @@ namespace QLTVT
                 dteNGAYSINH.Focus();
                 return;
             }
-            if(CalculateAge(dteNGAYSINH.DateTime) > 60)
+            /*if(CalculateAge(dteNGAYSINH.DateTime) > 60)
             {
                 MessageBox.Show("Nhân viên này đã trên trên 60 tuổi - nằm ngoài độ tuổi lao động", "Thông báo", MessageBoxButtons.OK);
                 dteNGAYSINH.Focus();
                 return;
-            }
+            }*/
 
             if (txtLUONG.Value < 4000000 || txtLUONG.Value == 0)
             {
@@ -566,7 +573,9 @@ namespace QLTVT
             String ten = drv["TEN"].ToString();
 
             String diaChi = drv["DIACHI"].ToString();
-            DateTime ngaySinh = (DateTime)drv["NGAYSINH"];
+
+            DateTime ngaySinh = ((DateTime)drv["NGAYSINH"]);
+            Console.WriteLine(ngaySinh);
 
             int luong = int.Parse(drv["LUONG"].ToString());
             String maChiNhanh = drv["MACN"].ToString();
