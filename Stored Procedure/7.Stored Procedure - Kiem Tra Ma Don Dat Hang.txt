@@ -1,0 +1,19 @@
+* Muc dich: Kiểm tra mã đơn đặt hàng này đã tồn tại chưa ?
+
+* Cú pháp:
+
+CREATE PROCEDURE sp_KiemTraMaDonDatHang
+	@id nvarchar(15)
+AS
+BEGIN
+	IF( EXISTS(SELECT * FROM DatHang AS DH WHERE DH.MasoDDH = @id) )
+		RETURN 1;
+	ELSE IF ( EXISTS( SELECT * FROM LINK1.QLVT_DATHANG.DBO.DATHANG AS DH WHERE DH.MasoDDH = @id ) )
+		RETURN 1;
+	RETURN 0;-- id nhap vao khong ton tai
+END
+
+* Câu lệnh để xem kết quả
+declare @result int
+exec @result = sp_KiemTraMaDonDatHang 'MDDH02'
+select @result

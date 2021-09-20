@@ -105,7 +105,8 @@ namespace QLTVT
         public static FormVatTu formVatTu;
         public static FormKho formKho;
 
-        public static FormLapPhieu formLapPhieu;
+        public static FormDonDatHang formDonDatHang;
+        public static FormChonKhoHang formChonKhoHang;
         /*****************************************************
          * mở kết nối tới server 
          * @return trả về 1 nếu thành công

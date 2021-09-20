@@ -205,16 +205,16 @@ namespace QLTVT
             }
         }
 
-        private void btnDonHang_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnDonDatHang_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Form f = this.CheckExists(typeof(FormLapPhieu));
+            Form f = this.CheckExists(typeof(FormDonDatHang));
             if (f != null)
             {
                 f.Activate();
             }
             else
             {
-                FormLapPhieu form = new FormLapPhieu();
+                FormDonDatHang form = new FormDonDatHang();
                 form.MdiParent = this;
                 form.Show();
             }
