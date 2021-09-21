@@ -19,8 +19,10 @@
 - [**How To Build and How To Read**](#how-to-build-and-how-to-read)
 - [**FAQ**](#faq)
 - [**Timeline**](#timeline)
-- [**Tools**](#tools)
+- [**Special Thank**](#special-thank)
 - [**Post Script**](#post-script)
+- [**Tools**](#tools)
+
 # [**Introduce**](#introduce)
    Chào các bạn, mình tên là Nguyễn Thành Phong, lớp D18CQCN03-N, khóa 2018-2023. Đây là phần đồ án của mình với môn Cơ Sở Dữ Liệu Phân do thầy Lưu Nguyễn Kì Thư giảng dạy. Đồ án này là bài thi cá nhân của riêng mình, không làm nhóm với bất kì ai. Có thể không phải là đồ án xuất sắc nhất nhưng mình mong sẽ giúp ích cho các bạn sinh viên đang đọc phần giới thiệu này của mình. Dù bạn là sinh viên mới vào năm 4 hay là những bạn không may mắn phải học lại môn này thì mình hi vọng phần diễn giải của mình sẽ giúp các bạn nhiều nhất có thể. Có một khuyết danh mà mình rất yêu thích là:
   > *Không ai trở nên nghèo túng vì cho đi*
@@ -279,7 +281,9 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  >Đáp: Truy cập đường dẫn sau https://exerror.com/unable-to-add-data-connection-could-not-find-any-resources-appropriate-for-the-specified-culture-or-the-neutral-culture/
  
  > Bước 1: Tải thư mục trong solution
+ 
  > Bước 2: Tìm C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE
+ 
  > Bước 3: Giải nén thư mục cài đặt & paste vào trong thư mục này
 # [**Timeline**](#timeline)
 ## **Phase 1** : **01-09-2021 to 05-09-2021**
@@ -318,6 +322,12 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
   1. Hoàn thiện toàn bộ tính năng của form vật tư
  
   2. Hoàn thiện toàn bộ tính năng cho form đơn đặt hàng kết hợp chi tiết đặt hàng.
+# [**Special Thank**](#special-thank)
+ 
+# [**Post Script**](#post-script)
+ Ngày bắt đầu: 01-09-2021
+ 
+ Ngày kết thúc: xx-xx-2021
  
 # [**Tools**](#tools)
   
@@ -331,9 +341,6 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
   
   > Note: Mình rất khuyến khích các bạn cài đặt toàn bộ những phần mềm bên trên bởi trong quá trình học thì thầy hướng dẫn trên những phần mềm này. Ngoài ra, nếu chẳng may gặp lỗi gì đó, các bạn có thể hỏi thầy hoặc bạn bè của mình dễ hơn so với việc chọn làm bằng một phần mềm khác.
 
-# [**Post Script**](#post-script)
- Ngày bắt đầu: 01-09-2021
- 
- Ngày kết thúc: xx-xx-2021
+
  
  # [**Made with 💘 and C# <img src="https://www.vectorlogo.zone/logos/dotnet/dotnet-ar21.svg" width="60">**](#made-with-love-and-c)
