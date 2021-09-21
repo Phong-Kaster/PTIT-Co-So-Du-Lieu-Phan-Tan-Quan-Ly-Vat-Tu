@@ -81,16 +81,19 @@ namespace QLTVT
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBoxDonDatHang = new System.Windows.Forms.GroupBox();
+            this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaKho = new System.Windows.Forms.TextBox();
             this.txtDonGia = new DevExpress.XtraEditors.SpinEdit();
             this.txtSoLuong = new DevExpress.XtraEditors.SpinEdit();
             this.btnChonVatTu = new System.Windows.Forms.Button();
             this.txtMaVatTu = new DevExpress.XtraEditors.TextEdit();
             this.btnChonKhoHang = new System.Windows.Forms.Button();
-            this.txtMaKho = new DevExpress.XtraEditors.TextEdit();
-            this.txtMaNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.txtNhaCungCap = new DevExpress.XtraEditors.TextEdit();
             this.dteNGAY = new DevExpress.XtraEditors.DateEdit();
             this.txtMaDonDatHang = new DevExpress.XtraEditors.TextEdit();
+            this.bdsPhieuNhap = new System.Windows.Forms.BindingSource(this.components);
+            this.phieuNhapTableAdapter = new QLTVT.DataSetTableAdapters.PhieuNhapTableAdapter();
+            this.cTDDHBindingSource = new System.Windows.Forms.BindingSource(this.components);
             masoDDHLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
@@ -112,15 +115,16 @@ namespace QLTVT
             ((System.ComponentModel.ISupportInitialize)(this.bdsChiTietDonDatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTDDH)).BeginInit();
             this.groupBoxDonDatHang.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVatTu.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNhaCungCap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNGAY.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNGAY.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaDonDatHang.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuNhap)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTDDHBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // masoDDHLabel
@@ -162,7 +166,7 @@ namespace QLTVT
             // mAKHOLabel
             // 
             mAKHOLabel.AutoSize = true;
-            mAKHOLabel.Location = new System.Drawing.Point(32, 187);
+            mAKHOLabel.Location = new System.Drawing.Point(46, 196);
             mAKHOLabel.Name = "mAKHOLabel";
             mAKHOLabel.Size = new System.Drawing.Size(53, 17);
             mAKHOLabel.TabIndex = 8;
@@ -257,6 +261,7 @@ namespace QLTVT
             this.btnXOA.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnXOA.ImageOptions.SvgImage")));
             this.btnXOA.Name = "btnXOA";
             this.btnXOA.Size = new System.Drawing.Size(70, 0);
+            this.btnXOA.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXOA_ItemClick);
             // 
             // btnGHI
             // 
@@ -545,11 +550,11 @@ namespace QLTVT
             this.gcChiTietDonDatHang.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcChiTietDonDatHang.Enabled = false;
             this.gcChiTietDonDatHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gcChiTietDonDatHang.Location = new System.Drawing.Point(480, 28);
+            this.gcChiTietDonDatHang.Location = new System.Drawing.Point(460, 28);
             this.gcChiTietDonDatHang.MainView = this.gvCTDDH;
             this.gcChiTietDonDatHang.MenuManager = this.barManager1;
             this.gcChiTietDonDatHang.Name = "gcChiTietDonDatHang";
-            this.gcChiTietDonDatHang.Size = new System.Drawing.Size(525, 352);
+            this.gcChiTietDonDatHang.Size = new System.Drawing.Size(545, 352);
             this.gcChiTietDonDatHang.TabIndex = 1;
             this.gcChiTietDonDatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCTDDH});
@@ -617,6 +622,8 @@ namespace QLTVT
             // 
             // groupBoxDonDatHang
             // 
+            this.groupBoxDonDatHang.Controls.Add(this.txtMaNhanVien);
+            this.groupBoxDonDatHang.Controls.Add(this.txtMaKho);
             this.groupBoxDonDatHang.Controls.Add(dONGIALabel);
             this.groupBoxDonDatHang.Controls.Add(this.txtDonGia);
             this.groupBoxDonDatHang.Controls.Add(sOLUONGLabel);
@@ -626,9 +633,7 @@ namespace QLTVT
             this.groupBoxDonDatHang.Controls.Add(this.txtMaVatTu);
             this.groupBoxDonDatHang.Controls.Add(this.btnChonKhoHang);
             this.groupBoxDonDatHang.Controls.Add(mAKHOLabel);
-            this.groupBoxDonDatHang.Controls.Add(this.txtMaKho);
             this.groupBoxDonDatHang.Controls.Add(mANVLabel);
-            this.groupBoxDonDatHang.Controls.Add(this.txtMaNhanVien);
             this.groupBoxDonDatHang.Controls.Add(nhaCCLabel);
             this.groupBoxDonDatHang.Controls.Add(this.txtNhaCungCap);
             this.groupBoxDonDatHang.Controls.Add(nGAYLabel);
@@ -638,10 +643,28 @@ namespace QLTVT
             this.groupBoxDonDatHang.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBoxDonDatHang.Location = new System.Drawing.Point(2, 28);
             this.groupBoxDonDatHang.Name = "groupBoxDonDatHang";
-            this.groupBoxDonDatHang.Size = new System.Drawing.Size(478, 352);
+            this.groupBoxDonDatHang.Size = new System.Drawing.Size(458, 352);
             this.groupBoxDonDatHang.TabIndex = 0;
             this.groupBoxDonDatHang.TabStop = false;
             this.groupBoxDonDatHang.Text = "Thông Tin";
+            // 
+            // txtMaNhanVien
+            // 
+            this.txtMaNhanVien.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDonDatHang, "MANV", true));
+            this.txtMaNhanVien.Location = new System.Drawing.Point(184, 144);
+            this.txtMaNhanVien.MenuManager = this.barManager1;
+            this.txtMaNhanVien.Name = "txtMaNhanVien";
+            this.txtMaNhanVien.Size = new System.Drawing.Size(125, 22);
+            this.txtMaNhanVien.TabIndex = 19;
+            // 
+            // txtMaKho
+            // 
+            this.txtMaKho.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsDonDatHang, "MAKHO", true));
+            this.txtMaKho.Enabled = false;
+            this.txtMaKho.Location = new System.Drawing.Point(184, 190);
+            this.txtMaKho.Name = "txtMaKho";
+            this.txtMaKho.Size = new System.Drawing.Size(125, 23);
+            this.txtMaKho.TabIndex = 18;
             // 
             // txtDonGia
             // 
@@ -711,6 +734,7 @@ namespace QLTVT
             this.btnChonVatTu.TabIndex = 13;
             this.btnChonVatTu.Text = "Chọn Vật Tư";
             this.btnChonVatTu.UseVisualStyleBackColor = true;
+            this.btnChonVatTu.Click += new System.EventHandler(this.btnChonVatTu_Click);
             // 
             // txtMaVatTu
             // 
@@ -732,26 +756,6 @@ namespace QLTVT
             this.btnChonKhoHang.Text = "Chọn Kho Hàng";
             this.btnChonKhoHang.UseVisualStyleBackColor = true;
             this.btnChonKhoHang.Click += new System.EventHandler(this.btnChonKhoHang_Click);
-            // 
-            // txtMaKho
-            // 
-            this.txtMaKho.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDonDatHang, "MAKHO", true));
-            this.txtMaKho.Enabled = false;
-            this.txtMaKho.Location = new System.Drawing.Point(184, 188);
-            this.txtMaKho.MenuManager = this.barManager1;
-            this.txtMaKho.Name = "txtMaKho";
-            this.txtMaKho.Size = new System.Drawing.Size(125, 22);
-            this.txtMaKho.TabIndex = 9;
-            // 
-            // txtMaNhanVien
-            // 
-            this.txtMaNhanVien.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDonDatHang, "MANV", true));
-            this.txtMaNhanVien.Enabled = false;
-            this.txtMaNhanVien.Location = new System.Drawing.Point(184, 153);
-            this.txtMaNhanVien.MenuManager = this.barManager1;
-            this.txtMaNhanVien.Name = "txtMaNhanVien";
-            this.txtMaNhanVien.Size = new System.Drawing.Size(125, 22);
-            this.txtMaNhanVien.TabIndex = 7;
             // 
             // txtNhaCungCap
             // 
@@ -788,6 +792,20 @@ namespace QLTVT
             this.txtMaDonDatHang.Size = new System.Drawing.Size(125, 22);
             this.txtMaDonDatHang.TabIndex = 1;
             // 
+            // bdsPhieuNhap
+            // 
+            this.bdsPhieuNhap.DataMember = "FK_PhieuNhap_DatHang";
+            this.bdsPhieuNhap.DataSource = this.bdsDonDatHang;
+            // 
+            // phieuNhapTableAdapter
+            // 
+            this.phieuNhapTableAdapter.ClearBeforeFill = true;
+            // 
+            // cTDDHBindingSource
+            // 
+            this.cTDDHBindingSource.DataMember = "FK_CTDDH_DatHang";
+            this.cTDDHBindingSource.DataSource = this.bdsDonDatHang;
+            // 
             // FormDonDatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -818,15 +836,16 @@ namespace QLTVT
             ((System.ComponentModel.ISupportInitialize)(this.gvCTDDH)).EndInit();
             this.groupBoxDonDatHang.ResumeLayout(false);
             this.groupBoxDonDatHang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDonGia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoLuong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVatTu.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNhaCungCap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNGAY.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dteNGAY.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaDonDatHang.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuNhap)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTDDHBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -873,18 +892,21 @@ namespace QLTVT
         private DataSetTableAdapters.CTDDHTableAdapter chiTietDonDatHangTableAdapter;
         private System.Windows.Forms.BindingSource bdsChiTietDonDatHang;
         private System.Windows.Forms.Button btnChonKhoHang;
-        private DevExpress.XtraEditors.TextEdit txtMaNhanVien;
         private DevExpress.XtraEditors.TextEdit txtNhaCungCap;
         private DevExpress.XtraEditors.DateEdit dteNGAY;
         private DevExpress.XtraEditors.TextEdit txtMaDonDatHang;
         private DevExpress.XtraBars.BarButtonItem btnThemChiTietDonDatHang;
-        private DevExpress.XtraBars.BarSubItem btnMENU;
         private DevExpress.XtraBars.BarButtonItem btnCheDoDonDatHang;
         private DevExpress.XtraBars.BarButtonItem btnCheDoChiTietDonDatHang;
         private DevExpress.XtraEditors.SpinEdit txtSoLuong;
         private System.Windows.Forms.Button btnChonVatTu;
         private DevExpress.XtraEditors.TextEdit txtMaVatTu;
         private DevExpress.XtraEditors.SpinEdit txtDonGia;
-        public DevExpress.XtraEditors.TextEdit txtMaKho;
+        public DevExpress.XtraBars.BarSubItem btnMENU;
+        public System.Windows.Forms.TextBox txtMaKho;
+        private DevExpress.XtraEditors.TextEdit txtMaNhanVien;
+        private System.Windows.Forms.BindingSource bdsPhieuNhap;
+        private DataSetTableAdapters.PhieuNhapTableAdapter phieuNhapTableAdapter;
+        private System.Windows.Forms.BindingSource cTDDHBindingSource;
     }
 }

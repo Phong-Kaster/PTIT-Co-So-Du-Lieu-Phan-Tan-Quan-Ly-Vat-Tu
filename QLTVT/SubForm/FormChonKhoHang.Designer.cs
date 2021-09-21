@@ -106,6 +106,7 @@ namespace QLTVT.SubForm
             this.colMAKHO.FieldName = "MAKHO";
             this.colMAKHO.MinWidth = 25;
             this.colMAKHO.Name = "colMAKHO";
+            this.colMAKHO.OptionsColumn.AllowEdit = false;
             this.colMAKHO.Visible = true;
             this.colMAKHO.VisibleIndex = 0;
             this.colMAKHO.Width = 94;
@@ -116,6 +117,7 @@ namespace QLTVT.SubForm
             this.colTENKHO.FieldName = "TENKHO";
             this.colTENKHO.MinWidth = 25;
             this.colTENKHO.Name = "colTENKHO";
+            this.colTENKHO.OptionsColumn.AllowEdit = false;
             this.colTENKHO.Visible = true;
             this.colTENKHO.VisibleIndex = 1;
             this.colTENKHO.Width = 94;
@@ -126,6 +128,7 @@ namespace QLTVT.SubForm
             this.colDIACHI.FieldName = "DIACHI";
             this.colDIACHI.MinWidth = 25;
             this.colDIACHI.Name = "colDIACHI";
+            this.colDIACHI.OptionsColumn.AllowEdit = false;
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 2;
             this.colDIACHI.Width = 94;
@@ -136,6 +139,7 @@ namespace QLTVT.SubForm
             this.colMACN.FieldName = "MACN";
             this.colMACN.MinWidth = 25;
             this.colMACN.Name = "colMACN";
+            this.colMACN.OptionsColumn.AllowEdit = false;
             this.colMACN.Visible = true;
             this.colMACN.VisibleIndex = 3;
             this.colMACN.Width = 94;
@@ -147,7 +151,7 @@ namespace QLTVT.SubForm
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(172, 267);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 37);
+            this.button1.Size = new System.Drawing.Size(126, 37);
             this.button1.TabIndex = 2;
             this.button1.Text = "CHỌN";
             this.button1.UseVisualStyleBackColor = false;
@@ -158,9 +162,9 @@ namespace QLTVT.SubForm
             this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(422, 267);
+            this.button2.Location = new System.Drawing.Point(426, 267);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(84, 37);
+            this.button2.Size = new System.Drawing.Size(126, 37);
             this.button2.TabIndex = 3;
             this.button2.Text = "THOÁT";
             this.button2.UseVisualStyleBackColor = false;
@@ -175,7 +179,8 @@ namespace QLTVT.SubForm
             this.Controls.Add(this.button1);
             this.Controls.Add(this.khoGridControl);
             this.Name = "FormChonKhoHang";
-            this.Text = "Kho Hàng";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Chọn Kho Hàng";
             this.Load += new System.EventHandler(this.FormChonKhoHang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsKhoHang)).EndInit();

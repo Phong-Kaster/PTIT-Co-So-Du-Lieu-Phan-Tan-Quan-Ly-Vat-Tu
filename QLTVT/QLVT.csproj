@@ -106,6 +106,12 @@
     <Compile Include="SubForm\FormChonKhoHang.Designer.cs">
       <DependentUpon>FormChonKhoHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubForm\FormChonVatTu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForm\FormChonVatTu.Designer.cs">
+      <DependentUpon>FormChonVatTu.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubForm\FormChuyenChiNhanh.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,6 +148,9 @@
     </Compile>
     <EmbeddedResource Include="SubForm\FormChonKhoHang.resx">
       <DependentUpon>FormChonKhoHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForm\FormChonVatTu.resx">
+      <DependentUpon>FormChonVatTu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubForm\FormChuyenChiNhanh.resx">
       <DependentUpon>FormChuyenChiNhanh.cs</DependentUpon>

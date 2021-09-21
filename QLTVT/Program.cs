@@ -92,6 +92,19 @@ namespace QLTVT
         public static String staff = "";//mHoten
         public static int brand = 0;//mChiNhanh
 
+
+
+        /**********************************************
+         * maKhoDuocChon | maVatTuDuocChon biến lưu trữ mã kho được chọn tạm thời phục vụ 
+         * cho btnChonKhoHang trong phần tạo mới đơn đặt hàng
+         * 
+         * soLuongVatTu bien luu tru so luong vat tu duoc chon
+         **********************************************/
+        public static string maKhoDuocChon = "";
+        public static string maVatTuDuocChon = "";
+        public static int soLuongVatTu = 0;
+
+
         /*bidSou: BindingSource -> liên kết dữ liệu từ bảng dữ liệu vào chương trình*/
         public static BindingSource bindingSource = new BindingSource();//bds_dspm
 

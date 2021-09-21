@@ -38,15 +38,23 @@ namespace QLTVT.SubForm
         {
             this.Dispose();
         }
-
+        private Form CheckExists(Type ftype)
+        {
+            foreach (Form f in this.MdiChildren)
+                if (f.GetType() == ftype)
+                    return f;
+            return null;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            //DataRowView drv = ((DataRowView)bdsKhoHang.Current);
-            String maKhoHang = ((DataRowView)bdsKhoHang.Current)["MAKHO"].ToString();
+            string maKhoHang =  ((DataRowView)bdsKhoHang.Current)["MAKHO"].ToString();
 
-            //Program.formDonDatHang = new FormDonDatHang();
-            Program.formDonDatHang.txtMaKho.Text = maKhoHang;
-            this.Close();
+            /*Cach nay phai tuy bien ban moi chay duoc*/
+            //Program.formDonDatHang.txtMaKho.Text = maKhoHang;
+
+
+            Program.maKhoDuocChon = maKhoHang;
+            this.Close(); 
         }
     }
 }
