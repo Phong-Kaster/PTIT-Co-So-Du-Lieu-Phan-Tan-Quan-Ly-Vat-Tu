@@ -318,10 +318,12 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  
  11. Hoàn thiện chức năng Hoàn tác ngay cả khi đã nhấn chuyển chi nhánh.
  
-  ## **Phase 3** : **16-09-2021 to 21-09-2021**
+  ## **Phase 3** : **16-09-2021 to xx-09-2021**
   1. Hoàn thiện toàn bộ tính năng của form vật tư
  
   2. Hoàn thiện toàn bộ tính năng cho form đơn đặt hàng kết hợp chi tiết đặt hàng.
+ 
+  3. Hoàn thiện toàn bộ tính năng cho form phiếu nhập kết hợp chi tiết phiếu nhập.
 # [**Special Thank**](#special-thank)
  
 # [**Post Script**](#post-script)
