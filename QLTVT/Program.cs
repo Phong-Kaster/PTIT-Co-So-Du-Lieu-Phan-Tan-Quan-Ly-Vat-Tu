@@ -95,14 +95,21 @@ namespace QLTVT
 
 
         /**********************************************
-         * maKhoDuocChon | maVatTuDuocChon biến lưu trữ mã kho được chọn tạm thời phục vụ 
+         * maKhoDuocChon | maVatTuDuocChon biến lưu trữ mã kho được chọn phục vụ 
          * cho btnChonKhoHang trong phần tạo mới đơn đặt hàng
          * 
+         * maSoDonDatHangDuocChon luu tru ma don hang duoc chon phuc vu
+         * cho btnChonDonDatHang trong phan tao moi phieu nhap
          * soLuongVatTu bien luu tru so luong vat tu duoc chon
+         * 
          **********************************************/
         public static string maKhoDuocChon = "";
         public static string maVatTuDuocChon = "";
+
         public static int soLuongVatTu = 0;
+        public static string maDonDatHangDuocChon = "";
+        public static string maDonDatHangDuocChonChiTiet = "";
+        public static int donGia = 0;
 
 
         /*bidSou: BindingSource -> liên kết dữ liệu từ bảng dữ liệu vào chương trình*/
@@ -120,6 +127,13 @@ namespace QLTVT
 
         public static FormDonDatHang formDonDatHang;
         public static FormChonKhoHang formChonKhoHang;
+        public static FormPhieuNhap formPhieuNhap;
+
+        public static FormChonDonDatHang formChonDonDatHang;
+        public static FormChonChiTietDonHang formChonChiTietDonHang;
+        public static FormPhieuXuat formPhieuXuat;
+
+
         /*****************************************************
          * mở kết nối tới server 
          * @return trả về 1 nếu thành công

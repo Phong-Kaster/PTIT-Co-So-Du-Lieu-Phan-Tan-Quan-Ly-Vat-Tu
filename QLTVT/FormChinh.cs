@@ -219,5 +219,35 @@ namespace QLTVT
                 form.Show();
             }
         }
+
+        private void btnPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormPhieuNhap));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormPhieuNhap form = new FormPhieuNhap();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnPhieuXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormPhieuXuat));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormPhieuXuat form = new FormPhieuXuat();
+                form.MdiParent = this;
+                form.Show();
+            }
+        }
     }
 }

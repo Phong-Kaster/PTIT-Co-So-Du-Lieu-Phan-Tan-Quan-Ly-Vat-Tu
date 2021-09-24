@@ -74,7 +74,6 @@ namespace QLTVT
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDDH = new DevExpress.XtraEditors.GroupControl();
             this.gcChiTietDonDatHang = new DevExpress.XtraGrid.GridControl();
-            this.bdsChiTietDonDatHang = new System.Windows.Forms.BindingSource(this.components);
             this.gvCTDDH = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMasoDDH1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -93,7 +92,7 @@ namespace QLTVT
             this.txtMaDonDatHang = new DevExpress.XtraEditors.TextEdit();
             this.bdsPhieuNhap = new System.Windows.Forms.BindingSource(this.components);
             this.phieuNhapTableAdapter = new QLTVT.DataSetTableAdapters.PhieuNhapTableAdapter();
-            this.cTDDHBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsChiTietDonDatHang = new System.Windows.Forms.BindingSource(this.components);
             masoDDHLabel = new System.Windows.Forms.Label();
             nGAYLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
@@ -112,7 +111,6 @@ namespace QLTVT
             ((System.ComponentModel.ISupportInitialize)(this.gcDDH)).BeginInit();
             this.gcDDH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcChiTietDonDatHang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsChiTietDonDatHang)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTDDH)).BeginInit();
             this.groupBoxDonDatHang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNhanVien.Properties)).BeginInit();
@@ -124,7 +122,7 @@ namespace QLTVT
             ((System.ComponentModel.ISupportInitialize)(this.dteNGAY.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaDonDatHang.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuNhap)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cTDDHBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsChiTietDonDatHang)).BeginInit();
             this.SuspendLayout();
             // 
             // masoDDHLabel
@@ -408,6 +406,7 @@ namespace QLTVT
             this.cmbCHINHANH.Name = "cmbCHINHANH";
             this.cmbCHINHANH.Size = new System.Drawing.Size(316, 24);
             this.cmbCHINHANH.TabIndex = 1;
+            this.cmbCHINHANH.SelectedIndexChanged += new System.EventHandler(this.cmbCHINHANH_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -559,11 +558,6 @@ namespace QLTVT
             this.gcChiTietDonDatHang.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCTDDH});
             // 
-            // bdsChiTietDonDatHang
-            // 
-            this.bdsChiTietDonDatHang.DataMember = "CTDDH";
-            this.bdsChiTietDonDatHang.DataSource = this.dataSet;
-            // 
             // gvCTDDH
             // 
             this.gvCTDDH.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -651,6 +645,7 @@ namespace QLTVT
             // txtMaNhanVien
             // 
             this.txtMaNhanVien.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsDonDatHang, "MANV", true));
+            this.txtMaNhanVien.Enabled = false;
             this.txtMaNhanVien.Location = new System.Drawing.Point(184, 144);
             this.txtMaNhanVien.MenuManager = this.barManager1;
             this.txtMaNhanVien.Name = "txtMaNhanVien";
@@ -668,7 +663,6 @@ namespace QLTVT
             // 
             // txtDonGia
             // 
-            this.txtDonGia.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsChiTietDonDatHang, "DONGIA", true));
             this.txtDonGia.EditValue = new decimal(new int[] {
             1,
             0,
@@ -695,7 +689,6 @@ namespace QLTVT
             // 
             // txtSoLuong
             // 
-            this.txtSoLuong.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsChiTietDonDatHang, "SOLUONG", true));
             this.txtSoLuong.EditValue = new decimal(new int[] {
             1,
             0,
@@ -738,7 +731,6 @@ namespace QLTVT
             // 
             // txtMaVatTu
             // 
-            this.txtMaVatTu.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsChiTietDonDatHang, "MAVT", true));
             this.txtMaVatTu.Enabled = false;
             this.txtMaVatTu.Location = new System.Drawing.Point(184, 259);
             this.txtMaVatTu.MenuManager = this.barManager1;
@@ -801,10 +793,10 @@ namespace QLTVT
             // 
             this.phieuNhapTableAdapter.ClearBeforeFill = true;
             // 
-            // cTDDHBindingSource
+            // bdsChiTietDonDatHang
             // 
-            this.cTDDHBindingSource.DataMember = "FK_CTDDH_DatHang";
-            this.cTDDHBindingSource.DataSource = this.bdsDonDatHang;
+            this.bdsChiTietDonDatHang.DataMember = "FK_CTDDH_DatHang";
+            this.bdsChiTietDonDatHang.DataSource = this.bdsDonDatHang;
             // 
             // FormDonDatHang
             // 
@@ -832,7 +824,6 @@ namespace QLTVT
             ((System.ComponentModel.ISupportInitialize)(this.gcDDH)).EndInit();
             this.gcDDH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcChiTietDonDatHang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsChiTietDonDatHang)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTDDH)).EndInit();
             this.groupBoxDonDatHang.ResumeLayout(false);
             this.groupBoxDonDatHang.PerformLayout();
@@ -845,7 +836,7 @@ namespace QLTVT
             ((System.ComponentModel.ISupportInitialize)(this.dteNGAY.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaDonDatHang.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPhieuNhap)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cTDDHBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsChiTietDonDatHang)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -890,7 +881,6 @@ namespace QLTVT
         private DevExpress.XtraGrid.Columns.GridColumn colMANV;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHO;
         private DataSetTableAdapters.CTDDHTableAdapter chiTietDonDatHangTableAdapter;
-        private System.Windows.Forms.BindingSource bdsChiTietDonDatHang;
         private System.Windows.Forms.Button btnChonKhoHang;
         private DevExpress.XtraEditors.TextEdit txtNhaCungCap;
         private DevExpress.XtraEditors.DateEdit dteNGAY;
@@ -907,6 +897,6 @@ namespace QLTVT
         private DevExpress.XtraEditors.TextEdit txtMaNhanVien;
         private System.Windows.Forms.BindingSource bdsPhieuNhap;
         private DataSetTableAdapters.PhieuNhapTableAdapter phieuNhapTableAdapter;
-        private System.Windows.Forms.BindingSource cTDDHBindingSource;
+        private System.Windows.Forms.BindingSource bdsChiTietDonDatHang;
     }
 }

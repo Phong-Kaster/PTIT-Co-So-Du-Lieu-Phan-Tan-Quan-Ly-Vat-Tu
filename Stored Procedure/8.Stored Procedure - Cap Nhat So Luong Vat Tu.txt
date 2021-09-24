@@ -1,0 +1,37 @@
+*Mục đích: cập nhật số lượng vật tư bị biến động. Nếu lập phiếu nhập thì tăng số lượng vật tư. Nếu lập phiếu xuât thì giảm số lượng vật tư
+
+*Cú pháp:
+CREATE PROCEDURE sp_CapNhatSoLuongVatTu
+	@CHEDO NVARCHAR(6),
+	@MAVT NCHAR(4),
+	@SOLUONG INT
+AS
+BEGIN
+	-- NEU XUAT VAT TU RA
+	IF( @CHEDO = 'EXPORT')
+	BEGIN
+		IF( EXISTS(SELECT * FROM DBO.Vattu AS VT WHERE VT.MAVT = @MAVT))
+			BEGIN
+				UPDATE DBO.Vattu
+				SET SOLUONGTON = SOLUONGTON - @SOLUONG
+				WHERE MAVT = @MAVT
+			END
+	END
+
+	-- NEU NHAP VAT TU VAO
+	IF( @CHEDO = 'IMPORT')
+	BEGIN
+		IF( EXISTS(SELECT * FROM DBO.Vattu AS VT WHERE VT.MAVT = @MAVT) )
+			BEGIN
+				UPDATE DBO.Vattu
+				SET SOLUONGTON = SOLUONGTON + @SOLUONG
+				WHERE MAVT = @MAVT
+			END
+	END
+END
+*Câu lệnh thử nghiệm:
+-- NHẬP 130 XE TĂNG TIGER VỚI ĐỊNH DANH PZ5 VÀO
+EXEC sp_CapNhatSoLuongVatTu 'IMPORT','PZ5', 130
+
+-- XUẤT 50 XE TĂNG TIGER VỚI ĐỊNH DANH PZ5 VÀO
+EXEC sp_CapNhatSoLuongVatTu 'EXPORT','PZ4', 50

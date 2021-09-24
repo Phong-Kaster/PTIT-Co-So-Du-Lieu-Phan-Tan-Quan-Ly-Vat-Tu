@@ -1,0 +1,21 @@
+*Muc dich: kiem tra ma phieu nhap xem co ton tai hay khong
+
+*cu phap:
+CREATE PROCEDURE sp_KiemTraMaPhieuNhap
+@MAPN nChar(8)
+AS
+BEGIN
+	IF( EXISTS( SELECT * FROM PhieuNhapWHERE MAPN = @MAPN ) )
+		RETURN 1;--TON TAI MA PHIEU NHAP
+
+	ELSE IF( EXISTS( SELECT * FROM LINK1.QLVT_DATHANG.DBO.PhieuNhap WHERE MAPN = @MAPN ) )
+		RETURN 1;--TON TAI MA PHIEU NHAP
+	RETURN 0;-- KHONG TON TAI
+END
+
+*huy sp nay di:DROP PROC sp_KiemTraMaPhieuNhap
+
+*xem ket qua
+declare @result int
+exec @result = sp_KiemTraMaPhieuNhap 'PN01'
+select @result

@@ -288,3 +288,7 @@ D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly
 D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu\QLTVT\obj\Debug\QLTVT.FormDonDatHang.resources
 D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu\QLTVT\obj\Debug\QLTVT.SubForm.FormChonKhoHang.resources
 D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu\QLTVT\obj\Debug\QLTVT.SubForm.FormChonVatTu.resources
+D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu\QLTVT\obj\Debug\QLTVT.FormPhieuNhap.resources
+D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu\QLTVT\obj\Debug\QLTVT.SubForm.FormChonDonDatHang.resources
+D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu\QLTVT\obj\Debug\QLTVT.SubForm.FormChonChiTietDonHang.resources
+D:\P.T.I.T\1.Cơ Sở Dữ Liệu Phân Tán\PTIT-Co-So-Du-Lieu-Phan-Tan-Quan-Ly-Vat-Tu\QLTVT\obj\Debug\QLTVT.FormPhieuXuat.resources
