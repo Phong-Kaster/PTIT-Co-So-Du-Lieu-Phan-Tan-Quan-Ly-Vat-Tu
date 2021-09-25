@@ -327,29 +327,23 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  
   4. Hoàn thiện toàn bộ tính năng cho form phiếu xuât kết hợp chi tiết phiếu xuất.
 # [**Special Thank**](#special-thank)
- 
  <table>
     <tr>
         <td align="center">
         <a href="https://github.com/ngdanghau">
-            <img src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.6435-9/120393662_2903859999844190_4330464510100415056_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=-BjfCkiVp4MAX8oisQu&_nc_ht=scontent.fsgn2-1.fna&oh=731ca36fe58959bb86eecad445b5d0c0&oe=6175466A" width="100px;" alt=""/>
+            <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.6435-9/120393662_2903859999844190_4330464510100415056_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=-BjfCkiVp4MAX8oisQu&_nc_ht=scontent.fsgn2-6.fna&oh=c98e90583bf7ee76470bc3003e55a57f&oe=6175466A" width="100px;" alt=""/>
             <br />
-            <sub><b> Nguyễn Đăng Hậu </b></sub>
+            <sub><b>Nguyễn Đăng Hậu</b></sub>
         </a>
-        <br />
     </td>
-</table>
- 
- <table>
-    <tr>
-        <td align="center">
-        <a href="https://github.com/huynhphuocsang">
+    <td align="center">
+        <a href="https://github.com/HuynhPhuocSang">
             <img src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.6435-9/147432028_1440147303026746_7900618652517367193_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=174925&_nc_ohc=pMaW1jb36fwAX8nW9hW&_nc_ht=scontent.fsgn2-1.fna&oh=f06bc4235ddf54e4603ecc3f30a73e32&oe=6172B705" width="100px;" alt=""/>
             <br />
-            <sub><b> Huỳnh Phước San </b></sub>
+            <sub><b>Huỳnh Phước Sang</b></sub>
         </a>
-        <br />
     </td>
+    </tr>
 </table>
  
 # [**Post Script**](#post-script)
