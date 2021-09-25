@@ -211,27 +211,61 @@ namespace QLTVT
             this.Close();
         }
 
-        private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private bool kiemTraDuLieuDauVao()
         {
-            /* Step 0 */
             if (txtMAKHO.Text == "")
             {
                 MessageBox.Show("Không bỏ trống mã kho hàng", "Thông báo", MessageBoxButtons.OK);
                 txtMAKHO.Focus();
-                return;
+                return false;
             }
+
+            if (txtMAKHO.Text.Length > 4)
+            {
+                MessageBox.Show("Mã kho không thể lớn hơn 4 kí tự", "Thông báo", MessageBoxButtons.OK);
+                txtMAKHO.Focus();
+                return false;
+            }
+
             if (txtTENKHO.Text == "")
             {
                 MessageBox.Show("Không bỏ trống tên kho hàng", "Thông báo", MessageBoxButtons.OK);
                 txtTENKHO.Focus();
-                return;
+                return false;
             }
+
+            if( txtTENKHO.Text.Length > 30)
+            {
+                MessageBox.Show("Tên kho không thể quá 30 kí tự", "Thông báo", MessageBoxButtons.OK);
+                txtTENKHO.Focus();
+                return false;
+            }    
+
             if (txtDIACHI.Text == "")
             {
                 MessageBox.Show("Không bỏ trống địa chỉ kho hàng", "Thông báo", MessageBoxButtons.OK);
                 txtDIACHI.Focus();
-                return;
+                return false;
             }
+
+            if (txtDIACHI.Text.Length > 100)
+            {
+                MessageBox.Show("Địa chỉ không quá 100 kí tự", "Thông báo", MessageBoxButtons.OK);
+                txtDIACHI.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+
+
+        private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            /* Step 0 */
+            bool ketQua = kiemTraDuLieuDauVao();
+            if (ketQua == false)
+                return;
 
             /*Step 1*/
             /*Lay du lieu truoc khi chon btnGHI - phuc vu btnHOANTAC*/

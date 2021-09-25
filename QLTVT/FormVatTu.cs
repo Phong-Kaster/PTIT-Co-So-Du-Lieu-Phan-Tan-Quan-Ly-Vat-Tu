@@ -266,6 +266,60 @@ namespace QLTVT
 
         }
 
+        private bool kiemTraDuLieuDauVao()
+        {
+            if (txtMAVT.Text == "")
+            {
+                MessageBox.Show("Không bỏ trống mã vật tư", "Thông báo", MessageBoxButtons.OK);
+                txtMAVT.Focus();
+                return false;
+            }
+
+            if (txtMAVT.Text.Length > 4)
+            {
+                MessageBox.Show("Mã vật tư không quá 4 kí tự", "Thông báo", MessageBoxButtons.OK);
+                txtMAVT.Focus();
+                return false;
+            }
+
+            if (txtTENVT.Text == "")
+            {
+                MessageBox.Show("Không bỏ trống tên vật tư", "Thông báo", MessageBoxButtons.OK);
+                txtTENVT.Focus();
+                return false;
+            }
+
+            if (txtTENVT.Text.Length > 30)
+            {
+                MessageBox.Show("Tên vật tư không quá 30 kí tự", "Thông báo", MessageBoxButtons.OK);
+                txtTENVT.Focus();
+                return false;
+            }
+
+            if (txtDONVIVATTU.Text == "")
+            {
+                MessageBox.Show("Không bỏ trống đơn vị tính", "Thông báo", MessageBoxButtons.OK);
+                txtDONVIVATTU.Focus();
+                return false;
+            }
+
+            if (txtDONVIVATTU.Text.Length > 15)
+            {
+                MessageBox.Show("Đơn vị vật tự không quá 15 kí tự", "Thông báo", MessageBoxButtons.OK);
+                txtDONVIVATTU.Focus();
+                return false;
+            }
+
+            if (txtSOLUONGTON.Value < 0)
+            {
+                MessageBox.Show("Sô lượng tồn phải ít nhất bằng 0", "Thông báo", MessageBoxButtons.OK);
+                txtSOLUONGTON.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
 
 
         /***********************************************************************
@@ -287,30 +341,9 @@ namespace QLTVT
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /* Step 0 */
-            if (txtMAVT.Text == "")
-            {
-                MessageBox.Show("Không bỏ trống mã vật tư", "Thông báo", MessageBoxButtons.OK);
-                txtMAVT.Focus();
+            bool ketQua = kiemTraDuLieuDauVao();
+            if (ketQua == false)
                 return;
-            }
-            if (txtTENVT.Text == "")
-            {
-                MessageBox.Show("Không bỏ trống tên vật tư", "Thông báo", MessageBoxButtons.OK);
-                txtTENVT.Focus();
-                return;
-            }
-            if (txtDONVIVATTU.Text == "")
-            {
-                MessageBox.Show("Không bỏ trống đơn vị tính", "Thông báo", MessageBoxButtons.OK);
-                txtDONVIVATTU.Focus();
-                return;
-            }
-            if (txtSOLUONGTON.Value < 0)
-            {
-                MessageBox.Show("Sô lượng tồn phải ít nhất bằng 0", "Thông báo", MessageBoxButtons.OK);
-                txtSOLUONGTON.Focus();
-                return;
-            }
 
 
             /*Step 1*/

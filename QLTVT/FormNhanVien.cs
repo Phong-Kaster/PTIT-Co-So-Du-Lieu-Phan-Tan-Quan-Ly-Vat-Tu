@@ -498,7 +498,73 @@ namespace QLTVT
 
         }
 
+        private bool kiemTraDuLieuDauVao()
+        {
+            if (txtMANV.Text == "")
+            {
+                MessageBox.Show("Không bỏ trống mã nhân viên", "Thông báo", MessageBoxButtons.OK);
+                txtMANV.Focus();
+                return false;
+            }
 
+            if (txtHO.Text == "")
+            {
+                MessageBox.Show("Không bỏ trống họ và tên", "Thông báo", MessageBoxButtons.OK);
+                txtHO.Focus();
+                return false;
+            }
+
+            if (txtHO.Text.Length > 40)
+            {
+                MessageBox.Show("Họ không thể lớn hơn 40 kí tự", "Thông báo", MessageBoxButtons.OK);
+                txtHO.Focus();
+                return false;
+            }
+
+            if (txtTEN.Text == "")
+            {
+                MessageBox.Show("Không bỏ trống họ và tên", "Thông báo", MessageBoxButtons.OK);
+                txtTEN.Focus();
+                return false;
+            }
+
+
+            if (txtTEN.Text.Length > 10)
+            {
+                MessageBox.Show("Tên không thể lớn hơn 10 kí tự", "Thông báo", MessageBoxButtons.OK);
+                txtTEN.Focus();
+                return false;
+            }
+
+            if (txtDIACHI.Text == "")
+            {
+                MessageBox.Show("Không bỏ trống địa chỉ", "Thông báo", MessageBoxButtons.OK);
+                txtDIACHI.Focus();
+                return false;
+            }
+
+            if (txtDIACHI.Text.Length > 100)
+            {
+                MessageBox.Show("Không bỏ trống địa chỉ", "Thông báo", MessageBoxButtons.OK);
+                txtDIACHI.Focus();
+                return false;
+            }
+
+            if (CalculateAge(dteNGAYSINH.DateTime) < 18)
+            {
+                MessageBox.Show("Nhân viên chưa đủ 18 tuổi", "Thông báo", MessageBoxButtons.OK);
+                dteNGAYSINH.Focus();
+                return false;
+            }
+
+            if (txtLUONG.Value < 4000000 || txtLUONG.Value == 0)
+            {
+                MessageBox.Show("Mức lương không thể bỏ trống & tối thiểu 4.000.000 đồng", "Thông báo", MessageBoxButtons.OK);
+                txtLUONG.Focus();
+                return false;
+            }
+            return true;
+        }
 
         /**
          * viTriConTro: vi tri con tro chuot dang dung
@@ -519,49 +585,9 @@ namespace QLTVT
         private void btnGHI_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /* Step 0 */
-            if (txtMANV.Text == "")
-            {
-                MessageBox.Show("Không bỏ trống mã nhân viên", "Thông báo", MessageBoxButtons.OK);
-                txtMANV.Focus();
+            bool ketQua = kiemTraDuLieuDauVao();
+            if (ketQua == false)
                 return;
-            }
-            if (txtHO.Text == "")
-            {
-                MessageBox.Show("Không bỏ trống họ và tên", "Thông báo", MessageBoxButtons.OK);
-                txtHO.Focus();
-                return;
-            }
-            if (txtTEN.Text == "")
-            {
-                MessageBox.Show("Không bỏ trống họ và tên", "Thông báo", MessageBoxButtons.OK);
-                txtTEN.Focus();
-                return;
-            }
-            if (txtDIACHI.Text == "")
-            {
-                MessageBox.Show("Không bỏ trống địa chỉ", "Thông báo", MessageBoxButtons.OK);
-                txtDIACHI.Focus();
-                return;
-            }
-            if (CalculateAge(dteNGAYSINH.DateTime) < 18)
-            {
-                MessageBox.Show("Nhân viên chưa đủ 18 tuổi", "Thông báo", MessageBoxButtons.OK);
-                dteNGAYSINH.Focus();
-                return;
-            }
-            /*if(CalculateAge(dteNGAYSINH.DateTime) > 60)
-            {
-                MessageBox.Show("Nhân viên này đã trên trên 60 tuổi - nằm ngoài độ tuổi lao động", "Thông báo", MessageBoxButtons.OK);
-                dteNGAYSINH.Focus();
-                return;
-            }*/
-
-            if (txtLUONG.Value < 4000000 || txtLUONG.Value == 0)
-            {
-                MessageBox.Show("Mức lương không thể bỏ trống & tối thiểu 4.000.000 đồng", "Thông báo", MessageBoxButtons.OK);
-                txtLUONG.Focus();
-                return;
-            }
 
 
 

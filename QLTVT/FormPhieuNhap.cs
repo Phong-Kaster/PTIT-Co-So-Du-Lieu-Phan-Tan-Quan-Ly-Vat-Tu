@@ -367,7 +367,7 @@ namespace QLTVT
                     Program.donGia;
 
                 this.txtMaVatTu.Enabled = false;
-                this.btnChonVatTu.Enabled = true;
+                this.btnChonChiTietDonHang.Enabled = true;
 
                 this.txtSoLuong.Enabled = true;
                 this.txtSoLuong.EditValue = 1;
@@ -542,6 +542,7 @@ namespace QLTVT
         {
             String cauTruyVan = "";
             DataRowView drv;
+
             /*TH1: dang sua phieu nhap - nhung ko co truong du lieu nao co the cho sua duoc ca*/
             if(cheDo == "Phiếu Nhập" && dangThemMoi == false)
             {
@@ -805,11 +806,20 @@ namespace QLTVT
 
             if (cheDo == "Phiếu Nhập")
             {
+                drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
+                String maNhanVien = drv["MANV"].ToString();
+                if (Program.userName != maNhanVien)
+                {
+                    MessageBox.Show("Không xóa chi tiết phiếu xuất không phải do mình tạo", "Thông báo", MessageBoxButtons.OK);
+                    return;
+                }
+
                 if (bdsChiTietPhieuNhap.Count > 0)
                 {
                     MessageBox.Show("Không thể xóa phiếu nhập vì có chi tiết phiếu nhập", "Thông báo", MessageBoxButtons.OK);
                     return;
                 }
+
                 drv = ((DataRowView)bdsPhieuNhap[bdsPhieuNhap.Position]);
                 DateTime ngay = ((DateTime)drv["NGAY"]);
 

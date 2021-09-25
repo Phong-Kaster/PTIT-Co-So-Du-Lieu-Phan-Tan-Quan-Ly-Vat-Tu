@@ -1,0 +1,22 @@
+*Mục đích: kiểm tra xem mã phiếu xuất đã tồn tại hay chưa ?
+
+*Cú pháp: 
+CREATE PROCEDURE sp_KiemTraMaPhieuXuat
+	@MAPX nChar(8)
+AS
+BEGIN
+	if( EXISTS( SELECT * FROM DBO.PhieuXuat AS PX WHERE PX.MAPX = @MAPX))
+		RETURN 1;-- ton tai o chi nhanh hien tai
+	ELSE IF( EXISTS( SELECT * FROM LINK1.QLVT_DATHANG.DBO.PhieuXuat AS PX WHERE PX.MAPX = @MAPX) )
+		RETURN 1;-- ton tai o chi nhanh khac 
+	RETURN 0;
+END
+
+*Lệnh hủy: drop procedure sp_KiemTraMaPhieuXuat
+
+*Cú pháp xem kết quả
+
+
+declare @result int
+exec @result = sp_KiemTraMaPhieuXuat 'PX03'
+select @result

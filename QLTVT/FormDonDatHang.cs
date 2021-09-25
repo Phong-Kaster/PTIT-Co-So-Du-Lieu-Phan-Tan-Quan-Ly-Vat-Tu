@@ -351,7 +351,12 @@ namespace QLTVT
                     MessageBox.Show("Không thể bỏ trống mã đơn hàng","Thông báo",MessageBoxButtons.OK);
                     return false;
                 }
-                if( txtMaNhanVien.Text == "")
+                if (txtMaDonDatHang.Text.Length > 8)
+                {
+                    MessageBox.Show("Mã đơn đặt hàng không quá 8 kí tự", "Thông báo", MessageBoxButtons.OK);
+                    return false;
+                }
+                if ( txtMaNhanVien.Text == "")
                 {
                     MessageBox.Show("Không thể bỏ trống mã nhân viên", "Thông báo", MessageBoxButtons.OK);
                     return false;
@@ -361,7 +366,12 @@ namespace QLTVT
                     MessageBox.Show("Không thể bỏ trống nhà cung cấp", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
-                if( txtMaKho.Text == "")
+                if (txtNhaCungCap.Text.Length > 100)
+                {
+                    MessageBox.Show("Tên nhà cung cấp không quá 100 kí tự", "Thông báo", MessageBoxButtons.OK);
+                    return false;
+                }
+                if ( txtMaKho.Text == "")
                 {
                     MessageBox.Show("Không thể bỏ trống mã kho", "Thông báo", MessageBoxButtons.OK);
                     return false;

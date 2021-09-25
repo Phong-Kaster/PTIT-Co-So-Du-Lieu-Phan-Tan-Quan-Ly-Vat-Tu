@@ -135,7 +135,7 @@ namespace QLTVT
             // 
             // btnKho
             // 
-            this.btnKho.Caption = "KHO";
+            this.btnKho.Caption = "KHO HÀNG";
             this.btnKho.Id = 3;
             this.btnKho.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnKho.ImageOptions.SvgImage")));
             this.btnKho.LargeWidth = 100;
