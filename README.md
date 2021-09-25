@@ -332,7 +332,7 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
     <tr>
         <td align="center">
         <a href="https://github.com/ngdanghau">
-            <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.6435-9/120393662_2903859999844190_4330464510100415056_n.jpg?_nc_cat=111&ccb=1-4&_nc_sid=09cbfe&_nc_ohc=Ul9dkWA0uHsAX_b-LRf&_nc_ht=scontent.fsgn2-6.fna&oh=1e2dc9e54bf6464ebd8a2aed3896df48&oe=613209EA" width="100px;" alt=""/>
+            <img src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.6435-9/120393662_2903859999844190_4330464510100415056_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=-BjfCkiVp4MAX8oisQu&_nc_ht=scontent.fsgn2-1.fna&oh=731ca36fe58959bb86eecad445b5d0c0&oe=6175466A" width="100px;" alt=""/>
             <br />
             <sub><b> Nguyễn Đăng Hậu </b></sub>
         </a>
