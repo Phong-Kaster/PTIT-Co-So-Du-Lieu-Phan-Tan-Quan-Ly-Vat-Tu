@@ -18,8 +18,8 @@
 - [**Data Set**](#data-set)
 - [**How To Build and How To Read**](#how-to-build-and-how-to-read)
 - [**FAQ**](#faq)
-  - [** 1.Confusing Questions**](#confusing-questions)
-  - [** 2.Interview Questions**](#interview-questions)
+   - [**1.Confusing Questions**](#confusing-questions)
+   - [**2.Interview Questions**](#interview-questions)
 - [**Timeline**](#timeline)
 - [**Special Thank**](#special-thank)
 - [**Post Script**](#post-script)
@@ -132,6 +132,7 @@ Chương trình cho phép ta tạo các login, password và cho login này làm 
  
 # [**FAQ**](#faq)
   FAQ hay viết tắt của cụm từ Frequently Asked Questions, là những câu hỏi thường gặp trong quá trình chúng ta làm đồ án này. Những câu hỏi được liệt kê bên dưới bao gồm những câu hỏi mình tổng hợp lại trong suốt quá trình học môn này. Bao gồm câu hỏi của sinh viên với thầy & những kiến thứ dễ gây lú do mình tự đúc kết ra trong quá trình làm nhé
+ 
   ##[**1.Confusing Questions**](#confusing-questions)
  
   Đây là nơi tập hợp các câu hỏi mà trong quá trình làm sinh viên tụi mình hay vướng phải và hướng giải quyết. 
@@ -255,6 +256,7 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  >Câu Hỏi 22: Chỉ người lập mới đơn hàng mới được sửa đơn hàng đó đúng không ạ ?
  
  >Đáp: Đúng
+ 
  ##[**2.Interview Questions**](#interview-questions)
  
  Đây là phần tổng hợp các câu hỏi lý thuyết mà thầy Thư có thể hỏi trong buổi thi vấn đáp cuối kì
