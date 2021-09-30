@@ -18,6 +18,8 @@
 - [**Data Set**](#data-set)
 - [**How To Build and How To Read**](#how-to-build-and-how-to-read)
 - [**FAQ**](#faq)
+   - [**1.Confusing Questions**](#1confusing-questions)
+   - [**2.Interview Questions**](#2interview-questions)
 - [**Timeline**](#timeline)
 - [**Special Thank**](#special-thank)
 - [**Post Script**](#post-script)
@@ -130,31 +132,31 @@ Chương trình cho phép ta tạo các login, password và cho login này làm 
  
 # [**FAQ**](#faq)
   FAQ hay viết tắt của cụm từ Frequently Asked Questions, là những câu hỏi thường gặp trong quá trình chúng ta làm đồ án này. Những câu hỏi được liệt kê bên dưới bao gồm những câu hỏi mình tổng hợp lại trong suốt quá trình học môn này. Bao gồm câu hỏi của sinh viên với thầy & những kiến thứ dễ gây lú do mình tự đúc kết ra trong quá trình làm nhé
-  ***
-  >Hỏi: Sau khi phân tán xong thì có 1 trường dữ liệu là rowguild. Vậy rowguid được sinh ra để làm gì?
  
-  >Đáp: Hỗ trợ quá trình đồng bộ dữ liệu từ site phân mảnh về site chủ và ngược lại.
+  ## [**1.Confusing Questions**](#1confusing-questions)
+ 
+  Đây là nơi tập hợp các câu hỏi mà trong quá trình làm sinh viên tụi mình hay vướng phải và hướng giải quyết. 
   ***
-  >Hỏi: Thầy ơi cho em hỏi đề tài 3 phiếu nhập và phiếu xuất sao mã kho không phải là khóa ngoại vậy ạ? Script chạy lên cũng ko có luôn ạ (Tức là thiếu mã kho trong các bảng này ấy)
+  >Câu Hỏi 1: Thầy ơi cho em hỏi đề tài 3 phiếu nhập và phiếu xuất sao mã kho không phải là khóa ngoại vậy ạ? Script chạy lên cũng ko có luôn ạ (Tức là thiếu mã kho trong các bảng này ấy)
   
   >Đáp: Makho là khóa ngoại, các em thêm vào database nhé.
   
   >Note: Phần [**Tools**](#tools) ở cuối bài viết có chứa script chuẩn nha. 
   ***
-  >Hỏi: Thầy ơi cho em hỏi phân mảnh 3 tra cứu chỉ có bảng Nhân viên , kho và chi nhánh thôi hả thầy ?
+  >Câu Hỏi 2: Thầy ơi cho em hỏi phân mảnh 3 tra cứu chỉ có bảng Nhân viên , kho và chi nhánh thôi hả thầy ?
   
   >Đáp: Không có chi nhánh
   ***
-  >Hỏi: Dạ thưa thầy, phần truy vấn dữ liệu, nếu trên site đang đứng mà tìm không thấy thì sẽ về site chủ để tìm hay là nhảy sang các phân mảnh khác để tìm ạ
+  >Câu Hỏi 3: Dạ thưa thầy, phần truy vấn dữ liệu, nếu trên site đang đứng mà tìm không thấy thì sẽ về site chủ để tìm hay là nhảy sang các phân mảnh khác để tìm ạ
   
   >Đáp: Về site chủ em nhé
   ***
-  >Hỏi: Thầy ơi cho em hỏi, trong tập tin word đề bài, Bảng Vật Tư không có cột Số lượng tồn, bảng Nhân viên không có Trạng thái Xóa, khác so với database
+  >Câu Hỏi 4: Thầy ơi cho em hỏi, trong tập tin word đề bài, Bảng Vật Tư không có cột Số lượng tồn, bảng Nhân viên không có Trạng thái Xóa, khác so với database
 Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  
   >Đáp: Nên có 2 cột đó !
   ***
-  >Hỏi: Chúng ta phân tán ra server 3 - Tra Cứu nhưng trong chương trình thì người đăng nhập ở vai trò nào sẽ dùng server 3 ? Nhiều đồ án khi demo chỉ đăng nhập vào chi nhánh 1 và 2 mà không thấy ai dùng server 3 để xem cả.
+  >Câu Hỏi 5: Chúng ta phân tán ra server 3 - Tra Cứu nhưng trong chương trình thì người đăng nhập ở vai trò nào sẽ dùng server 3 ? Nhiều đồ án khi demo chỉ đăng nhập vào chi nhánh 1 và 2 mà không thấy ai dùng server 3 để xem cả.
  
   >Đáp: Server 3 mục đích là để tra cứu, có nghĩa là đứng ở server 1 hoặc server 2 LINK tới server 3 chứ không được đứng ở ngay server 3 rồi thao tác với dữ liệu.
  
@@ -162,29 +164,119 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
 
   >Note: Form đăng nhập thì ở ô chọn chi nhánh chỉ được hiện chi nhánh 1 và 2 thôi. Nếu có chi nhánh 3 thì bị trừ điểm.
   ***
-  >Hỏi: Em thấy trong đề không có yêu cầu server 3 là phân mảnh dọc ?
+  >Câu Hỏi 6: Em thấy trong đề không có yêu cầu server 3 là phân mảnh dọc ?
  
   >Đáp: Theo đề bài: "QLVT được đặt trên server 3: chứa thông tin các nhân viên, kho của cả 2 chi nhánh 1 và 2. Server này dùng để tra cứu thông tin của nhân viên, kho của cả 2 chi nhánh".
  
   >Đề nói như này thì phải dùng phân mảnh dọc. Vì phân mảnh dọc sẽ lấy theo cột, nên row vẫn vậy, vẫn đầy đủ, không bị tách. thỏa mãn yêu cầu là có dữ liệu của cả 2 chi nhánh. Còn nếu dùng phân mảnh ngang thì em sẽ chỉ phân mảnh một quan hệ dựa trên một vị từ được định nghĩa. VD: CHINHANH = 'CN1' -> thiếu dữ liệu của CN2.
+  
   ***
-  >Hỏi: Login Name là gì ? Username là gì ? Mà chúng gây lú thế nhỉ ?!
-  
-  >Đáp: 
-  
-  >Login Name là tài khoản chúng ta dùng để đăng nhập vào một server. Ví dụ như tài khoản SA - tài khoản phổ biến khi đăng nhập SQL Server để tăng độ bảo mật. Sau khi kết nối thành công tới một server, chọn Security -> Logins sẽ thấy tài khoản SA
-  
-  > Username là tài khoản mà chúng ta dùng để làm việc trên một cơ sở dữ liệu. Ví dụ trên cơ sở dữ liệu QLVT, chọn vào QLVT -> Security -> Users sẽ thấy các tài khoản có thể làm việc trên cơ sở dữ liệu này
-  ***
-  >Hỏi: Em chép các Stored Procedure như view_getSubcribers hoặc sp_Lay_Thong_Tin_Nhan_Vien_Tu_Login của thầy vào không trượt phát nào (!?) nhưng chạy thì nhận về lỗi "*invalid object dbo.NHANVIEN*"  hoặc "*invalid object dbo.sysmergepublications*" , không hiểu lý do vì sao?
+  >Câu Hỏi 7: Em chép các Stored Procedure như view_getSubcribers hoặc sp_Lay_Thong_Tin_Nhan_Vien_Tu_Login của thầy vào không trượt phát nào (!?) nhưng chạy thì nhận về lỗi "*invalid object dbo.NHANVIEN*"  hoặc "*invalid object dbo.sysmergepublications*" , không hiểu lý do vì sao?
   
   >Đáp: Đó là vì SQL Server không biết câu lệnh trên đang sử dụng cơ sở dữ liệu nào. Các bạn phải chỉ đích danh cơ sở dữ liệu đang muốn truy vấn thì SQL Server mới hiểu và thực hiện được. Chạy lệnh sau để chỉ ra cơ sở dữ liệu bạn muốn dùng:
   
     USE <database name>
   
   > Ví dụ: USE QLVT
+ 
   ***
-  >Hỏi: db_dataReader, db_dataWriter, db_securityAdmin,.... rồi db_accessAdmin là gì ? Chúng dùng để làm gì ?
+  >Câu Hỏi 8: Viết Stored Procedure ở đâu là hợp lý ?
+  
+  >Đáp: Nên viết ở Server gốc. Sau đó sẽ tùy vào từng chức năng mà đẩy xuống các server phân mảnh là hợp lý nhất.
+  ***
+  >Câu Hỏi 9: Tạo LINK để liên kết các server với nhau có lưu ý gì không ?
+  
+  >Đáp: Có. Bắt buộc ở các server phân mảnh thì tên LINK phải hoàn toàn giống nhau. Ví dụ, nếu ở server thứ nhất bạn tạo ra 2 LINK
+  
+  > LINK0 dùng để kết nối từ server phân mảnh về server gốc
+  
+  > LINK1 dùng để kết nối từ server phân mảnh này đến server phân mảnh còn
+  
+  > Thì ở phân mảnh còn lại bạn cũng phải tạo 2 LINK với tên giống nhau. Điều này là vô cùng quan trọng bởi khi viết các Stored Procedure từ server gốc rồi đẩy về các phân mảnh thì các chữ LINK dùng trong Server phân mảnh nếu khác Server khác thì Stored Procedure đó sẽ bị lỗi & không thể hoạt động được
+  ***
+  >Câu Hỏi 10: Mình không thích dùng C#, có được dùng ngôn ngữ khác có được không ?
+ 
+  >Đáp: Được chứ. Thầy Thư cho phép chúng ta chọn ngôn ngữ tùy thích để xây dựng đồ án.
+  ***
+  >Câu Hỏi 11: Mình không thích chơi DevExpress & mình muốn dùng cái khác có được không ?
+  
+  >Đáp: Dĩ nhiên là được rồi. Về cơ bản DevExpress là một thư viện hỗ trợ Winform. Các bạn hoàn toàn có thể dùng thư việc đều được ( làm bằng Winform truyền thống luôn cho máu )
+  
+ ***
+ >Câu Hỏi 12: Khi không tìm được trên server hiện tại, em muốn sang phân mảnh khác để tìm thay về server gốc có được không ?
+ 
+ >Đáp: Có 2 lý do để không nên sử dụng cách này
+ 
+ >Lý do 1: Về lý thuyết thì được nhưng nếu chẳng may server phân mảnh đó offline thì sẽ không hoạt động được. Ngược lại, server gốc thì luôn online.
+ 
+ >Lý do 2: Giả sử có 3 phân mảnh và thông tin cần tìm ở server 3. Tuy nhiên, khi viết stored procedure thì chúng ta lại tìm kiếm theo trình tự 1 -> 2 -> 3. Nếu chẳng may server 2 không hoạt động thì câu lệnh sẽ trả về lỗi và chấm dứt thực thi luôn. Trong khi server 3 thì lại hoạt động bình trường. Do đó về server gốc là hợp lý hơn.
+ 
+ ***
+ >Câu Hỏi 13: Thầy cho em hỏi là Chức Năng đặt hàng thì nhân viên thuộc chi nhánh và user có được phép chỉnh sửa Mã Nhân Viên không ạ
+ 
+ >Đáp: Lấy MANV đăng nhập áp cho các phiếu, không cho sửa MANV ( nghĩa là người đăng đăng nhập thì lấy mã nhân viên của họ áp dụng vào các phiếu luôn)
+ ***
+ >Câu Hỏi 14: Thầy cho em hỏi là Chi nhánh với user đăng nhập vào thì thấy hết tất cả đơn đặt hàng , phiếu nhập, phiếu xuất luôn hả thầy, hay chỉ mỗi phiếu của chính họ thôi ạ 
+ 
+ >Đáp: Thấy hết, nhưng chỉ cho chỉnh sửa các phiếu do mình lập
+ ***
+ >Câu Hỏi 15: Thầy ơi cho em hỏi đề tài Vật Tư, NV01 có thể lập phiếu nhập trên đơn đặt hàng của NV02 không ạ?
+ 
+ >Đáp: Không
+ ***
+ >Câu Hỏi 16: Đề 3 QLVT trong table chi tiết đơn đặt hàng có phần đơn giá, thầy cho e hỏi lúc lập đơn đặt hàng thì đơn giá của vật tư lấy ở đâu ạ 
+ 
+ >Đáp: Nhập tay em
+ ***
+ >Câu Hỏi 17: Nếu mình vào sửa đơn hàng thì mình có được sửa ngày lập đơn hàng và mã kho hàng không ạ ?
+ 
+ >Đáp: Sửa mã kho hàng thì được nhưng không sửa ngày lập đơn hàng và nhân viên.
+ ***
+ >Câu Hỏi 18: Thưa thầy, giả sử ta chọn một cái đơn hàng do người khác lập thì chúng ta cũng ko được phép sửa phần chi tiết đơn hàng của họ đúng không ạ?
+ 
+ >Đáp: chắc chắn rồi ! người nào đăng nhập thì chỉ sửa cái đó. Nếu đã có phiếu nhập thì không cho xóa đơn hàng
+ ***
+ >Câu Hỏi 19: Dính phải lỗi "Cannot open database <db_name> requested by the login.The login failed", phải chữ như nào bây giờ ?
+ 
+ >Đáp: Kiểm tra lại connstr xem có sai không ? Tên database, tên servername, tên login đã ghi đúng hết chưa. Ví dụ, lúc mình làm thì mình ghi tên cơ sở dữ liệu trong phần Program.cs là QLTVT_DATHANG thay vì đúng ra phải là QLVT_DATHANG. May là mình dò kĩ nên tiết kiệm được nhiều thời gian.
+ ***
+ >Câu Hỏi 20: Gặp lỗi "unable to add a connection string" gây bối rồi quớ 🥱
+ 
+ >Đáp: Truy cập đường dẫn sau https://exerror.com/unable-to-add-data-connection-could-not-find-any-resources-appropriate-for-the-specified-culture-or-the-neutral-culture/
+ > Bước 1: Tải thư mục trong solution
+ 
+ > Bước 2: Tìm C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE
+ 
+ > Bước 3: Giải nén thư mục cài đặt & paste vào trong thư mục này
+ ***
+ >Câu Hỏi 21: Nếu mình vào sửa đơn hàng thì mình có được sửa ngày lập đơn hàng và mã kho hàng không ạ
+ 
+ >Đáp: sửa mã kho hàng được và không sửa ngày lập đơn hàng
+ ***
+ >Câu Hỏi 22: Chỉ người lập mới đơn hàng mới được sửa đơn hàng đó đúng không ạ ?
+ 
+ >Đáp: Đúng
+ 
+ ## [**2.Interview Questions**](#2interview-questions)
+ 
+ Đây là phần tổng hợp các câu hỏi lý thuyết mà thầy Thư có thể hỏi trong buổi thi vấn đáp cuối kì
+ 
+  ***
+  >Câu Hỏi 1: Sau khi phân tán xong thì có 1 trường dữ liệu là rowguild. Vậy rowguid được sinh ra để làm gì?
+ 
+  >Đáp: Hỗ trợ quá trình đồng bộ dữ liệu từ site phân mảnh về site chủ và ngược lại.
+ 
+  ***
+  >Câu Hỏi 2: Login Name là gì ? Username là gì ? Mà chúng gây lú thế nhỉ ?!
+  
+  >Đáp: 
+  
+  >Login Name là tài khoản chúng ta dùng để đăng nhập vào một server. Ví dụ như tài khoản SA - tài khoản phổ biến khi đăng nhập SQL Server để tăng độ bảo mật. Sau khi kết nối thành công tới một server, chọn Security -> Logins sẽ thấy tài khoản SA
+  
+  > Username là tài khoản mà chúng ta dùng để làm việc trên một cơ sở dữ liệu. Ví dụ trên cơ sở dữ liệu QLVT, chọn vào QLVT -> Security -> Users sẽ thấy các tài khoản có thể làm việc trên cơ sở dữ liệu này
+
+ ***
+  >Câu Hỏi 3: db_dataReader, db_dataWriter, db_securityAdmin,.... rồi db_accessAdmin là gì ? Chúng dùng để làm gì ?
   
   >Đáp: chúng là những quyền mà một tài khoản kiểu login name có thể được chỉ định & quyết định xem chúng có thể làm những gì trên cơ sở dữ liệu đó.
   
@@ -197,94 +289,35 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
   > 4.db_accessAdmin là quyền tạo các tài khoản username, tài khoản dùng để thao tác trên một cơ sơ dữ liệu nhất định
   
   > 5.db_owner là quyền cao nhất với một cơ sở dữ liệu, quyền này cho phép xem, thêm, xóa, sửa tất cả dữ liệu & có thể tạo tài khoản login name và username mà không có giới hạn nào( kiểu bạn là chủ nhà thì làm gì cũng được ấy )
-  ***
-  >Hỏi: Viết Stored Procedure ở đâu là hợp lý ?
-  
-  >Đáp: Nên viết ở Server gốc. Sau đó sẽ tùy vào từng chức năng mà đẩy xuống các server phân mảnh là hợp lý nhất.
-  ***
-  >Hỏi: Tạo LINK để liên kết các server với nhau có lưu ý gì không ?
-  
-  >Đáp: Có. Bắt buộc ở các server phân mảnh thì tên LINK phải hoàn toàn giống nhau. Ví dụ, nếu ở server thứ nhất bạn tạo ra 2 LINK
-  
-  > LINK0 dùng để kết nối từ server phân mảnh về server gốc
-  
-  > LINK1 dùng để kết nối từ server phân mảnh này đến server phân mảnh còn
-  
-  > Thì ở phân mảnh còn lại bạn cũng phải tạo 2 LINK với tên giống nhau. Điều này là vô cùng quan trọng bởi khi viết các Stored Procedure từ server gốc rồi đẩy về các phân mảnh thì các chữ LINK dùng trong Server phân mảnh nếu khác Server khác thì Stored Procedure đó sẽ bị lỗi & không thể hoạt động được
-  ***
-  >Hỏi: Mình không thích dùng C#, có được dùng ngôn ngữ khác có được không ?
- 
-  >Đáp: Được chứ. Thầy Thư cho phép chúng ta chọn ngôn ngữ tùy thích để xây dựng đồ án.
-  ***
-  >Hỏi: Mình không thích chơi DevExpress & mình muốn dùng cái khác có được không ?
-  
-  >Đáp: Dĩ nhiên là được rồi. Về cơ bản DevExpress là một thư viện hỗ trợ Winform. Các bạn hoàn toàn có thể dùng thư việc đều được ( làm bằng Winform truyền thống luôn cho máu )
-  ***
-  >Hỏi: Có 2 cách để viết Stored Procedure. Cách 1 đã được trình bình ở mục [**Stored Procedure**](#stored-procedure). Cách số 2 là viết Stored Procedure thủ công tại từng phân mảnh. Cách làm nào hiệu quả hơn ?
+
+***
+  >Câu Hỏi 4: Có 2 cách để viết Stored Procedure. Cách 1 đã được trình bình ở mục [**Stored Procedure**](#stored-procedure). Cách số 2 là viết Stored Procedure thủ công tại từng phân mảnh. Cách làm nào hiệu quả hơn ?
  
  >Đáp: Cách làm thứ nhất hay hơn. Nếu ta chỉnh sửa stored procedure trên server gốc thì sự thay đổi sẽ tự động được cập nhật xuống các server phân mảnh. Còn cách thứ 2 thì phải sửa thủ công trên từng phân mảnh.
- ***
- >Hỏi: Nếu sửa Stored Procedure trên phân mảnh thì nó có đồng bộ về các phân mảnh khác và server gốc, điều này là đúng hay sai ?
+
+***
+ >Câu Hỏi 5: Nếu sửa Stored Procedure trên phân mảnh thì nó có đồng bộ về các phân mảnh khác và server gốc, điều này là đúng hay sai ?
  
  >Đáp: Sai. Code chỉ đồng bộ theo một chiều từ server gốc tới các phân mảnh. Không có chiều ngược lại.
- ***
- >Hỏi: Khi không tìm được trên server hiện tại, em muốn sang phân mảnh khác để tìm thay về server gốc có được không ?
- 
- >Đáp: Có 2 lý do để không nên sử dụng cách này
- 
- >Lý do 1: Về lý thuyết thì được nhưng nếu chẳng may server phân mảnh đó offline thì sẽ không hoạt động được. Ngược lại, server gốc thì luôn online.
- 
- >Lý do 2: Giả sử có 3 phân mảnh và thông tin cần tìm ở server 3. Tuy nhiên, khi viết stored procedure thì chúng ta lại tìm kiếm theo trình tự 1 -> 2 -> 3. Nếu chẳng may server 2 không hoạt động thì câu lệnh sẽ trả về lỗi và chấm dứt thực thi luôn. Trong khi server 3 thì lại hoạt động bình trường. Do đó về server gốc là hợp lý hơn.
- ***
- >Hỏi: Sửa dữ liệu tại server gốc thì phân mảnh có nhận được không ? Nếu ngược lại, từ server phân mảnh về server gốc thì có nhận được không ?
+
+***
+ >Câu Hỏi 6: Sửa dữ liệu tại server gốc thì phân mảnh có nhận được không ? Nếu ngược lại, từ server phân mảnh về server gốc thì có nhận được không ?
  
  >Đáp: Có, dữ liệu đồng bộ theo 2 chiều.
+
  ***
- >Hỏi: Nêu ưu và nhược điểm khi ưu tiên tìm kiếm trên site phân mảnh trước khi về site chủ.
+ >Câu Hỏi 7: Nêu ưu và nhược điểm khi ưu tiên tìm kiếm trên site phân mảnh trước khi về site chủ.
  
  >Đáp: 
  
  >Ưu điểm: server gốc lúc nào cũng hoạt động nên luôn truy vấn được dữ liệu mong muốn
  
  >Nhược điểm: Không thể che dấu được hoàn toàn các thông tin nhạy cảm giữa các site phân mảnh. Việc cấp 1 tài khoản để vào site chủ có thể giúp người dùng đó xem được dữ liệu của site khác
+
  ***
- >Hỏi: Thầy cho em hỏi là Chức Năng đặt hàng thì nhân viên thuộc chi nhánh và user có được phép chỉnh sửa Mã Nhân Viên không ạ
+ >Câu Hỏi 8: Muốn thực thi một câu lệnh store procedure, view, function thì ta làm như nào ?
  
- >Đáp: Lấy MANV đăng nhập áp cho các phiếu, không cho sửa MANV ( nghĩa là người đăng đăng nhập thì lấy mã nhân viên của họ áp dụng vào các phiếu luôn)
- ***
- >Hỏi: Thầy cho em hỏi là Chi nhánh với user đăng nhập vào thì thấy hết tất cả đơn đặt hàng , phiếu nhập, phiếu xuất luôn hả thầy, hay chỉ mỗi phiếu của chính họ thôi ạ 
- 
- >Đáp: Thấy hết, nhưng chỉ cho chỉnh sửa các phiếu do mình lập
- ***
- >Hỏi: Thầy ơi cho em hỏi đề tài Vật Tư, NV01 có thể lập phiếu nhập trên đơn đặt hàng của NV02 không ạ?
- 
- >Đáp: Không
- ***
- >Hỏi: Đề 3 QLVT trong table chi tiết đơn đặt hàng có phần đơn giá, thầy cho e hỏi lúc lập đơn đặt hàng thì đơn giá của vật tư lấy ở đâu ạ 
- 
- >Đáp: Nhập tay em
- ***
- >Hỏi: Nếu mình vào sửa đơn hàng thì mình có được sửa ngày lập đơn hàng và mã kho hàng không ạ ?
- 
- >Đáp: Sửa mã kho hàng thì được nhưng không sửa ngày lập đơn hàng và nhân viên.
- ***
- >Hỏi: Thưa thầy, giả sử ta chọn một cái đơn hàng do người khác lập thì chúng ta cũng ko được phép sửa phần chi tiết đơn hàng của họ đúng không ạ?
- 
- >Đáp: chắc chắn rồi ! người nào đăng nhập thì chỉ sửa cái đó. Nếu đã có phiếu nhập thì không cho xóa đơn hàng
- ***
- >Hỏi: Dính phải lỗi "Cannot open database <db_name> requested by the login.The login failed", phải chữ như nào bây giờ ?
- 
- >Đáp: Kiểm tra lại connstr xem có sai không ? Tên database, tên servername, tên login đã ghi đúng hết chưa. Ví dụ, lúc mình làm thì mình ghi tên cơ sở dữ liệu trong phần Program.cs là QLTVT_DATHANG thay vì đúng ra phải là QLVT_DATHANG. May là mình dò kĩ nên tiết kiệm được nhiều thời gian.
- ***
- >Hỏi: Gặp lỗi "unable to add a connection string" gây bối rồi quớ 🥱
- 
- >Đáp: Truy cập đường dẫn sau https://exerror.com/unable-to-add-data-connection-could-not-find-any-resources-appropriate-for-the-specified-culture-or-the-neutral-culture/
- 
- > Bước 1: Tải thư mục trong solution
- 
- > Bước 2: Tìm C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE
- 
- > Bước 3: Giải nén thư mục cài đặt & paste vào trong thư mục này
+ >Đáp: Ta sẽ tạo một đối tượng là SqlCommand rồi nhúng vào các đối số cần thiết vào
 # [**Timeline**](#timeline)
 ## **Phase 1** : **01-09-2021 to 05-09-2021**
  
@@ -318,13 +351,33 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  
  11. Hoàn thiện chức năng Hoàn tác ngay cả khi đã nhấn chuyển chi nhánh.
  
-  ## **Phase 3** : **16-09-2021 to xx-09-2021**
+  ## **Phase 3** : **16-09-2021 to 25-09-2021**
   1. Hoàn thiện toàn bộ tính năng của form vật tư
  
   2. Hoàn thiện toàn bộ tính năng cho form đơn đặt hàng kết hợp chi tiết đặt hàng.
  
   3. Hoàn thiện toàn bộ tính năng cho form phiếu nhập kết hợp chi tiết phiếu nhập.
+ 
+  4. Hoàn thiện toàn bộ tính năng cho form phiếu xuât kết hợp chi tiết phiếu xuất.
 # [**Special Thank**](#special-thank)
+ <table>
+    <tr>
+        <td align="center">
+        <a href="https://github.com/ngdanghau">
+            <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.6435-9/120393662_2903859999844190_4330464510100415056_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=-BjfCkiVp4MAX8oisQu&_nc_ht=scontent.fsgn2-6.fna&oh=c98e90583bf7ee76470bc3003e55a57f&oe=6175466A" width="100px;" alt=""/>
+            <br />
+            <sub><b>Nguyễn Đăng Hậu</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/HuynhPhuocSang">
+            <img src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.6435-9/147432028_1440147303026746_7900618652517367193_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=174925&_nc_ohc=pMaW1jb36fwAX8nW9hW&_nc_ht=scontent.fsgn2-1.fna&oh=f06bc4235ddf54e4603ecc3f30a73e32&oe=6172B705" width="100px;" alt=""/>
+            <br />
+            <sub><b>Huỳnh Phước Sang</b></sub>
+        </a>
+    </td>
+    </tr>
+</table>
  
 # [**Post Script**](#post-script)
  Ngày bắt đầu: 01-09-2021
