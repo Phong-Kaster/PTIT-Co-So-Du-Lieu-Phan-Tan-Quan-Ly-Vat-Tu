@@ -100,7 +100,8 @@ Chương trình cho phép ta tạo các login, password và cho login này làm 
    > Note: Đảm bảo dịch vụ SQL Server Agent phải đang hoạt động thì quá trình mới thành công
 # [**Data Set**](#data-set)
   Phần này mình sẽ nói cho các bạn biết về chức năng của các Data Set mình sử dụng và chúng tham gia vào form nào
-  1. dataSet là cái data set chứa nội dung của toàn bộ cơ sở dữ liệu. Data Set này tham gia vào mọi form chính của chương trình gồm: nhân viên, kho, vật tư, đặt hàng.
+  dataSet là cái data set chứa nội dung của toàn bộ cơ sở dữ liệu. Data Set này tham gia vào mọi form chính của chương trình gồm: nhân viên, kho, vật tư, đặt hàng. Nói chung thì ban đầu mình tính là có nhiều data set cơ mà cuối cùng thì dùng đúng 1 cái này thôi. Không dùng tạo thêm cái nào. Tạo cái này thì các bạn làm theo video thầy Thư nhưng bước chọn bảng thì chọn hết các bảng luôn nhé.
+ 
 # [**How To Build and How To Read**](#how-to-build-and-how-to-read)
   Ui đọc đến đây là quá trời thứ phải học rồi. Vậy học thế nào cho hiệu quả đây nhỉ ??? Dễ lắm mình những thứ mình liệt kê bên dưới là theo thứ tự mình đã học và làm để tự xây dựng được đồ án này. Nói cách khác phần này hướng dẫn các bạn làm sao để tự mình solo môn này luôn ý, hehe 😎😎😎
  
@@ -359,6 +360,19 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
   3. Hoàn thiện toàn bộ tính năng cho form phiếu nhập kết hợp chi tiết phiếu nhập.
  
   4. Hoàn thiện toàn bộ tính năng cho form phiếu xuât kết hợp chi tiết phiếu xuất.
+ 
+  ## **Phase 4** : **26-09-2021 to 30-09-2021**
+  1. Hoàn thiện toàn bộ báo cáo danh sách nhân viên
+ 
+  2. Hoàn thiện toàn bộ báo cáo danh sách vật tư
+ 
+  3. Hoàn thiện toàn bộ báo cáo hoạt động nhập xuất của nhân viên
+ 
+  4. Hoàn thiện toàn bộ báo cáo đơn hàng không phiếu nhập
+ 
+  5. Hoàn thiện toàn bộ báo cáo chi tiết số lượng - trị giá hàng hóa nhập xuất
+  
+  6. Hoàn thiện toàn bộ báo cáo tổng hợp nhập xuất
 # [**Special Thank**](#special-thank)
  <table>
     <tr>
@@ -382,7 +396,9 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
 # [**Post Script**](#post-script)
  Ngày bắt đầu: 01-09-2021
  
- Ngày kết thúc: xx-xx-2021
+ Ngày kết thúc: 30-09-2021
+ 
+ 6h42 ngày 30-09-2021: ui cha, cuối cùng mình cũng hoàn thành được cái của nợ này rồi. Một tháng ròng rã cuối cùng cũng có sản phẩm cuối cùng. Thật là hạnh phúc quá đi 🤪🤪🤪. Còn 1 buổi học nữa mới hết nhưng làm xong là zui rồi. Giờ còn đồ án lập trình mạng, lập trình web nữa. Haiz, cứ từ từ mà tính vậy. Đi nghỉ thôi. Chờ ngày thi môn này xong rồi vào cập nhật tiếp !
  
 # [**Tools**](#tools)
   
