@@ -658,7 +658,7 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON FROM Vattu WHERE (MAVT = @MAVT)</CommandText
   <xs:element name="DataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DataSet" msprop:Generator_UserDSName="DataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ChiNhanh" msprop:Generator_TableClassName="ChiNhanhDataTable" msprop:Generator_TableVarName="tableChiNhanh" msprop:Generator_RowChangedName="ChiNhanhRowChanged" msprop:Generator_TablePropName="ChiNhanh" msprop:Generator_RowDeletingName="ChiNhanhRowDeleting" msprop:Generator_RowChangingName="ChiNhanhRowChanging" msprop:Generator_RowEvHandlerName="ChiNhanhRowChangeEventHandler" msprop:Generator_RowDeletedName="ChiNhanhRowDeleted" msprop:Generator_RowClassName="ChiNhanhRow" msprop:Generator_UserTableName="ChiNhanh" msprop:Generator_RowEvArgName="ChiNhanhRowChangeEvent">
+        <xs:element name="ChiNhanh" msprop:Generator_TableClassName="ChiNhanhDataTable" msprop:Generator_TableVarName="tableChiNhanh" msprop:Generator_TablePropName="ChiNhanh" msprop:Generator_RowDeletingName="ChiNhanhRowDeleting" msprop:Generator_RowChangingName="ChiNhanhRowChanging" msprop:Generator_RowEvHandlerName="ChiNhanhRowChangeEventHandler" msprop:Generator_RowDeletedName="ChiNhanhRowDeleted" msprop:Generator_UserTableName="ChiNhanh" msprop:Generator_RowChangedName="ChiNhanhRowChanged" msprop:Generator_RowEvArgName="ChiNhanhRowChangeEvent" msprop:Generator_RowClassName="ChiNhanhRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MACN" msprop:Generator_ColumnVarNameInTable="columnMACN" msprop:Generator_ColumnPropNameInRow="MACN" msprop:Generator_ColumnPropNameInTable="MACNColumn" msprop:Generator_UserColumnName="MACN">
@@ -692,7 +692,7 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON FROM Vattu WHERE (MAVT = @MAVT)</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CTDDH" msprop:Generator_TableClassName="CTDDHDataTable" msprop:Generator_TableVarName="tableCTDDH" msprop:Generator_RowChangedName="CTDDHRowChanged" msprop:Generator_TablePropName="CTDDH" msprop:Generator_RowDeletingName="CTDDHRowDeleting" msprop:Generator_RowChangingName="CTDDHRowChanging" msprop:Generator_RowEvHandlerName="CTDDHRowChangeEventHandler" msprop:Generator_RowDeletedName="CTDDHRowDeleted" msprop:Generator_RowClassName="CTDDHRow" msprop:Generator_UserTableName="CTDDH" msprop:Generator_RowEvArgName="CTDDHRowChangeEvent">
+        <xs:element name="CTDDH" msprop:Generator_TableClassName="CTDDHDataTable" msprop:Generator_TableVarName="tableCTDDH" msprop:Generator_TablePropName="CTDDH" msprop:Generator_RowDeletingName="CTDDHRowDeleting" msprop:Generator_RowChangingName="CTDDHRowChanging" msprop:Generator_RowEvHandlerName="CTDDHRowChangeEventHandler" msprop:Generator_RowDeletedName="CTDDHRowDeleted" msprop:Generator_UserTableName="CTDDH" msprop:Generator_RowChangedName="CTDDHRowChanged" msprop:Generator_RowEvArgName="CTDDHRowChangeEvent" msprop:Generator_RowClassName="CTDDHRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MasoDDH" msprop:Generator_ColumnVarNameInTable="columnMasoDDH" msprop:Generator_ColumnPropNameInRow="MasoDDH" msprop:Generator_ColumnPropNameInTable="MasoDDHColumn" msprop:Generator_UserColumnName="MasoDDH">
@@ -714,7 +714,7 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON FROM Vattu WHERE (MAVT = @MAVT)</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CTPN" msprop:Generator_TableClassName="CTPNDataTable" msprop:Generator_TableVarName="tableCTPN" msprop:Generator_RowChangedName="CTPNRowChanged" msprop:Generator_TablePropName="CTPN" msprop:Generator_RowDeletingName="CTPNRowDeleting" msprop:Generator_RowChangingName="CTPNRowChanging" msprop:Generator_RowEvHandlerName="CTPNRowChangeEventHandler" msprop:Generator_RowDeletedName="CTPNRowDeleted" msprop:Generator_RowClassName="CTPNRow" msprop:Generator_UserTableName="CTPN" msprop:Generator_RowEvArgName="CTPNRowChangeEvent">
+        <xs:element name="CTPN" msprop:Generator_TableClassName="CTPNDataTable" msprop:Generator_TableVarName="tableCTPN" msprop:Generator_TablePropName="CTPN" msprop:Generator_RowDeletingName="CTPNRowDeleting" msprop:Generator_RowChangingName="CTPNRowChanging" msprop:Generator_RowEvHandlerName="CTPNRowChangeEventHandler" msprop:Generator_RowDeletedName="CTPNRowDeleted" msprop:Generator_UserTableName="CTPN" msprop:Generator_RowChangedName="CTPNRowChanged" msprop:Generator_RowEvArgName="CTPNRowChangeEvent" msprop:Generator_RowClassName="CTPNRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAPN" msprop:Generator_ColumnVarNameInTable="columnMAPN" msprop:Generator_ColumnPropNameInRow="MAPN" msprop:Generator_ColumnPropNameInTable="MAPNColumn" msprop:Generator_UserColumnName="MAPN">
@@ -736,7 +736,7 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON FROM Vattu WHERE (MAVT = @MAVT)</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CTPX" msprop:Generator_TableClassName="CTPXDataTable" msprop:Generator_TableVarName="tableCTPX" msprop:Generator_RowChangedName="CTPXRowChanged" msprop:Generator_TablePropName="CTPX" msprop:Generator_RowDeletingName="CTPXRowDeleting" msprop:Generator_RowChangingName="CTPXRowChanging" msprop:Generator_RowEvHandlerName="CTPXRowChangeEventHandler" msprop:Generator_RowDeletedName="CTPXRowDeleted" msprop:Generator_RowClassName="CTPXRow" msprop:Generator_UserTableName="CTPX" msprop:Generator_RowEvArgName="CTPXRowChangeEvent">
+        <xs:element name="CTPX" msprop:Generator_TableClassName="CTPXDataTable" msprop:Generator_TableVarName="tableCTPX" msprop:Generator_TablePropName="CTPX" msprop:Generator_RowDeletingName="CTPXRowDeleting" msprop:Generator_RowChangingName="CTPXRowChanging" msprop:Generator_RowEvHandlerName="CTPXRowChangeEventHandler" msprop:Generator_RowDeletedName="CTPXRowDeleted" msprop:Generator_UserTableName="CTPX" msprop:Generator_RowChangedName="CTPXRowChanged" msprop:Generator_RowEvArgName="CTPXRowChangeEvent" msprop:Generator_RowClassName="CTPXRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAPX" msprop:Generator_ColumnVarNameInTable="columnMAPX" msprop:Generator_ColumnPropNameInRow="MAPX" msprop:Generator_ColumnPropNameInTable="MAPXColumn" msprop:Generator_UserColumnName="MAPX">
@@ -758,7 +758,7 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON FROM Vattu WHERE (MAVT = @MAVT)</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DatHang" msprop:Generator_TableClassName="DatHangDataTable" msprop:Generator_TableVarName="tableDatHang" msprop:Generator_RowChangedName="DatHangRowChanged" msprop:Generator_TablePropName="DatHang" msprop:Generator_RowDeletingName="DatHangRowDeleting" msprop:Generator_RowChangingName="DatHangRowChanging" msprop:Generator_RowEvHandlerName="DatHangRowChangeEventHandler" msprop:Generator_RowDeletedName="DatHangRowDeleted" msprop:Generator_RowClassName="DatHangRow" msprop:Generator_UserTableName="DatHang" msprop:Generator_RowEvArgName="DatHangRowChangeEvent">
+        <xs:element name="DatHang" msprop:Generator_TableClassName="DatHangDataTable" msprop:Generator_TableVarName="tableDatHang" msprop:Generator_TablePropName="DatHang" msprop:Generator_RowDeletingName="DatHangRowDeleting" msprop:Generator_RowChangingName="DatHangRowChanging" msprop:Generator_RowEvHandlerName="DatHangRowChangeEventHandler" msprop:Generator_RowDeletedName="DatHangRowDeleted" msprop:Generator_UserTableName="DatHang" msprop:Generator_RowChangedName="DatHangRowChanged" msprop:Generator_RowEvArgName="DatHangRowChangeEvent" msprop:Generator_RowClassName="DatHangRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MasoDDH" msprop:Generator_ColumnVarNameInTable="columnMasoDDH" msprop:Generator_ColumnPropNameInRow="MasoDDH" msprop:Generator_ColumnPropNameInTable="MasoDDHColumn" msprop:Generator_UserColumnName="MasoDDH">
@@ -787,7 +787,7 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON FROM Vattu WHERE (MAVT = @MAVT)</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Kho" msprop:Generator_TableClassName="KhoDataTable" msprop:Generator_TableVarName="tableKho" msprop:Generator_RowChangedName="KhoRowChanged" msprop:Generator_TablePropName="Kho" msprop:Generator_RowDeletingName="KhoRowDeleting" msprop:Generator_RowChangingName="KhoRowChanging" msprop:Generator_RowEvHandlerName="KhoRowChangeEventHandler" msprop:Generator_RowDeletedName="KhoRowDeleted" msprop:Generator_RowClassName="KhoRow" msprop:Generator_UserTableName="Kho" msprop:Generator_RowEvArgName="KhoRowChangeEvent">
+        <xs:element name="Kho" msprop:Generator_TableClassName="KhoDataTable" msprop:Generator_TableVarName="tableKho" msprop:Generator_TablePropName="Kho" msprop:Generator_RowDeletingName="KhoRowDeleting" msprop:Generator_RowChangingName="KhoRowChanging" msprop:Generator_RowEvHandlerName="KhoRowChangeEventHandler" msprop:Generator_RowDeletedName="KhoRowDeleted" msprop:Generator_UserTableName="Kho" msprop:Generator_RowChangedName="KhoRowChanged" msprop:Generator_RowEvArgName="KhoRowChangeEvent" msprop:Generator_RowClassName="KhoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAKHO" msprop:Generator_ColumnVarNameInTable="columnMAKHO" msprop:Generator_ColumnPropNameInRow="MAKHO" msprop:Generator_ColumnPropNameInTable="MAKHOColumn" msprop:Generator_UserColumnName="MAKHO">
@@ -821,7 +821,7 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON FROM Vattu WHERE (MAVT = @MAVT)</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="NhanVien" msprop:Generator_TableClassName="NhanVienDataTable" msprop:Generator_TableVarName="tableNhanVien" msprop:Generator_RowChangedName="NhanVienRowChanged" msprop:Generator_TablePropName="NhanVien" msprop:Generator_RowDeletingName="NhanVienRowDeleting" msprop:Generator_RowChangingName="NhanVienRowChanging" msprop:Generator_RowEvHandlerName="NhanVienRowChangeEventHandler" msprop:Generator_RowDeletedName="NhanVienRowDeleted" msprop:Generator_RowClassName="NhanVienRow" msprop:Generator_UserTableName="NhanVien" msprop:Generator_RowEvArgName="NhanVienRowChangeEvent">
+        <xs:element name="NhanVien" msprop:Generator_TableClassName="NhanVienDataTable" msprop:Generator_TableVarName="tableNhanVien" msprop:Generator_TablePropName="NhanVien" msprop:Generator_RowDeletingName="NhanVienRowDeleting" msprop:Generator_RowChangingName="NhanVienRowChanging" msprop:Generator_RowEvHandlerName="NhanVienRowChangeEventHandler" msprop:Generator_RowDeletedName="NhanVienRowDeleted" msprop:Generator_UserTableName="NhanVien" msprop:Generator_RowChangedName="NhanVienRowChanged" msprop:Generator_RowEvArgName="NhanVienRowChangeEvent" msprop:Generator_RowClassName="NhanVienRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MANV" msprop:Generator_ColumnVarNameInTable="columnMANV" msprop:Generator_ColumnPropNameInRow="MANV" msprop:Generator_ColumnPropNameInTable="MANVColumn" msprop:Generator_UserColumnName="MANV" type="xs:int" />
@@ -859,7 +859,7 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON FROM Vattu WHERE (MAVT = @MAVT)</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PhieuNhap" msprop:Generator_TableClassName="PhieuNhapDataTable" msprop:Generator_TableVarName="tablePhieuNhap" msprop:Generator_RowChangedName="PhieuNhapRowChanged" msprop:Generator_TablePropName="PhieuNhap" msprop:Generator_RowDeletingName="PhieuNhapRowDeleting" msprop:Generator_RowChangingName="PhieuNhapRowChanging" msprop:Generator_RowEvHandlerName="PhieuNhapRowChangeEventHandler" msprop:Generator_RowDeletedName="PhieuNhapRowDeleted" msprop:Generator_RowClassName="PhieuNhapRow" msprop:Generator_UserTableName="PhieuNhap" msprop:Generator_RowEvArgName="PhieuNhapRowChangeEvent">
+        <xs:element name="PhieuNhap" msprop:Generator_TableClassName="PhieuNhapDataTable" msprop:Generator_TableVarName="tablePhieuNhap" msprop:Generator_TablePropName="PhieuNhap" msprop:Generator_RowDeletingName="PhieuNhapRowDeleting" msprop:Generator_RowChangingName="PhieuNhapRowChanging" msprop:Generator_RowEvHandlerName="PhieuNhapRowChangeEventHandler" msprop:Generator_RowDeletedName="PhieuNhapRowDeleted" msprop:Generator_UserTableName="PhieuNhap" msprop:Generator_RowChangedName="PhieuNhapRowChanged" msprop:Generator_RowEvArgName="PhieuNhapRowChangeEvent" msprop:Generator_RowClassName="PhieuNhapRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAPN" msprop:Generator_ColumnVarNameInTable="columnMAPN" msprop:Generator_ColumnPropNameInRow="MAPN" msprop:Generator_ColumnPropNameInTable="MAPNColumn" msprop:Generator_UserColumnName="MAPN">
@@ -888,7 +888,7 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON FROM Vattu WHERE (MAVT = @MAVT)</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="PhieuXuat" msprop:Generator_TableClassName="PhieuXuatDataTable" msprop:Generator_TableVarName="tablePhieuXuat" msprop:Generator_RowChangedName="PhieuXuatRowChanged" msprop:Generator_TablePropName="PhieuXuat" msprop:Generator_RowDeletingName="PhieuXuatRowDeleting" msprop:Generator_RowChangingName="PhieuXuatRowChanging" msprop:Generator_RowEvHandlerName="PhieuXuatRowChangeEventHandler" msprop:Generator_RowDeletedName="PhieuXuatRowDeleted" msprop:Generator_RowClassName="PhieuXuatRow" msprop:Generator_UserTableName="PhieuXuat" msprop:Generator_RowEvArgName="PhieuXuatRowChangeEvent">
+        <xs:element name="PhieuXuat" msprop:Generator_TableClassName="PhieuXuatDataTable" msprop:Generator_TableVarName="tablePhieuXuat" msprop:Generator_TablePropName="PhieuXuat" msprop:Generator_RowDeletingName="PhieuXuatRowDeleting" msprop:Generator_RowChangingName="PhieuXuatRowChanging" msprop:Generator_RowEvHandlerName="PhieuXuatRowChangeEventHandler" msprop:Generator_RowDeletedName="PhieuXuatRowDeleted" msprop:Generator_UserTableName="PhieuXuat" msprop:Generator_RowChangedName="PhieuXuatRowChanged" msprop:Generator_RowEvArgName="PhieuXuatRowChangeEvent" msprop:Generator_RowClassName="PhieuXuatRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAPX" msprop:Generator_ColumnVarNameInTable="columnMAPX" msprop:Generator_ColumnPropNameInRow="MAPX" msprop:Generator_ColumnPropNameInTable="MAPXColumn" msprop:Generator_UserColumnName="MAPX">
@@ -917,7 +917,7 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON FROM Vattu WHERE (MAVT = @MAVT)</CommandText
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vattu" msprop:Generator_TableClassName="VattuDataTable" msprop:Generator_TableVarName="tableVattu" msprop:Generator_RowChangedName="VattuRowChanged" msprop:Generator_TablePropName="Vattu" msprop:Generator_RowDeletingName="VattuRowDeleting" msprop:Generator_RowChangingName="VattuRowChanging" msprop:Generator_RowEvHandlerName="VattuRowChangeEventHandler" msprop:Generator_RowDeletedName="VattuRowDeleted" msprop:Generator_RowClassName="VattuRow" msprop:Generator_UserTableName="Vattu" msprop:Generator_RowEvArgName="VattuRowChangeEvent">
+        <xs:element name="Vattu" msprop:Generator_TableClassName="VattuDataTable" msprop:Generator_TableVarName="tableVattu" msprop:Generator_TablePropName="Vattu" msprop:Generator_RowDeletingName="VattuRowDeleting" msprop:Generator_RowChangingName="VattuRowChanging" msprop:Generator_RowEvHandlerName="VattuRowChangeEventHandler" msprop:Generator_RowDeletedName="VattuRowDeleted" msprop:Generator_UserTableName="Vattu" msprop:Generator_RowChangedName="VattuRowChanged" msprop:Generator_RowEvArgName="VattuRowChangeEvent" msprop:Generator_RowClassName="VattuRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAVT" msprop:Generator_ColumnVarNameInTable="columnMAVT" msprop:Generator_ColumnPropNameInRow="MAVT" msprop:Generator_ColumnPropNameInTable="MAVTColumn" msprop:Generator_UserColumnName="MAVT">
@@ -990,65 +990,65 @@ SELECT MAVT, TENVT, DVT, SOLUONGTON FROM Vattu WHERE (MAVT = @MAVT)</CommandText
       <xs:selector xpath=".//mstns:Vattu" />
       <xs:field xpath="mstns:MAVT" />
     </xs:unique>
-    <xs:keyref name="FK_PX_NhanVien" refer="NhanVien_Constraint1" msprop:rel_Generator_UserChildTable="PhieuXuat" msprop:rel_Generator_ChildPropName="GetPhieuXuatRows" msprop:rel_Generator_UserRelationName="FK_PX_NhanVien" msprop:rel_Generator_ParentPropName="NhanVienRow" msprop:rel_Generator_RelationVarName="relationFK_PX_NhanVien" msprop:rel_Generator_UserParentTable="NhanVien" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:PhieuXuat" />
-      <xs:field xpath="mstns:MANV" />
-    </xs:keyref>
-    <xs:keyref name="FK_PhieuXuat_Kho" refer="Kho_Constraint1" msprop:rel_Generator_UserChildTable="PhieuXuat" msprop:rel_Generator_ChildPropName="GetPhieuXuatRows" msprop:rel_Generator_UserRelationName="FK_PhieuXuat_Kho" msprop:rel_Generator_ParentPropName="KhoRow" msprop:rel_Generator_RelationVarName="relationFK_PhieuXuat_Kho" msprop:rel_Generator_UserParentTable="Kho" msdata:DeleteRule="None">
+    <xs:keyref name="FK_PhieuXuat_Kho" refer="Kho_Constraint1" msprop:rel_Generator_UserChildTable="PhieuXuat" msprop:rel_Generator_ChildPropName="GetPhieuXuatRows" msprop:rel_Generator_UserRelationName="FK_PhieuXuat_Kho" msprop:rel_Generator_RelationVarName="relationFK_PhieuXuat_Kho" msprop:rel_Generator_UserParentTable="Kho" msprop:rel_Generator_ParentPropName="KhoRow" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:PhieuXuat" />
       <xs:field xpath="mstns:MAKHO" />
     </xs:keyref>
-    <xs:keyref name="FK_PhieuNhap_DatHang" refer="DatHang_Constraint1" msprop:rel_Generator_UserChildTable="PhieuNhap" msprop:rel_Generator_ChildPropName="GetPhieuNhapRows" msprop:rel_Generator_UserRelationName="FK_PhieuNhap_DatHang" msprop:rel_Generator_ParentPropName="DatHangRow" msprop:rel_Generator_RelationVarName="relationFK_PhieuNhap_DatHang" msprop:rel_Generator_UserParentTable="DatHang" msdata:DeleteRule="None">
+    <xs:keyref name="FK_PX_NhanVien" refer="NhanVien_Constraint1" msprop:rel_Generator_UserChildTable="PhieuXuat" msprop:rel_Generator_ChildPropName="GetPhieuXuatRows" msprop:rel_Generator_UserRelationName="FK_PX_NhanVien" msprop:rel_Generator_RelationVarName="relationFK_PX_NhanVien" msprop:rel_Generator_UserParentTable="NhanVien" msprop:rel_Generator_ParentPropName="NhanVienRow" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:PhieuXuat" />
+      <xs:field xpath="mstns:MANV" />
+    </xs:keyref>
+    <xs:keyref name="FK_PhieuNhap_Kho" refer="Kho_Constraint1" msprop:rel_Generator_UserChildTable="PhieuNhap" msprop:rel_Generator_ChildPropName="GetPhieuNhapRows" msprop:rel_Generator_UserRelationName="FK_PhieuNhap_Kho" msprop:rel_Generator_RelationVarName="relationFK_PhieuNhap_Kho" msprop:rel_Generator_UserParentTable="Kho" msprop:rel_Generator_ParentPropName="KhoRow" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:PhieuNhap" />
+      <xs:field xpath="mstns:MAKHO" />
+    </xs:keyref>
+    <xs:keyref name="FK_PhieuNhap_NhanVien" refer="NhanVien_Constraint1" msprop:rel_Generator_UserChildTable="PhieuNhap" msprop:rel_Generator_ChildPropName="GetPhieuNhapRows" msprop:rel_Generator_UserRelationName="FK_PhieuNhap_NhanVien" msprop:rel_Generator_RelationVarName="relationFK_PhieuNhap_NhanVien" msprop:rel_Generator_UserParentTable="NhanVien" msprop:rel_Generator_ParentPropName="NhanVienRow" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:PhieuNhap" />
+      <xs:field xpath="mstns:MANV" />
+    </xs:keyref>
+    <xs:keyref name="FK_PhieuNhap_DatHang" refer="DatHang_Constraint1" msprop:rel_Generator_UserChildTable="PhieuNhap" msprop:rel_Generator_ChildPropName="GetPhieuNhapRows" msprop:rel_Generator_UserRelationName="FK_PhieuNhap_DatHang" msprop:rel_Generator_RelationVarName="relationFK_PhieuNhap_DatHang" msprop:rel_Generator_UserParentTable="DatHang" msprop:rel_Generator_ParentPropName="DatHangRow" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:PhieuNhap" />
       <xs:field xpath="mstns:MasoDDH" />
     </xs:keyref>
-    <xs:keyref name="FK_PhieuNhap_NhanVien" refer="NhanVien_Constraint1" msprop:rel_Generator_UserChildTable="PhieuNhap" msprop:rel_Generator_ChildPropName="GetPhieuNhapRows" msprop:rel_Generator_UserRelationName="FK_PhieuNhap_NhanVien" msprop:rel_Generator_ParentPropName="NhanVienRow" msprop:rel_Generator_RelationVarName="relationFK_PhieuNhap_NhanVien" msprop:rel_Generator_UserParentTable="NhanVien" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:PhieuNhap" />
-      <xs:field xpath="mstns:MANV" />
-    </xs:keyref>
-    <xs:keyref name="FK_PhieuNhap_Kho" refer="Kho_Constraint1" msprop:rel_Generator_UserChildTable="PhieuNhap" msprop:rel_Generator_ChildPropName="GetPhieuNhapRows" msprop:rel_Generator_UserRelationName="FK_PhieuNhap_Kho" msprop:rel_Generator_ParentPropName="KhoRow" msprop:rel_Generator_RelationVarName="relationFK_PhieuNhap_Kho" msprop:rel_Generator_UserParentTable="Kho" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:PhieuNhap" />
-      <xs:field xpath="mstns:MAKHO" />
-    </xs:keyref>
-    <xs:keyref name="FK_NhanVien_ChiNhanh" refer="Constraint1" msprop:rel_Generator_UserChildTable="NhanVien" msprop:rel_Generator_ChildPropName="GetNhanVienRows" msprop:rel_Generator_UserRelationName="FK_NhanVien_ChiNhanh" msprop:rel_Generator_ParentPropName="ChiNhanhRow" msprop:rel_Generator_RelationVarName="relationFK_NhanVien_ChiNhanh" msprop:rel_Generator_UserParentTable="ChiNhanh" msdata:DeleteRule="None">
+    <xs:keyref name="FK_NhanVien_ChiNhanh" refer="Constraint1" msprop:rel_Generator_UserChildTable="NhanVien" msprop:rel_Generator_ChildPropName="GetNhanVienRows" msprop:rel_Generator_UserRelationName="FK_NhanVien_ChiNhanh" msprop:rel_Generator_RelationVarName="relationFK_NhanVien_ChiNhanh" msprop:rel_Generator_UserParentTable="ChiNhanh" msprop:rel_Generator_ParentPropName="ChiNhanhRow" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:NhanVien" />
       <xs:field xpath="mstns:MACN" />
     </xs:keyref>
-    <xs:keyref name="FK_Kho_Kho" refer="Constraint1" msprop:rel_Generator_UserChildTable="Kho" msprop:rel_Generator_ChildPropName="GetKhoRows" msprop:rel_Generator_UserRelationName="FK_Kho_Kho" msprop:rel_Generator_ParentPropName="ChiNhanhRow" msprop:rel_Generator_RelationVarName="relationFK_Kho_Kho" msprop:rel_Generator_UserParentTable="ChiNhanh" msdata:DeleteRule="None">
+    <xs:keyref name="FK_Kho_Kho" refer="Constraint1" msprop:rel_Generator_UserChildTable="Kho" msprop:rel_Generator_ChildPropName="GetKhoRows" msprop:rel_Generator_UserRelationName="FK_Kho_Kho" msprop:rel_Generator_RelationVarName="relationFK_Kho_Kho" msprop:rel_Generator_UserParentTable="ChiNhanh" msprop:rel_Generator_ParentPropName="ChiNhanhRow" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:Kho" />
       <xs:field xpath="mstns:MACN" />
     </xs:keyref>
-    <xs:keyref name="FK_DatHang_NhanVien" refer="NhanVien_Constraint1" msprop:rel_Generator_UserChildTable="DatHang" msprop:rel_Generator_ChildPropName="GetDatHangRows" msprop:rel_Generator_UserRelationName="FK_DatHang_NhanVien" msprop:rel_Generator_RelationVarName="relationFK_DatHang_NhanVien" msprop:rel_Generator_UserParentTable="NhanVien" msprop:rel_Generator_ParentPropName="NhanVienRow" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:DatHang" />
-      <xs:field xpath="mstns:MANV" />
-    </xs:keyref>
-    <xs:keyref name="FK_DatHang_Kho" refer="Kho_Constraint1" msprop:rel_Generator_UserChildTable="DatHang" msprop:rel_Generator_ChildPropName="GetDatHangRows" msprop:rel_Generator_UserRelationName="FK_DatHang_Kho" msprop:rel_Generator_RelationVarName="relationFK_DatHang_Kho" msprop:rel_Generator_UserParentTable="Kho" msprop:rel_Generator_ParentPropName="KhoRow" msdata:DeleteRule="None">
+    <xs:keyref name="FK_DatHang_Kho" refer="Kho_Constraint1" msprop:rel_Generator_UserChildTable="DatHang" msprop:rel_Generator_ChildPropName="GetDatHangRows" msprop:rel_Generator_UserRelationName="FK_DatHang_Kho" msprop:rel_Generator_ParentPropName="KhoRow" msprop:rel_Generator_RelationVarName="relationFK_DatHang_Kho" msprop:rel_Generator_UserParentTable="Kho" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:DatHang" />
       <xs:field xpath="mstns:MAKHO" />
     </xs:keyref>
-    <xs:keyref name="FK_CTPX_VatTu" refer="Vattu_Constraint1" msprop:rel_Generator_UserChildTable="CTPX" msprop:rel_Generator_ChildPropName="GetCTPXRows" msprop:rel_Generator_UserRelationName="FK_CTPX_VatTu" msprop:rel_Generator_RelationVarName="relationFK_CTPX_VatTu" msprop:rel_Generator_UserParentTable="Vattu" msprop:rel_Generator_ParentPropName="VattuRow" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:CTPX" />
-      <xs:field xpath="mstns:MAVT" />
+    <xs:keyref name="FK_DatHang_NhanVien" refer="NhanVien_Constraint1" msprop:rel_Generator_UserChildTable="DatHang" msprop:rel_Generator_ChildPropName="GetDatHangRows" msprop:rel_Generator_UserRelationName="FK_DatHang_NhanVien" msprop:rel_Generator_ParentPropName="NhanVienRow" msprop:rel_Generator_RelationVarName="relationFK_DatHang_NhanVien" msprop:rel_Generator_UserParentTable="NhanVien" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:DatHang" />
+      <xs:field xpath="mstns:MANV" />
     </xs:keyref>
-    <xs:keyref name="FK_CTPX_PX" refer="PhieuXuat_Constraint1" msprop:rel_Generator_UserChildTable="CTPX" msprop:rel_Generator_ChildPropName="GetCTPXRows" msprop:rel_Generator_UserRelationName="FK_CTPX_PX" msprop:rel_Generator_RelationVarName="relationFK_CTPX_PX" msprop:rel_Generator_UserParentTable="PhieuXuat" msprop:rel_Generator_ParentPropName="PhieuXuatRow" msdata:DeleteRule="None">
+    <xs:keyref name="FK_CTPX_PX" refer="PhieuXuat_Constraint1" msprop:rel_Generator_UserChildTable="CTPX" msprop:rel_Generator_ChildPropName="GetCTPXRows" msprop:rel_Generator_UserRelationName="FK_CTPX_PX" msprop:rel_Generator_ParentPropName="PhieuXuatRow" msprop:rel_Generator_RelationVarName="relationFK_CTPX_PX" msprop:rel_Generator_UserParentTable="PhieuXuat" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:CTPX" />
       <xs:field xpath="mstns:MAPX" />
     </xs:keyref>
-    <xs:keyref name="FK_CTPN_VatTu" refer="Vattu_Constraint1" msprop:rel_Generator_UserChildTable="CTPN" msprop:rel_Generator_ChildPropName="GetCTPNRows" msprop:rel_Generator_UserRelationName="FK_CTPN_VatTu" msprop:rel_Generator_RelationVarName="relationFK_CTPN_VatTu" msprop:rel_Generator_UserParentTable="Vattu" msprop:rel_Generator_ParentPropName="VattuRow" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:CTPN" />
+    <xs:keyref name="FK_CTPX_VatTu" refer="Vattu_Constraint1" msprop:rel_Generator_UserChildTable="CTPX" msprop:rel_Generator_ChildPropName="GetCTPXRows" msprop:rel_Generator_UserRelationName="FK_CTPX_VatTu" msprop:rel_Generator_ParentPropName="VattuRow" msprop:rel_Generator_RelationVarName="relationFK_CTPX_VatTu" msprop:rel_Generator_UserParentTable="Vattu" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:CTPX" />
       <xs:field xpath="mstns:MAVT" />
     </xs:keyref>
-    <xs:keyref name="FK_CTPN_PhieuNhap" refer="PhieuNhap_Constraint1" msprop:rel_Generator_UserChildTable="CTPN" msprop:rel_Generator_ChildPropName="GetCTPNRows" msprop:rel_Generator_UserRelationName="FK_CTPN_PhieuNhap" msprop:rel_Generator_RelationVarName="relationFK_CTPN_PhieuNhap" msprop:rel_Generator_UserParentTable="PhieuNhap" msprop:rel_Generator_ParentPropName="PhieuNhapRow" msdata:DeleteRule="None">
+    <xs:keyref name="FK_CTPN_PhieuNhap" refer="PhieuNhap_Constraint1" msprop:rel_Generator_UserChildTable="CTPN" msprop:rel_Generator_ChildPropName="GetCTPNRows" msprop:rel_Generator_UserRelationName="FK_CTPN_PhieuNhap" msprop:rel_Generator_ParentPropName="PhieuNhapRow" msprop:rel_Generator_RelationVarName="relationFK_CTPN_PhieuNhap" msprop:rel_Generator_UserParentTable="PhieuNhap" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:CTPN" />
       <xs:field xpath="mstns:MAPN" />
     </xs:keyref>
-    <xs:keyref name="FK_CTDDH_VatTu" refer="Vattu_Constraint1" msprop:rel_Generator_UserChildTable="CTDDH" msprop:rel_Generator_ChildPropName="GetCTDDHRows" msprop:rel_Generator_UserRelationName="FK_CTDDH_VatTu" msprop:rel_Generator_RelationVarName="relationFK_CTDDH_VatTu" msprop:rel_Generator_UserParentTable="Vattu" msprop:rel_Generator_ParentPropName="VattuRow" msdata:DeleteRule="None">
-      <xs:selector xpath=".//mstns:CTDDH" />
+    <xs:keyref name="FK_CTPN_VatTu" refer="Vattu_Constraint1" msprop:rel_Generator_UserChildTable="CTPN" msprop:rel_Generator_ChildPropName="GetCTPNRows" msprop:rel_Generator_UserRelationName="FK_CTPN_VatTu" msprop:rel_Generator_ParentPropName="VattuRow" msprop:rel_Generator_RelationVarName="relationFK_CTPN_VatTu" msprop:rel_Generator_UserParentTable="Vattu" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:CTPN" />
       <xs:field xpath="mstns:MAVT" />
     </xs:keyref>
-    <xs:keyref name="FK_CTDDH_DatHang" refer="DatHang_Constraint1" msprop:rel_Generator_UserChildTable="CTDDH" msprop:rel_Generator_ChildPropName="GetCTDDHRows" msprop:rel_Generator_UserRelationName="FK_CTDDH_DatHang" msprop:rel_Generator_RelationVarName="relationFK_CTDDH_DatHang" msprop:rel_Generator_UserParentTable="DatHang" msprop:rel_Generator_ParentPropName="DatHangRow" msdata:DeleteRule="None">
+    <xs:keyref name="FK_CTDDH_DatHang" refer="DatHang_Constraint1" msprop:rel_Generator_UserChildTable="CTDDH" msprop:rel_Generator_ChildPropName="GetCTDDHRows" msprop:rel_Generator_UserRelationName="FK_CTDDH_DatHang" msprop:rel_Generator_ParentPropName="DatHangRow" msprop:rel_Generator_RelationVarName="relationFK_CTDDH_DatHang" msprop:rel_Generator_UserParentTable="DatHang" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:CTDDH" />
       <xs:field xpath="mstns:MasoDDH" />
+    </xs:keyref>
+    <xs:keyref name="FK_CTDDH_VatTu" refer="Vattu_Constraint1" msprop:rel_Generator_UserChildTable="CTDDH" msprop:rel_Generator_ChildPropName="GetCTDDHRows" msprop:rel_Generator_UserRelationName="FK_CTDDH_VatTu" msprop:rel_Generator_ParentPropName="VattuRow" msprop:rel_Generator_RelationVarName="relationFK_CTDDH_VatTu" msprop:rel_Generator_UserParentTable="Vattu" msdata:DeleteRule="None">
+      <xs:selector xpath=".//mstns:CTDDH" />
+      <xs:field xpath="mstns:MAVT" />
     </xs:keyref>
   </xs:element>
 </xs:schema>

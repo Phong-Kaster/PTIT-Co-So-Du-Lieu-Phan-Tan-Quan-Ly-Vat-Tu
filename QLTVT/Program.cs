@@ -1,5 +1,6 @@
 ﻿using DevExpress.Skins;
 using DevExpress.UserSkins;
+using QLTVT.ReportForm;
 using QLTVT.SubForm;
 using System;
 using System.Collections.Generic;
@@ -106,11 +107,26 @@ namespace QLTVT
         public static string maKhoDuocChon = "";
         public static string maVatTuDuocChon = "";
 
+
+
+        /***********************************************
+         * 4 bien ben duoi phuc vu cho chuc nang in bao cao
+         * hoat dong nhan vien
+         * 
+         * muc dich: tuong tu nhu maKhoDuocChon & maVatTuDuocChon
+         ***********************************************/
         public static int soLuongVatTu = 0;
         public static string maDonDatHangDuocChon = "";
         public static string maDonDatHangDuocChonChiTiet = "";
         public static int donGia = 0;
 
+
+
+        /*Cho nay de phuc vu tinh nang HOAT DONG NHAN VIEN*/
+        public static string maNhanVienDuocChon = "";
+        public static string hoTen = "";
+        public static string diaChi = "";
+        public static string ngaySinh = "";
 
         /*bidSou: BindingSource -> liên kết dữ liệu từ bảng dữ liệu vào chương trình*/
         public static BindingSource bindingSource = new BindingSource();//bds_dspm
@@ -133,7 +149,13 @@ namespace QLTVT
         public static FormChonChiTietDonHang formChonChiTietDonHang;
         public static FormPhieuXuat formPhieuXuat;
 
+        public static FormDanhSachNhanVien formDanhSachNhanVien;
+        public static FormDanhSachVatTu formDanhSachVatTu;
+        public static FormDonHangKhongPhieuNhap formDonHangKhongPhieuNhap;
 
+        public static FormChiTietSoLuongTriGiaHangHoaNhapXuat formChiTietSoLuongTriGiaHangHoaNhapXuat;
+        public static FormHoatDongNhanVien formHoatDongNhanVien;
+        public static FormTongHopNhapXuat formTongHopNhapXuat;
         /*****************************************************
          * mở kết nối tới server 
          * @return trả về 1 nếu thành công

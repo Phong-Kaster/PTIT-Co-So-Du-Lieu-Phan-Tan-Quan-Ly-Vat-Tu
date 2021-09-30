@@ -1,0 +1,55 @@
+*Mục đích: lấy tổng số tiền nhập và xuất của một ngày, tính tỉ lệ số tiền nhập | xuât trong 1 ngày với tổng số tiền từ ngày X tới ngày Y
+
+*Cú pháp:
+CREATE PROCEDURE sp_TongHopNhapXuat
+@FromDate DATETIME,
+@ToDate DATETIME
+AS
+BEGIN
+	IF(1=0)
+	BEGIN
+		SET FMTONLY OFF
+	END
+	--------------------phieu nhap--------------------------
+	SELECT PN.NGAY,
+			NHAP = SUM (CT.DONGIA * CT.SOLUONG),
+			TYLENHAP = (SUM (CT.DONGIA * CT.SOLUONG)/ (SELECT SUM(DONGIA * SOLUONG)
+						FROM CTPN , PhieuNhap WHERE CTPN.MAPN = PhieuNhap.MAPN
+						AND PhieuNhap.NGAY BETWEEN @FromDate AND @ToDate )) INTO #PHIEUNHAPTABLE
+	FROM PhieuNhap AS PN,
+		CTPN AS CT
+	WHERE PN.MAPN = CT.MAPN
+	AND PN.NGAY BETWEEN @FromDate AND @ToDate
+	GROUP BY PN.NGAY
+	
+	--------------------phieu xuat--------------------------
+	SELECT PX.NGAY,
+			XUAT = SUM (CT.DONGIA * CT.SOLUONG),
+			TYLEXUAT = (SUM (CT.DONGIA * CT.SOLUONG)/ (SELECT SUM(DONGIA * SOLUONG)
+						FROM CTPX , PhieuXuat WHERE CTPX.MAPX = PhieuXuat.MAPX
+						AND PhieuXuat.NGAY BETWEEN @FromDate AND @ToDate )) INTO #PHIEUXUATTABLE
+	FROM PhieuXuat AS PX,
+		CTPX AS CT
+	WHERE PX.MAPX = CT.MAPX
+	AND PX.NGAY BETWEEN @FromDate AND @ToDate
+	GROUP BY PX.NGAY
+	-----------------------TONG HOP--------------------------------------
+	SELECT 
+		ISNULL(PN.NGAY,PX.NGAY) AS NGAY,
+		ISNULL(PN.NHAP, 0) AS NHAP,
+		ISNULL(PN.TYLENHAP,0) TILENHAP,
+		ISNULL(PX.XUAT,0) XUAT,
+		ISNULL(PX.TYLEXUAT,0) AS TILEXUAT
+	FROM #PHIEUNHAPTABLE AS PN 
+	FULL JOIN #PHIEUXUATTABLE AS PX
+	ON PN.NGAY = PX.NGAY
+	ORDER BY NGAY
+END
+
+
+*Đọc thêm lý do sử dụng if 1 = 0 set FTMonly off:https://www.sqlservercentral.com/forums/topic/if-10-begin-set-fmtonly-off-end#post-1207481
+- Ngắn gọn là nếu FTMonly = Off thì phải chạy hết STORED PROCEDURE này mới xuất ra tên các cột. Điều này là ko hợp lý nếu cả hàng nghìn cột phải tính toán thì thời gian để quét hết các kết quả có thể quá thời gian Visual Studio chờ để lấy tên cột-> báo lỗi
+- Đặt là FTMonly= On thì sẽ bỏ qua hết các câu lênh tính toán để trả ngay về tên cột trước.
+*Xem kết quả
+drop proc sp_TongHopNhapXuat 
+exec sp_TongHopNhapXuat '2000-05-01' , '2021-12-30'

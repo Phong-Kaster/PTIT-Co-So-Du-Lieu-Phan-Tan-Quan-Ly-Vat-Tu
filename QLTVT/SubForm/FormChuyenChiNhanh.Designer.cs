@@ -91,7 +91,7 @@ namespace QLTVT.SubForm
             this.Controls.Add(this.label1);
             this.Name = "FormChuyenChiNhanh";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormChuyenChiNhanh";
+            this.Text = "Chuyển Chi Nhánh";
             this.Load += new System.EventHandler(this.FormChuyenChiNhanh_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

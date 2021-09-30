@@ -6,3 +6,10 @@
     {
     }
 }
+
+namespace QLTVT.DataSetTableAdapters {
+    
+    
+    public partial class NhanVienTableAdapter {
+    }
+}

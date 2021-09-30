@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using QLTVT.ReportForm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -50,7 +51,14 @@ namespace QLTVT
 
             pageNhapXuat.Visible = true;
             pageBaoCao.Visible = true;
-            pageTaiKhoan.Visible = true;
+            btnLapTaiKhoan.Enabled = true;
+
+            if( Program.role == "USER")
+            {
+                btnLapTaiKhoan.Enabled = false;
+            }    
+
+            //pageTaiKhoan.Visible = true;
 
 
         }
@@ -83,7 +91,7 @@ namespace QLTVT
 
             pageNhapXuat.Visible = false;
             pageBaoCao.Visible = false;
-            pageTaiKhoan.Visible = false;
+            //pageTaiKhoan.Visible = false;
 
             Form f = this.CheckExists(typeof(FormDangNhap));
             if (f != null)
@@ -246,6 +254,111 @@ namespace QLTVT
             {
                 FormPhieuXuat form = new FormPhieuXuat();
                 form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnDanhSachNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormDanhSachNhanVien));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDanhSachNhanVien form = new FormDanhSachNhanVien();
+                //form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnDanhSachVatTu_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormDanhSachVatTu));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDanhSachVatTu form = new FormDanhSachVatTu();
+                //form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnDonHangKhongPhieuNhap_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormDonHangKhongPhieuNhap));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormDonHangKhongPhieuNhap form = new FormDonHangKhongPhieuNhap();
+                //form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnChiTietNhapXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormChiTietSoLuongTriGiaHangHoaNhapXuat));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormChiTietSoLuongTriGiaHangHoaNhapXuat form = new FormChiTietSoLuongTriGiaHangHoaNhapXuat();
+                //form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnHoatDongNhanVien_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormHoatDongNhanVien));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormHoatDongNhanVien form = new FormHoatDongNhanVien();
+                //form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnTongHopNhapXuat_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormTongHopNhapXuat));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormTongHopNhapXuat form = new FormTongHopNhapXuat();
+                //form.MdiParent = this;
+                form.Show();
+            }
+        }
+
+        private void btnLapTaiKhoan_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            Form f = this.CheckExists(typeof(FormTaoTaiKhoan));
+            if (f != null)
+            {
+                f.Activate();
+            }
+            else
+            {
+                FormTaoTaiKhoan form = new FormTaoTaiKhoan();
+                //form.MdiParent = this;
                 form.Show();
             }
         }

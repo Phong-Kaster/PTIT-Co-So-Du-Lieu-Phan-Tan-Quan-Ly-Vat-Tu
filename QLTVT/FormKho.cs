@@ -495,5 +495,10 @@ namespace QLTVT
                 undoList.Pop();
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

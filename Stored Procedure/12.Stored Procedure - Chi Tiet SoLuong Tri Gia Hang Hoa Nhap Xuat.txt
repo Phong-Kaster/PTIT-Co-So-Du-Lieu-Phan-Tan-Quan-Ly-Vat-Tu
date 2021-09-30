@@ -1,0 +1,142 @@
+*Mục đích: Lấy ra chi tiết số lượng và trị giá hàng hóa nhập | xuất
+
+*Cú pháp:
+
+CREATE PROCEDURE sp_ChiTietSoLuongTriGiaHangHoaNhapXuat
+@ROLE NVARCHAR(8),
+@TYPE NVARCHAR(4),
+@FROMYEAR INT,
+@FROMMONTH INT,
+@TOYEAR INT,
+@TOMONTH INT
+AS
+BEGIN
+	IF( @ROLE = 'CONGTY')
+	BEGIN
+		IF(@TYPE = 'NHAP')--NHAP
+		BEGIN
+				--LAY TAT CA PHIEU NHAP CUA PHAN MANH HIEN TAI
+				SELECT NGAY, 
+						TENVT, 
+						SOLUONG,
+						DONGIA,
+						SOLUONG * DONGIA AS TRIGIA
+				FROM
+					( SELECT NGAY,MAPN 
+						FROM PhieuNhap
+						WHERE  
+						(YEAR(NGAY) >= @FROMYEAR AND MONTH(NGAY) >= @FROMMONTH)
+						AND 
+						(YEAR(NGAY) <= @TOYEAR   AND MONTH(NGAY) <= @TOMONTH) )PHIEU,
+					( SELECT TENVT,MAVT FROM Vattu ) VT,
+					( SELECT SOLUONG, DONGIA, MAPN,MAVT FROM CTPN) CT
+				WHERE PHIEU.MAPN = CT.MAPN
+				AND VT.MAVT = CT.MAVT
+			UNION
+				--LAY TAT CA PHIEU NHAP CUA PHAN MANH CON LAI
+				SELECT NGAY, 
+						TENVT, 
+						SOLUONG,
+						DONGIA,
+						SOLUONG * DONGIA AS TRIGIA
+				FROM
+					( SELECT NGAY,MAPN 
+						FROM LINK1.QLVT_DATHANG.DBO.PhieuNhap
+						WHERE  
+						(YEAR(NGAY) >= @FROMYEAR AND MONTH(NGAY) >= @FROMMONTH)
+						AND 
+						(YEAR(NGAY) <= @TOYEAR   AND MONTH(NGAY) <= @TOMONTH) )PHIEU,
+					( SELECT TENVT,MAVT FROM LINK1.QLVT_DATHANG.DBO.Vattu ) VT,
+					( SELECT SOLUONG, DONGIA, MAPN,MAVT FROM LINK1.QLVT_DATHANG.DBO.CTPN) CT
+				WHERE PHIEU.MAPN = CT.MAPN
+				AND VT.MAVT = CT.MAVT
+		END
+
+		ELSE--@TYPE = 'XUAT'
+		BEGIN
+					--LAY TAT CA PHIEU XUAT CUA PHAN MANH HIEN TAI
+					SELECT NGAY, 
+					TENVT, 
+					SOLUONG,
+					DONGIA,
+					SOLUONG * DONGIA AS TRIGIA
+					FROM
+						( SELECT NGAY,MAPX
+							FROM PhieuXuat
+							WHERE  
+							(YEAR(NGAY) >= @FROMYEAR AND MONTH(NGAY) >= @FROMMONTH)
+							AND 
+							(YEAR(NGAY) <= @TOYEAR   AND MONTH(NGAY) <= @TOMONTH) )PHIEU,
+						( SELECT TENVT,MAVT FROM Vattu ) VT,
+						( SELECT SOLUONG, DONGIA, MAPX,MAVT FROM CTPX) CT
+					WHERE PHIEU.MAPX = CT.MAPX
+					AND VT.MAVT = CT.MAVT
+				UNION
+					SELECT NGAY, 
+					TENVT, 
+					SOLUONG,
+					DONGIA,
+					SOLUONG * DONGIA AS TRIGIA
+					FROM
+						( SELECT NGAY,MAPX
+							FROM LINK1.QLVT_DATHANG.DBO.PhieuXuat
+							WHERE  
+							(YEAR(NGAY) >= @FROMYEAR AND MONTH(NGAY) >= @FROMMONTH)
+							AND 
+							(YEAR(NGAY) <= @TOYEAR   AND MONTH(NGAY) <= @TOMONTH) )PHIEU,
+						( SELECT TENVT,MAVT FROM LINK1.QLVT_DATHANG.DBO.Vattu ) VT,
+						( SELECT SOLUONG, DONGIA, MAPX,MAVT FROM LINK1.QLVT_DATHANG.DBO.CTPX) CT
+					WHERE PHIEU.MAPX = CT.MAPX
+					AND VT.MAVT = CT.MAVT
+		END
+	END
+
+	ELSE -- CHI NHANH & USER
+	BEGIN
+		IF(@TYPE = 'NHAP')
+		BEGIN
+				SELECT NGAY, 
+				TENVT, 
+				SOLUONG,
+				DONGIA,
+				SOLUONG * DONGIA AS TRIGIA
+				FROM
+					( SELECT NGAY,MAPN 
+						FROM PhieuNhap
+						WHERE  
+						(YEAR(NGAY) >= @FROMYEAR AND MONTH(NGAY) >= @FROMMONTH)
+						AND 
+						(YEAR(NGAY) <= @TOYEAR   AND MONTH(NGAY) <= @TOMONTH) )PHIEU,
+					( SELECT TENVT,MAVT FROM Vattu ) VT,
+					( SELECT SOLUONG, DONGIA, MAPN,MAVT FROM CTPN) CT
+				WHERE PHIEU.MAPN = CT.MAPN
+				AND VT.MAVT = CT.MAVT
+		END
+		ELSE -- @LOAI = 'XUAT'
+		BEGIN
+					SELECT NGAY, 
+					TENVT, 
+					SOLUONG,
+					DONGIA,
+					SOLUONG * DONGIA AS TRIGIA
+					FROM
+						( SELECT NGAY,MAPX
+							FROM PhieuXuat
+							WHERE  
+							(YEAR(NGAY) >= @FROMYEAR AND MONTH(NGAY) >= @FROMMONTH)
+							AND 
+							(YEAR(NGAY) <= @TOYEAR   AND MONTH(NGAY) <= @TOMONTH) )PHIEU,
+						( SELECT TENVT,MAVT FROM Vattu ) VT,
+						( SELECT SOLUONG, DONGIA, MAPX,MAVT FROM CTPX) CT
+					WHERE PHIEU.MAPX = CT.MAPX
+					AND VT.MAVT = CT.MAVT
+		END
+	END
+END--AS->BEGIN
+
+*Chú ý: câu lênh này có lẽ hơi khác bình thường bởi mình viết nó nhằm mục đích thực hiện ý đồ "TỐI ƯU HÓA TRUY VẤN". Thời điểm mình đang viết - tức Thứ 4, 29-09-2021 này, mình đã học qua buổi học thứ 6, nên bắt buộc phải có 1 số câu lệnh truy vấn kiểu này để ăn thêm điểm.
+
+*Hủy và chạy thử với 2 lệnh sau:
+DROP PROCEDURE sp_ChiTietSoLuongTriGiaHangHoaNhapXuat
+
+EXEC sp_ChiTietSoLuongTriGiaHangHoaNhapXuat 'CHINHANH', 'NHAP', 2016, 06, 2021, 09

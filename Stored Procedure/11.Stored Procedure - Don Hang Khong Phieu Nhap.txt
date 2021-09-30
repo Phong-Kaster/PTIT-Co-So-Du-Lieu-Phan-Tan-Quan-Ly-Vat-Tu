@@ -1,0 +1,59 @@
+*Mục đích: lấy những đơn đặt hàng mà chưa có phiếu nhập tương ứng với đơn hàng đó. Yêu cầu phải xuất ra những trường dữ liệu sau:
+1.Mã số đơn hàng
+2.Ngày
+3.Nhà cung cấp
+4.Họ tên nhân viên( txtHO + txtTEN)
+5.Tên vật tư
+6.Số lượng 
+7.Đơn giá
+
+Cú pháp:
+SELECT  DH.MasoDDH, 
+		DH.NGAY, DH.NhaCC, 
+		(SELECT NV.HO + ' ' + NV.TEN FROM NhanVien AS NV WHERE NV.MANV = DH.MANV ) AS HOTEN, 
+		VT.TENVT, 
+		CT.SOLUONG, 
+		CT.DONGIA
+FROM DBO.DatHang AS DH,
+	DBO.NhanVien AS NV,
+	DBO.Vattu AS VT,
+	DBO.CTDDH AS CT
+WHERE DH.MasoDDH = CT.MasoDDH
+AND DH.MANV = NV.MANV
+AND CT.MAVT = VT.MAVT
+AND DH.MasoDDH NOT IN ( SELECT PN.MasoDDH from PhieuNhap as PN)
+
+Chú ý: đơn đặt hàng ko có chi tiết đơn đặt hàng thì cũng ko hiện lên được. Đơn đặt hàng phải có chi tiết đơn đặt hàng và chưa có phiếu nhập thì mới hiển thị được
+
+*Nháp :
+select * 
+from dbo.DatHang
+
+select * 
+from dbo.PhieuNhap 
+
+SELECT DH.MasoDDH,Ngay,NhaCC,TenNV, TENVT, SOLUONG, DONGIA 
+FROM
+	(SELECT MasoDDH,Ngay,NhaCC, MANV 
+	 FROM dbo.DatHang
+	 WHERE DatHang.MasoDDH not in (SELECT MasoDDH FROM dbo.PhieuNhap)) DH,
+								(SELECT MANV,TENNV = HO +' ' +Ten FROM dbo.NhanVien) NV,
+								(SELECT MAVT,TENVT FROM dbo.Vattu) VT,
+	CTDDH CT
+WHERE (NV.MANV = DH.MANV) AND (VT.MAVT =CT.MAVT) AND (CT.MasoDDH = DH.MasoDDH)
+
+
+SELECT  DH.MasoDDH, 
+		DH.NGAY, DH.NhaCC, 
+		(SELECT NV.HO + ' ' + NV.TEN FROM NhanVien AS NV WHERE NV.MANV = DH.MANV ) AS HOTEN, 
+		VT.TENVT, 
+		CT.SOLUONG, 
+		CT.DONGIA
+FROM DBO.DatHang AS DH,
+	DBO.NhanVien AS NV,
+	DBO.Vattu AS VT,
+	DBO.CTDDH AS CT
+WHERE DH.MasoDDH = CT.MasoDDH
+AND DH.MANV = NV.MANV
+AND CT.MAVT = VT.MAVT
+AND DH.MasoDDH NOT IN ( SELECT PN.MasoDDH from PhieuNhap as PN)

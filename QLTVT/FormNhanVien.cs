@@ -388,18 +388,12 @@ namespace QLTVT
             int trangThai = (trangThaiXoaCheckBox.Checked == true) ? 1 : 0;
             /*Lấy ngày sinh trong grid view*/
             DateTime NGAYSINH = (DateTime)((DataRowView)bdsNhanVien[bdsNhanVien.Position])["NGAYSINH"];
-           
-           
+
+
             string cauTruyVanHoanTac =
-            "INSERT INTO DBO.NHANVIEN( MANV,HO,TEN,DIACHI,NGAYSINH,LUONG,MACN)" +
-            "VALUES(" + txtMANV.Text + ",'" +
-                        txtHO.Text + "','" +
-                        txtTEN.Text + "','" +
-                        txtDIACHI.Text +
-                        "',CAST(" + NGAYSINH.ToString("yyyy-MM-dd") + " AS DATETIME)," +
-                        txtLUONG.Value +
-                        ",'" + txtMACN.Text.Trim() + "')";
-           
+                string.Format("INSERT INTO DBO.NHANVIEN( MANV,HO,TEN,DIACHI,NGAYSINH,LUONG,MACN)" +
+            "VALUES({0},'{1}','{2}','{3}',CAST({4} AS DATETIME), {5},'{6}')", txtMANV.Text, txtHO.Text, txtTEN.Text, txtDIACHI.Text, NGAYSINH.ToString("yyyy-MM-dd"), txtLUONG.Value, txtMACN.Text.Trim());
+
             Console.WriteLine(cauTruyVanHoanTac);
             undoList.Push(cauTruyVanHoanTac);
 
@@ -806,8 +800,17 @@ namespace QLTVT
         }
         private void btnCHUYENCHINHANH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+
+
             int viTriHienTai = bdsNhanVien.Position;
             int trangThaiXoa = int.Parse( ( (DataRowView) (bdsNhanVien[viTriHienTai]) )["TrangThaiXoa"].ToString());
+            string maNhanVien = ((DataRowView)(bdsNhanVien[viTriHienTai]))["MANV"].ToString();
+
+            if( maNhanVien == Program.userName)
+            {
+                MessageBox.Show("Không thể chuyển chính người đang đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }    
 
             /*Step 1 - Kiem tra trang thai xoa*/
             if ( trangThaiXoa == 1 )
