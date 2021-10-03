@@ -1,0 +1,25 @@
+*Mục đích: giả sử ở chi nhánh 1, có thể vật tư X không được sử dụng. Nhưng ở chi nhánh 2 thì nó có thể được sử dụng trong chi tiết phiếu nhập hoặc chi tiết phiếu xuất nào đó. Nếu ta xóa ở chi nhánh 1 thì khi qua chi nhánh 2 có thể gây xung đột dữ liệu.
+
+Stored Procedure này sinh ra để đảm bảo nếu một vật tư được sử dụng ở chi nhánh 2 thì cũng ko thể bị xóa khi đứng ở chi nhánh 1 cho dù ở chi nhánh 1 vật tư này không tham gia trong phiếu nhập | xuất nào.
+
+*Cú pháp:
+
+CREATE PROCEDURE sp_KiemTraMaVatTuChiNhanhConLai
+	@MAVT NVARCHAR(4)
+AS
+BEGIN
+	IF EXISTS( SELECT 1 FROM LINK1.QLVT_DATHANG.DBO.Vattu as V
+				WHERE V.MAVT = @MAVT
+				AND				
+				(EXISTS(SELECT 1 FROM LINK1.QLVT_DATHANG.DBO.CTPN WHERE CTPN.MAVT = @MAVT))
+				OR (EXISTS(SELECT 1 FROM LINK1.QLVT_DATHANG.DBO.CTPX WHERE CTPX.MAVT = @MAVT)) )
+		RETURN 1;
+
+	RETURN 0;
+END
+
+*Xóa nó: drop proc sp_KiemTraMaVatTuChiNhanhConLai
+*Cú pháp xem kết quả:
+declare @returnedResult int
+exec @returnedResult = sp_KiemTraMaVatTuChiNhanhConLai 'PZ4'
+select @returnedResult

@@ -477,10 +477,60 @@ namespace QLTVT
                 return;
             }
         }
-        /*
+
+
+
+        /***************************************************************************
+         * có thể ở chi nhánh này vật tư X không được sử dụng trong phiếu nhập | xuất nào
+         * cả. Nhưng ở chi nhánh khác vật tư X được sử dụng trong phiếu nhập hoặc xuất
+         * nếu xóa thì gây mâu thuẫn dữ liệu.
+         * 
+         * Nếu vật tư được sử dụng ở chi nhánh khác thì không được xóa
+         * 
+         * Trả về 1 nếu tồn tại. Trả về 0 nếu chưa tham gia vào phiếu nhập | xuất nào
+         ***************************************************************************/
+        private int kiemTraVatTuCoSuDungTaiChiNhanhKhac(String maVatTu)
+        {
+            String cauTruyVan =
+                    "DECLARE	@result int " +
+                    "EXEC @result = sp_KiemTraMaVatTuChiNhanhConLai '" +
+                    maVatTu + "' " +
+                    "SELECT 'Value' = @result";
+            SqlCommand sqlCommand = new SqlCommand(cauTruyVan, Program.conn);
+            try
+            {
+                Program.myReader = Program.ExecSqlDataReader(cauTruyVan);
+                /*khong co ket qua tra ve thi ket thuc luon*/
+                if (Program.myReader == null)
+                {
+                    return 1;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Thực thi database thất bại!\n\n" + ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex.Message);
+                return 1;
+            }
+            Program.myReader.Read();
+            int result = int.Parse(Program.myReader.GetValue(0).ToString());
+            //Console.WriteLine("line 535");
+            //Console.WriteLine(result);
+            Program.myReader.Close();
+
+            /*result = 1 nghia la vat tu nay dang duoc su dung o chi nhanh con lai*/
+            int ketQua = (result == 1) ? 1 : 0;
+
+            return ketQua;
+        }
+
+
+
+        /****************************************************************************
          * Step 1: Kiem tra du lieu dau vao
          * Step 2: Them cau lenh hoan tac neu can
-         */
+         ***************************************************************************/
         private void btnXOA_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             /*Step 1*/
@@ -507,9 +557,23 @@ namespace QLTVT
                 return;
             }
 
+
+
+            /*kiem tra xem no co dang duoc su dung tai chi nhanh khac hay khong ?*/
+            String maVatTu = txtMAVT.Text.Trim();// Trim() de loai bo khoang trang thua
+            int ketQua = kiemTraVatTuCoSuDungTaiChiNhanhKhac(maVatTu);
+
+            if( ketQua == 1)
+            {
+                MessageBox.Show("Không thể xóa vật tư này vì đang được sử dụng ở chi nhánh khác", "Thông báo", MessageBoxButtons.OK);
+                return;
+            }    
+
+
+
             /* Phần này phục vụ tính năng hoàn tác
-                    * Đưa câu truy vấn hoàn tác vào undoList 
-                    * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
+            * Đưa câu truy vấn hoàn tác vào undoList 
+            * để nếu chẳng may người dùng ấn hoàn tác thì quất luôn*/
 
 
             string cauTruyVanHoanTac =
@@ -553,7 +617,7 @@ namespace QLTVT
             {
                 // xoa cau truy van hoan tac di
                 undoList.Pop();
-            }    
+            }
         }
     }
 }
