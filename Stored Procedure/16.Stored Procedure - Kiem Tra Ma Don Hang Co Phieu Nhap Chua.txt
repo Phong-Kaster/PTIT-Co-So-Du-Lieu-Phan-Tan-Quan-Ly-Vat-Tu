@@ -1,0 +1,21 @@
+*Mục đính: kiểm tra đơn hàng X có đã có phiếu nhập hay chưa ? Mỗi đơn hàng chỉ có 1 phiếu nhập duy nhất.
+
+*Cú pháp:
+CREATE PROCEDURE sp_DonHangCoPhieuNhapChua
+@MaDonHang nchar(8)
+AS
+BEGIN
+	IF(EXISTS(SELECT 1 FROM DBO.PhieuNhap AS P WHERE P.MasoDDH = @MaDonHang))
+		RETURN 1;
+	ELSE IF( EXISTS(SELECT 1 FROM LINK1.QLVT_DATHANG.DBO.PhieuNhap AS P WHERE P.MasoDDH = @MaDonHang))
+		RETURN 1;
+	RETURN 0;
+END
+
+*Kiểm tra kết quả:
+DECLARE @RESULT INT
+EXEC @RESULT = sp_DonHangCoPhieuNhapChua 'MX07'
+SELECT @RESULT
+
+*Hủy bỏ:
+DROP PROC sp_DonHangCoPhieuNhapChua

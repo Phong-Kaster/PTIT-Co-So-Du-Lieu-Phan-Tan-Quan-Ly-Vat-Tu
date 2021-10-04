@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -494,6 +495,7 @@ namespace QLTVT
 
         private bool kiemTraDuLieuDauVao()
         {
+            /*kiem tra txtMANV*/
             if (txtMANV.Text == "")
             {
                 MessageBox.Show("Không bỏ trống mã nhân viên", "Thông báo", MessageBoxButtons.OK);
@@ -501,20 +503,33 @@ namespace QLTVT
                 return false;
             }
 
+            if (Regex.IsMatch(txtMANV.Text, @"^[a-zA-Z0-9]+$") == false)
+            {
+                MessageBox.Show("Mã nhân viên chỉ chấp nhận số", "Thông báo", MessageBoxButtons.OK);
+                txtMANV.Focus();
+                return false;
+            }
+            /*kiem tra txtHO*/
             if (txtHO.Text == "")
             {
                 MessageBox.Show("Không bỏ trống họ và tên", "Thông báo", MessageBoxButtons.OK);
                 txtHO.Focus();
                 return false;
             }
-
+            //"^[0-9A-Za-z ]+$"
+            if ( Regex.IsMatch(txtHO.Text, @"^[A-Za-z ]+$") == false)
+            {
+                MessageBox.Show("Họ của người chỉ có chữ cái và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
+                txtHO.Focus();
+                return false;
+            }
             if (txtHO.Text.Length > 40)
             {
                 MessageBox.Show("Họ không thể lớn hơn 40 kí tự", "Thông báo", MessageBoxButtons.OK);
                 txtHO.Focus();
                 return false;
             }
-
+            /*kiem tra txtTEN*/
             if (txtTEN.Text == "")
             {
                 MessageBox.Show("Không bỏ trống họ và tên", "Thông báo", MessageBoxButtons.OK);
@@ -522,6 +537,12 @@ namespace QLTVT
                 return false;
             }
 
+            if (Regex.IsMatch(txtTEN.Text, @"^[a-zA-Z ]+$") == false)
+            {
+                MessageBox.Show("Tên người chỉ có chữ cái và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
+                txtTEN.Focus();
+                return false;
+            }
 
             if (txtTEN.Text.Length > 10)
             {
@@ -529,10 +550,17 @@ namespace QLTVT
                 txtTEN.Focus();
                 return false;
             }
-
+            /*kiem tra txtDIACHI*/
             if (txtDIACHI.Text == "")
             {
                 MessageBox.Show("Không bỏ trống địa chỉ", "Thông báo", MessageBoxButtons.OK);
+                txtDIACHI.Focus();
+                return false;
+            }
+
+            if (Regex.IsMatch(txtDIACHI.Text, @"^[a-zA-Z0-9, ]+$") == false)
+            {
+                MessageBox.Show("Địa chỉ chỉ chấp nhận chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtDIACHI.Focus();
                 return false;
             }
@@ -543,7 +571,7 @@ namespace QLTVT
                 txtDIACHI.Focus();
                 return false;
             }
-
+            /*kiem tra dteNGAYSINH va txtLUONG*/
             if (CalculateAge(dteNGAYSINH.DateTime) < 18)
             {
                 MessageBox.Show("Nhân viên chưa đủ 18 tuổi", "Thông báo", MessageBoxButtons.OK);
@@ -559,6 +587,8 @@ namespace QLTVT
             }
             return true;
         }
+
+
 
         /**
          * viTriConTro: vi tri con tro chuot dang dung

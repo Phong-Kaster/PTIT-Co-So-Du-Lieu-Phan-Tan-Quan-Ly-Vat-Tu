@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -213,9 +214,17 @@ namespace QLTVT
 
         private bool kiemTraDuLieuDauVao()
         {
+            /*kiem tra txtMAKHO*/
             if (txtMAKHO.Text == "")
             {
                 MessageBox.Show("Không bỏ trống mã kho hàng", "Thông báo", MessageBoxButtons.OK);
+                txtMAKHO.Focus();
+                return false;
+            }
+
+            if (Regex.IsMatch(txtMAKHO.Text, @"^[a-zA-Z0-9]+$") == false)
+            {
+                MessageBox.Show("Mã kho chỉ chấp nhận chữ và số", "Thông báo", MessageBoxButtons.OK);
                 txtMAKHO.Focus();
                 return false;
             }
@@ -226,7 +235,7 @@ namespace QLTVT
                 txtMAKHO.Focus();
                 return false;
             }
-
+            /*kiem tra txtTenKho*/
             if (txtTENKHO.Text == "")
             {
                 MessageBox.Show("Không bỏ trống tên kho hàng", "Thông báo", MessageBoxButtons.OK);
@@ -234,16 +243,30 @@ namespace QLTVT
                 return false;
             }
 
-            if( txtTENKHO.Text.Length > 30)
+            if (Regex.IsMatch(txtTENKHO.Text, @"^[a-zA-Z0-9 ]+$") == false)
+            {
+                MessageBox.Show("Mã kho chỉ chấp nhận chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
+                txtTENKHO.Focus();
+                return false;
+            }
+
+            if ( txtTENKHO.Text.Length > 30)
             {
                 MessageBox.Show("Tên kho không thể quá 30 kí tự", "Thông báo", MessageBoxButtons.OK);
                 txtTENKHO.Focus();
                 return false;
-            }    
-
+            }
+            /*kiem tra txtDiaChi*/
             if (txtDIACHI.Text == "")
             {
                 MessageBox.Show("Không bỏ trống địa chỉ kho hàng", "Thông báo", MessageBoxButtons.OK);
+                txtDIACHI.Focus();
+                return false;
+            }
+
+            if (Regex.IsMatch(txtDIACHI.Text, @"^[a-zA-Z0-9, ]+$") == false)
+            {
+                MessageBox.Show("Địa chỉ chỉ gồm chữ cái, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
                 txtDIACHI.Focus();
                 return false;
             }

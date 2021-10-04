@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -268,9 +269,17 @@ namespace QLTVT
 
         private bool kiemTraDuLieuDauVao()
         {
+            /*Kiem tra txtMAVT*/
             if (txtMAVT.Text == "")
             {
                 MessageBox.Show("Không bỏ trống mã vật tư", "Thông báo", MessageBoxButtons.OK);
+                txtMAVT.Focus();
+                return false;
+            }
+
+            if (Regex.IsMatch(txtMAVT.Text, @"^[a-zA-Z0-9]+$") == false)
+            {
+                MessageBox.Show("Mã vật tư chỉ có chữ cái và số", "Thông báo", MessageBoxButtons.OK);
                 txtMAVT.Focus();
                 return false;
             }
@@ -281,24 +290,38 @@ namespace QLTVT
                 txtMAVT.Focus();
                 return false;
             }
-
+            /*Kiem tra txtTENVT*/
             if (txtTENVT.Text == "")
             {
                 MessageBox.Show("Không bỏ trống tên vật tư", "Thông báo", MessageBoxButtons.OK);
                 txtTENVT.Focus();
                 return false;
             }
-
+            
+            if (Regex.IsMatch(txtTENVT.Text, @"^[a-zA-Z0-9 ]+$") == false)
+            {
+                MessageBox.Show("Tên vật tư chỉ chấp nhận chữ, số và khoảng trắng", "Thông báo", MessageBoxButtons.OK);
+                txtTENVT.Focus();
+                return false;
+            }
+            
             if (txtTENVT.Text.Length > 30)
             {
                 MessageBox.Show("Tên vật tư không quá 30 kí tự", "Thông báo", MessageBoxButtons.OK);
                 txtTENVT.Focus();
                 return false;
             }
-
+            /*Kiem tra txtDONVIVATTU*/
             if (txtDONVIVATTU.Text == "")
             {
                 MessageBox.Show("Không bỏ trống đơn vị tính", "Thông báo", MessageBoxButtons.OK);
+                txtDONVIVATTU.Focus();
+                return false;
+            }
+
+            if (Regex.IsMatch(txtDONVIVATTU.Text, @"^[a-zA-Z ]+$") == false)
+            {
+                MessageBox.Show("Đơn vị vật tư chỉ có chữ cái", "Thông báo", MessageBoxButtons.OK);
                 txtDONVIVATTU.Focus();
                 return false;
             }
@@ -309,7 +332,7 @@ namespace QLTVT
                 txtDONVIVATTU.Focus();
                 return false;
             }
-
+            /*Kiem tra txtSOLUONGTON*/
             if (txtSOLUONGTON.Value < 0)
             {
                 MessageBox.Show("Sô lượng tồn phải ít nhất bằng 0", "Thông báo", MessageBoxButtons.OK);

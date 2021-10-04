@@ -365,7 +365,7 @@ namespace QLTVT
             this.gcKHO.Margin = new System.Windows.Forms.Padding(8);
             this.gcKHO.MenuManager = this.barManager1;
             this.gcKHO.Name = "gcKHO";
-            this.gcKHO.Size = new System.Drawing.Size(1019, 176);
+            this.gcKHO.Size = new System.Drawing.Size(1019, 235);
             this.gcKHO.TabIndex = 6;
             this.gcKHO.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -436,10 +436,10 @@ namespace QLTVT
             this.panelNhapLieu.Controls.Add(mAKHOLabel);
             this.panelNhapLieu.Controls.Add(this.txtMAKHO);
             this.panelNhapLieu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNhapLieu.Location = new System.Drawing.Point(0, 311);
+            this.panelNhapLieu.Location = new System.Drawing.Point(0, 370);
             this.panelNhapLieu.Margin = new System.Windows.Forms.Padding(8);
             this.panelNhapLieu.Name = "panelNhapLieu";
-            this.panelNhapLieu.Size = new System.Drawing.Size(1019, 292);
+            this.panelNhapLieu.Size = new System.Drawing.Size(1019, 233);
             this.panelNhapLieu.TabIndex = 11;
             this.panelNhapLieu.Text = "Thông tin";
             // 

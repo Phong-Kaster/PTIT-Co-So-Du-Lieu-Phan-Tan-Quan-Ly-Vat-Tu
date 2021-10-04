@@ -617,12 +617,13 @@ namespace QLTVT
                 /* tạo 2 phiếu nhập cùng mã đơn hàng thì bị lỗi do maDonHang trong phiếu 
                  * nhập chỉ được xuất hiện 1 lần duy nhất
                  */
+                /*
                 if (bdsChiTietPhieuNhap.Count > 1)
                 {
                     MessageBox.Show("Không thể thêm chi tiết phiếu nhập quá 1 lần", "Thông báo", MessageBoxButtons.OK);
                     bdsChiTietPhieuNhap.RemoveCurrent();
                     return false;
-                }
+                }*/
 
                 if (txtMaVatChiTietPhieuNhap.Text == "")
                 {
