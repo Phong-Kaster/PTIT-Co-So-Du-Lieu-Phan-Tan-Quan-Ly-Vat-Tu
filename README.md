@@ -400,6 +400,8 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  
  6h42 ngày 30-09-2021: ui cha, cuối cùng mình cũng hoàn thành được cái của nợ này rồi. Một tháng ròng rã cuối cùng cũng có sản phẩm cuối cùng. Thật là hạnh phúc quá đi 🤪🤪🤪. Còn 1 buổi học nữa mới hết nhưng làm xong là zui rồi. Giờ còn đồ án lập trình mạng, lập trình web nữa. Haiz, cứ từ từ mà tính vậy. Đi nghỉ thôi. Chờ ngày thi môn này xong rồi vào cập nhật tiếp !
  
+ 3h42 ngày 04-10-2021: hmm, hôm nay buổi học cuối mất rồi. May quá coi kĩ lại mà mình đã bắt được mấy lỗi nhập dữ liệu đầu vào kiểu tên thì không có số. Nhanh quá. Chắc thêm một thoáng nữa là hết học kì mất 🤨
+ 
 # [**Tools**](#tools)
   
   **Visual Studio 2019** - cái này thì quen thuộc quá rồi, ai học đến năm 4 rồi mà chưa cài thì toang CMNR
