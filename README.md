@@ -132,7 +132,9 @@ Chương trình cho phép ta tạo các login, password và cho login này làm 
  >Note: xem xong thì để cho mình một like 👍 video nha ! 
  
 # [**FAQ**](#faq)
-  FAQ hay viết tắt của cụm từ Frequently Asked Questions, là những câu hỏi thường gặp trong quá trình chúng ta làm đồ án này. Những câu hỏi được liệt kê bên dưới bao gồm những câu hỏi mình tổng hợp lại trong suốt quá trình học môn này. Bao gồm câu hỏi của sinh viên với thầy & những kiến thứ dễ gây lú do mình tự đúc kết ra trong quá trình làm nhé
+  FAQ hay viết tắt của cụm từ Frequently Asked Questions, là những câu hỏi thường gặp trong quá trình chúng ta làm đồ án này. Những câu hỏi được liệt kê bên dưới bao gồm những câu hỏi mình tổng hợp lại trong suốt quá trình học môn này. Bao gồm câu hỏi của sinh viên với thầy & những kiến thứ dễ gây lú do mình tự đúc kết ra trong quá trình làm nhé.
+ 
+
  
   ## [**1.Confusing Questions**](#1confusing-questions)
  
@@ -319,6 +321,9 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  >Câu Hỏi 8: Muốn thực thi một câu lệnh store procedure, view, function thì ta làm như nào ?
  
  >Đáp: Ta sẽ tạo một đối tượng là SqlCommand rồi nhúng vào các đối số cần thiết vào
+ 
+  Note: Lời khuyên chân thành tới các bạn là hãy dành toàn bộ thời gian khi còn đang có tiết học môn Cơ Sở Dữ Liệu Phân Tán ở lớp thì hãy làm hết sức mình và nhanh nhất có thể để nếu như các bạn có khó khăn hoặc thắc mắc gì cần thầy giải đáp thì sẽ nhanh được thầy giải đáp hơn. Tại thời điểm mình viết những dòng này - Mon, 11-10-2021, tức đã hết tiết học ở lớp nhưng có rất nhiều bạn hỏi thầy ở nhóm chat ZALO. Thầy trả lời rất chậm và thường là "phải xem trực tiếp mới biết được" 🙄. Bởi lẽ những câu hỏi của các bạn nhiều câu hỏi rất tối nghĩa hoặc phức tạp, cần xem trực tiếp trên máy tính mới có thể giải đáp được. Thầy chỉ có thể trả lời những câu hỏi ngắn kiểu đúng hoặc sai như: Nhân viên 1 thì không được quyền sửa đơn đặt hàng của nhân viên 2 phải không ạ ? Do vậy, các bạn hãy làm quyết liệt ngay tư đầu như mình. Đến tiết học thì mình mở micro, hỏi thầy trức tiếp nên được thầy phản hồi rất nhanh.
+ 
 # [**Timeline**](#timeline)
 ## **Phase 1** : **01-09-2021 to 05-09-2021**
  
