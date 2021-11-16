@@ -18,12 +18,17 @@
 - [**Data Set**](#data-set)
 - [**How To Build and How To Read**](#how-to-build-and-how-to-read)
 - [**FAQ**](#faq)
-   - [**1.Confusing Questions**](#1confusing-questions)
-   - [**2.Interview Questions**](#2interview-questions)
+  - [**1.Confusing Questions**](#1confusing-questions)
+  - [**2.Interview Questions**](#2interview-questions)
 - [**Timeline**](#timeline)
+  - [**Phase 1** : **01-09-2021 to 05-09-2021**](#phase-1--01-09-2021-to-05-09-2021)
+  - [**Phase 2** : **06-09-2021 to 16-09-2021**](#phase-2--06-09-2021-to-16-09-2021)
+  - [**Phase 3** : **16-09-2021 to 25-09-2021**](#phase-3--16-09-2021-to-25-09-2021)
+  - [**Phase 4** : **26-09-2021 to 30-09-2021**](#phase-4--26-09-2021-to-30-09-2021)
 - [**Special Thank**](#special-thank)
 - [**Post Script**](#post-script)
 - [**Tools**](#tools)
+- [**Made with 💘 and C# <img src="https://www.vectorlogo.zone/logos/dotnet/dotnet-ar21.svg" width="60">**](#made-with--and-c-)
 
 # [**Introduce**](#introduce)
    Chào các bạn, mình tên là Nguyễn Thành Phong, lớp D18CQCN03-N, khóa 2018-2023. Đây là phần đồ án của mình với môn Cơ Sở Dữ Liệu Phân do thầy Lưu Nguyễn Kì Thư giảng dạy. Đồ án này là bài thi cá nhân của riêng mình, không làm nhóm với bất kì ai. Có thể không phải là đồ án xuất sắc nhất nhưng mình mong sẽ giúp ích cho các bạn sinh viên đang đọc phần giới thiệu này của mình. Dù bạn là sinh viên mới vào năm 4 hay là những bạn không may mắn phải học lại môn này thì mình hi vọng phần diễn giải của mình sẽ giúp các bạn nhiều nhất có thể. Có một khuyết danh mà mình rất yêu thích là:
@@ -383,14 +388,14 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
     <tr>
         <td align="center">
         <a href="https://github.com/ngdanghau">
-            <img src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t1.6435-9/120393662_2903859999844190_4330464510100415056_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=-BjfCkiVp4MAX8oisQu&_nc_ht=scontent.fsgn2-6.fna&oh=c98e90583bf7ee76470bc3003e55a57f&oe=6175466A" width="100px;" alt=""/>
+            <img src="./avatar/Hau.jpg" width="100px;" alt=""/>
             <br />
             <sub><b>Nguyễn Đăng Hậu</b></sub>
         </a>
     </td>
     <td align="center">
         <a href="https://github.com/HuynhPhuocSang">
-            <img src="https://scontent.fsgn2-1.fna.fbcdn.net/v/t1.6435-9/147432028_1440147303026746_7900618652517367193_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=174925&_nc_ohc=pMaW1jb36fwAX8nW9hW&_nc_ht=scontent.fsgn2-1.fna&oh=f06bc4235ddf54e4603ecc3f30a73e32&oe=6172B705" width="100px;" alt=""/>
+            <img src="./avatar/Sang.jpg" width="100px;" alt=""/>
             <br />
             <sub><b>Huỳnh Phước Sang</b></sub>
         </a>
