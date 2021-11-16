@@ -16,3 +16,5 @@ AS
 
 - NAME chứa cả username & lẫn tên nhóm quyền
 - sys.sysmembers chứa groupUid và memberUid
+
+- Xem ket qua: sp_DangNhap 'TT'

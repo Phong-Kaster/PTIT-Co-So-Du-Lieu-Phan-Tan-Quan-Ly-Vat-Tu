@@ -1,0 +1,15 @@
+mọi tài khoản đều có mật khẩu là 123456
+
+* CHI NHANH TOKYO
+
+	TAI KHOAN 		-		VAI TRO
+1.	LT			-		CONGTY
+2. 	TT			-		CHINHANH
+3.	HT			-		USER
+
+* CHI NHANH BERLIN
+
+	TAI KHOAN		-		VAI TRO
+1.	NH			-		CONGTY
+2.	HN			-		CHINHANH
+3.	TH			-		USER

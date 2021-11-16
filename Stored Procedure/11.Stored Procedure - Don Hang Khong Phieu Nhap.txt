@@ -25,6 +25,28 @@ AND DH.MasoDDH NOT IN ( SELECT PN.MasoDDH from PhieuNhap as PN)
 
 Chú ý: đơn đặt hàng ko có chi tiết đơn đặt hàng thì cũng ko hiện lên được. Đơn đặt hàng phải có chi tiết đơn đặt hàng và chưa có phiếu nhập thì mới hiển thị được
 
+
+* Cú pháp stored procedure:
+CREATE PROCEDURE sp_DonHangKhongPhieuNhap
+AS
+BEGIN
+SELECT  DH.MasoDDH, 
+		DH.NGAY, DH.NhaCC, 
+		(SELECT NV.HO + ' ' + NV.TEN FROM NhanVien AS NV WHERE NV.MANV = DH.MANV ) AS HOTEN, 
+		VT.TENVT, 
+		CT.SOLUONG, 
+		CT.DONGIA
+FROM DBO.DatHang AS DH,
+	DBO.NhanVien AS NV,
+	DBO.Vattu AS VT,
+	DBO.CTDDH AS CT
+WHERE DH.MasoDDH = CT.MasoDDH
+AND DH.MANV = NV.MANV
+AND CT.MAVT = VT.MAVT
+AND DH.MasoDDH NOT IN ( SELECT PN.MasoDDH from PhieuNhap as PN)
+END
+
+
 *Nháp :
 select * 
 from dbo.DatHang

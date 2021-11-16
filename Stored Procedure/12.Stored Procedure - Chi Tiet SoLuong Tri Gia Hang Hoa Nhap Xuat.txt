@@ -132,7 +132,7 @@ BEGIN
 					AND VT.MAVT = CT.MAVT
 		END
 	END
-END--AS->BEGIN
+END
 
 *Chú ý: câu lênh này có lẽ hơi khác bình thường bởi mình viết nó nhằm mục đích thực hiện ý đồ "TỐI ƯU HÓA TRUY VẤN". Thời điểm mình đang viết - tức Thứ 4, 29-09-2021 này, mình đã học qua buổi học thứ 6, nên bắt buộc phải có 1 số câu lệnh truy vấn kiểu này để ăn thêm điểm.
 
