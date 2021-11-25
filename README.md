@@ -327,8 +327,214 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  
  >Đáp: Ta sẽ tạo một đối tượng là SqlCommand rồi nhúng vào các đối số cần thiết vào
  
-  Note: Lời khuyên chân thành tới các bạn là hãy dành toàn bộ thời gian khi còn đang có tiết học môn Cơ Sở Dữ Liệu Phân Tán ở lớp thì hãy làm hết sức mình và nhanh nhất có thể để nếu như các bạn có khó khăn hoặc thắc mắc gì cần thầy giải đáp thì sẽ nhanh được thầy giải đáp hơn. Tại thời điểm mình viết những dòng này - Mon, 11-10-2021, tức đã hết tiết học ở lớp nhưng có rất nhiều bạn hỏi thầy ở nhóm chat ZALO. Thầy trả lời rất chậm và thường là "phải xem trực tiếp mới biết được" 🙄. Bởi lẽ những câu hỏi của các bạn nhiều câu hỏi rất tối nghĩa hoặc phức tạp, cần xem trực tiếp trên máy tính mới có thể giải đáp được. Thầy chỉ có thể trả lời những câu hỏi ngắn kiểu đúng hoặc sai như: Nhân viên 1 thì không được quyền sửa đơn đặt hàng của nhân viên 2 phải không ạ ? Do vậy, các bạn hãy làm quyết liệt ngay tư đầu như mình. Đến tiết học thì mình mở micro, hỏi thầy trức tiếp nên được thầy phản hồi rất nhanh.
+  
+  ***
+ >Câu Hỏi 9: Giao tác là gì ?
  
+ >Đáp: Giao tác là một dãy các thao tác đọc và ghi dữ liệu  cùng với các bước tính toán cần thiết ( Begin Trans, Commit , Rollback,Begin distributed trans) để đảm bảo tập lệnh như 1 đơn vị lệnh tối thiểu.
+ 
+ ***
+ >Câu Hỏi 10: ý nghĩa của Begin trans, commit, rollback & Begin distributed trans là gì ?
+ 
+ >Đáp: 
+ 
+ > Begin Trans: bắt đầu giao tác
+ 
+ > Commit : xác nhận thành công 
+ 
+ > Rollback( hoặc abort) : hủy bỏ giao tác và trả lại dữ liệu cũ
+ 
+ > Begin distributed trans : câu lệnh mở đầu giao tác phân tán
+ 
+ ***
+ >Câu Hỏi 11: Nêu những tính chất giao tác ?
+ 
+ >Đáp: Có tất cả 4 tính chất với giao tác gồm:
+ 
+ >(1) tính nguyên tử: 1 giao tác có nhiều tập lệnh thì mọi câu lệnh hoặc thành công 
+hoặc nếu 1 lệnh thất bại thì tất cả thất bại
+
+ >(2) tính nhất quán: đảm bảo tất cả rằng buộc. Mọi lệnh đều được chạy
+ 
+ >(3) tính biệt lập: một giao tác đang thực thi thì ko làm lộ các kết quả của nó cho những giao thức khác
+đang cùng hoạt động trước khi nó hoàn thành.
+
+ >(4) tính bền vững: một giao tác đã được commit thì dữ liệu đó được giữ nguyên và không thể rollback
+ 
+ ***
+ >Câu Hỏi 12: Dữ liệu rác là gì ? 
+ 
+ >Đáp: là dữ liệu sinh ra có thể chưa phải là dữ liệu đã được commit nếu một giao tác khác đồng thời vào và lấy giao tác này ra thì dữ liệu này là ko chính xác.
+ 
+ ***
+ >Câu Hỏi 13: Có mấy loại giao tác ? 
+ 
+ >Đáp: Có 2 loại giao tác là tập trung và phân tán
+ 
+ > Giao tác tập trung có 2 loại: giao tác phẳng và giao tác lồng
+ 
+ >(1) Giao tác phẳng có điểm khởi đầu duy nhất ( begin transaction ) và một điểm kết thúc duy nhất ( end transaction )
+ 
+ >(2) Giao tác lồng chứa nhiều giao tác với điểm khởi đầu và duy nhất riêng biệt.
+
+ > Giao tác phân tán chỉ có 1 loại duy nhất: giao tác phẳng
+ 
+ ***
+ >Câu Hỏi 14: XACT_ABORT là gì ? Nó nhận được mấy giá trị ?
+ 
+ >Đáp: XACT_ABORT: đây là tùy chọn kết nối. Nó chỉ nhận 2 giá trị là ON & OFF.
+ 
+ >Nếu là OFF, SQL Server sẽ bỏ qua lệnh gây lỗi trong transaction và tiếp tục thực thi các lệnh còn lại.
+ 
+ >Nếu là ON, SQL Server sẽ hủy bỏ toàn bộ transaction nếu nó gặp lệnh bị lỗi và trả lại dữ liệu về ban đầu.
+ 
+ ***
+ >Câu Hỏi 15: Khi viết 1 stored procedure khi nào ta không dùng begin transaction , không dùng commit ... nhưng vẫn được coi là 1 giao tác ?
+ 
+ >Đáp: khi ta sử dụng chỉ một lệnh UPDATE - DELETE - INSERT duy nhất. Còn nếu có 2 lệnh UPDATE - DELETE - INSERT thì phải dùng cú pháp begin transaction và commit
+ 
+ ***
+ >Câu Hỏi 16: Dịch vụ MS TDC là gì ?
+ 
+ >Đáp: Dịch vụ MS TDC là Microsoft Distributed Transaction Coordinator. Nó đảm bảo tất cả cập nhật được thực thi ở tất cả 
+các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực hiện thao tác nào hết.
+
+ ***
+ >Câu Hỏi 17: Vị từ thích hợp là gì ?
+ 
+ >Đáp: Thỏa tính đầy đủ và tính cực tiểu
+ 
+ ***
+ >Câu Hỏi 18: Tiêu chí đầy đủ và tiêu chí cực tiểu là gì ?
+ 
+ >Đáp: 
+ 
+ >Tiêu chí đầy đủ là ta có nhiều stored procedure thì xác suất nó truy xuất tới các phân mảnh là như nhau.
+ 
+ >Tiêu chí cực tiểu là mỗi site được sinh ra phải được sử dụng tới trong một stored procedure nào đó.
+ 
+ ***
+ >Câu Hỏi 19: Vị từ là gì ? Một vị từ đơn giản là gì ?
+ 
+ >Đáp: Vị từ là Mệnh đề login có nhiều điều kiện 
+ 
+ >Một vị từ đơn giản là vị từ có kiểu: MACN = 'CN1',... . Tức vế trái là tên thuộc tính và vế phải là tên giá trị.
+ 
+ >Một vị từ sơ cấp: MACN = ( CN1 hội CN2 ).
+ 
+ ***
+ >Câu Hỏi 20:  Một vị từ "thích hợp" là gì ?
+ 
+ >Đáp: Một vị từ "thích hợp" nghĩa là khi tạo ra 1 phân mảnh "thích hợp" thì phải có stored procedure sử dụng tới phân mảnh này.
+ 
+ ***
+ >Câu Hỏi 21:  Sự trong suốt phân tán là gì ?
+ 
+ >Đáp: Sự trong suốt phân tán: khi 1 stored procedure( sp )  được thực thi ở 1 server phân mảnh bấy kì thì cũng hoạt động tốt trên các phân mảnh còn lại - người dùng không cảm thấy được sp đang chạy trên hệ thông phân tán.
+ 
+ >Note:  Chúng ta đứng ở vị trí thứ 3 để lập trình. Luôn ưu tiên tìm ở phân mảnh cục bộ trước khi sang các phân mảnh khác. 
+ 
+ ***
+ >Câu Hỏi 22:  Có mấy mức độ trong suốt phân tán là gì ?
+ 
+ >Đáp: Có 4 mức độ trong suốt phân tán
+ 
+ >(1) Mức cao nhất: Không cần chỉ ra phân mảnh cần truy vấn. Người dùng không cảm giác là đang thao tác trên một câu truy vấn phân tán.
+ 
+ >(2) Sự trong suốt vị trí: Chúng ta chỉ cần chỉ ra tên TABLE cần phải truy vấn.
+ 
+ >(3) Sự trong suốt ánh xạ cục bộ: Chúng ta cần chỉ rõ tên phân mảnh và vị trí cấp phát của chúng
+ 
+ >(4) Không trong suốt: Chúng ta phải viết lệnh để đến đúng vị trí database cần thao tác. Tuy nhiên, do chúng ta đã đặt tên các cơ sở dữ liệu giốngnhau ở mọi phân mảnh. Tên LINK server cũng trùng tên nên không phải bận tâm đến mức này
+
+ > Note: người dùng sẽ sử dụng ứng dụng ở mức cao nhất. Còn người lập trình như chúng ta sẽ đứng ở mức thứ 3.
+ 
+ ***
+ >Câu Hỏi 23:  Điều kiện để có thể phân tán được cơ sở dữ liệu ? Có mấy bước để phân tán cơ sở dữ liệu ?
+ 
+ >Đáp: có dịch vụ SQL Server Agent
+ 
+ >Có 3 bước để thực hiện phân tán cơ sở dữ liệu
+ 
+ >(1) Định nghĩa Server Distributor : chứa DB distribution
+ 
+ >(2) Định nghĩa publication : 1 container chứa các article (table, view, stored procedure, UDF). Trong đó, phải chỉ rõ server : Publisher - chứa bản cơ sở dữ liệu gốc 
+ 
+ >(3) Định nghĩa subscription (database): 1 container nhận publication. Trong đó, phải chỉ rõ server Subscriber - chứa cơ sở dữ liệu sau khi phân tán
+ ***
+ >Câu Hỏi 23: Có mấy hình thức phân mảnh ? 
+ 
+ > Đáp: Có 3 hình thức phân mảnh gồm phân mảnh ngang, phân mảnh dọc & phân mảnh hỗn hợp.
+ 
+ ***
+ >Câu Hỏi 24: Nêu đặc điểm của phân mảnh ngang ? 
+ 
+ > Đáp: Trong phân mảnh ngang bao gồm phân mảnh ngang nguyên thủy &  phân mảnh ngang dẫn xuất
+ 
+ > Ví dụ với đề quản lý vật tư thì 
+ 
+ > MaChiNhanh = 'CN1' -> phân mảnh ngang nguyên thủy
+ 
+ > NHANVIEN.MaKho = KHOHANG.MaKho -> phân mảnh ngang dẫn xuất
+ 
+ > Nói cách khác 'CN1' và 'CN2' là các vị từ.
+ 
+ ***
+ >Câu Hỏi 24: Nêu đặc điểm của phân mảnh dọc ? 
+ 
+ > Đáp: Chia các thuộc tính của một quan hệ theo một số trường dữ liệu nhất định. Để có khả năng tái thiết quan hệ nguyên thủy thì mỗi phân mảnh dọc phải chứa khóa chính của nó.
+ 
+ > Gỉa sử, NHANVIEN( id, ho , ten, dia chi, luong, ngay sinh, ma chi nhanh ) thì khi tạo phân mảnh dọc sẽ thành 
+  
+ > NHANVIEN(id, ho, ten, ngay sinh, ma chi nhanh) trong đó MaChiNhanh là khóa ngoại thì phải cho phép NULL
+ 
+ ***
+ >Câu Hỏi 25: Nêu đặc điểm của phân mảnh hỗn hợp ? 
+ 
+ > Đáp: Là sự kết hợp của 2 cách phân mảnh ngang và dọc. Khi hợp các phân mảnh theo 2 cách này thì cơ sở dữ liệu tạo thành chính là cơ sở dữ liệu ban đầu.
+
+ ***
+ >Câu Hỏi 25: Có mấy quy tắc phân mảnh  ? 
+ 
+ > Đáp: Có 3 quy tắc phân mảnh
+ 
+ >(1) Tính đầy đủ: xét trên góc độ là QUAN HỆ. Mỗi mục dữ liệu ít nhất phải nằm ở 1 phân mảnh. Thì không bị mất thông tin
+ 
+ >(2) Tính tái thiết: thường thì thỏa mản tính đầy đủ sẽ thỏa mãn tính tái thiết 
+ 
+ >(3) Tính tách biệt: mỗi mục dữ liệu chỉ nằm ở một phân mảnh duy nhất. Khi ghép các phân mảnh thì database sẽ đầy đủ như ban đầu. Tức nếu TEN ở phân mảnh 1 thì sẽ không xuất hiện ở phân mảnh 2
+
+ > Note Thực tế, tính tách biệt dễ bị vi phạm vì NHÂN BẢN giúp dữ liệu tồn tại ở cả 2 mảnh. Bắt buộc tính đầy đủ phải thỏa mãn. Nếu thỏa mãn thì tính tái thiết cũng sẽ được bảo đảm.
+
+ ***
+ >Câu Hỏi 26: Run on continue khác run on demand ở điểm nào  ? 
+ 
+ > Đáp: Run on continue làm tính nhất quán cao, dữ liệu đồng bộ ngay lập tức. Run on demand tính tự quản cao. Các site có thể disconnect. Các thay đổi không phản ảnh tức thời tới site chủ
+
+ ***
+ >Câu Hỏi 27: Snapshot folder là gì ?  ? 
+ 
+ > Đáp: Folder chứa dữ liệu trung gian để đồng bộ dữ liệu từ các phân mảnh về site chủ và ngược lại. Là folder chứa dữ liệu để đẩy qua đẩy lại. Phải là network path(shared folder)
+ 
+ ***
+ >Câu Hỏi 28: Tại sao trả về mã nhân viên khi dùng sp_DangNhap ? 
+ 
+ > Đáp: để gán tự động cho các form có mã nhân viên 
+ 
+ ***
+ >Câu Hỏi 29: Bốn thuộc tính quan trọng của combo box ?
+ 
+ > Đáp: 
+ 
+ > data source chứa danh sách dữ liệu cung cấp cho nó
+ 
+ > display member chứa tên field mình muốn hiển thị
+ 
+ > value member chứa field dữ liệu mình muốn lấy
+ 
+ > selected index change phương thức thay đổi giá trị 
+ 
+ Note: Lời khuyên chân thành tới các bạn là hãy dành toàn bộ thời gian khi còn đang có tiết học môn Cơ Sở Dữ Liệu Phân Tán ở lớp thì hãy làm hết sức mình và nhanh nhất có thể để nếu như các bạn có khó khăn hoặc thắc mắc gì cần thầy giải đáp thì sẽ nhanh được thầy giải đáp hơn. Tại thời điểm mình viết những dòng này - Mon, 11-10-2021, tức đã hết tiết học ở lớp nhưng có rất nhiều bạn hỏi thầy ở nhóm chat ZALO. Thầy trả lời rất chậm và thường là "phải xem trực tiếp mới biết được" 🙄. Bởi lẽ những câu hỏi của các bạn nhiều câu hỏi rất tối nghĩa hoặc phức tạp, cần xem trực tiếp trên máy tính mới có thể giải đáp được. Thầy chỉ có thể trả lời những câu hỏi ngắn kiểu đúng hoặc sai như: Nhân viên 1 thì không được quyền sửa đơn đặt hàng của nhân viên 2 phải không ạ ? Do vậy, các bạn hãy làm quyết liệt ngay tư đầu như mình. Đến tiết học thì mình mở micro, hỏi thầy trực tiếp thì chắc chắn được thầy phản hồi ngay lập tức.
 # [**Timeline**](#timeline)
 ## **Phase 1** : **01-09-2021 to 05-09-2021**
  
@@ -412,6 +618,7 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  
  3h42 PM ngày 04-10-2021: hmm, hôm nay buổi học cuối mất rồi. May quá coi kĩ lại mà mình đã bắt được mấy lỗi nhập dữ liệu đầu vào kiểu tên thì không có số. Nhanh quá. Chắc thêm một thoáng nữa là hết học kì mất 🤨
  
+ 03:40 PM ngày 25-11-2021: đến hôm nay là sắp thi rồi mà vẫn có nhiều đứa hỏi bài trên ZALO quớ (><). May mà làm từ đầu nên giờ nhàn ghê
 # [**Tools**](#tools)
   
   **Visual Studio 2019** - cái này thì quen thuộc quá rồi, ai học đến năm 4 rồi mà chưa cài thì toang CMNR
