@@ -3,7 +3,7 @@
 <h1>
 
    <p align="center"> 
-      <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/amazon-rivet-furniture-1533048038.jpg?crop=1.00xw:0.502xh;0,0.423xh&resize=1200:*">
+      <img src="./avatar/cropped-1280-640-927078.jpg">
    </p>
    
 
