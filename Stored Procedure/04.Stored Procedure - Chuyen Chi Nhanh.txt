@@ -11,6 +11,8 @@
 - Read Commited - mức mặc định - TT1 đang sửa đổi dữ liệu thì TT2 không thể xem dữ liệu này. Chỉ khi TT1 xong thì TT2 mới xem được dữ liệu. Nếu TT2 sửa dữ liệu thì TT1 sẽ có được dữ liệu được sửa đổi từ TT2.
 - Repeatable Read - mức an toàn - TT2 đang đọc một bảng dữ liệu thì TT1 không thể chỉnh sửa bảng dữ liệu này cho đến khi TT2 hoàn tất việc đọc dữ liệu đó. Nói nôm na là dữ liệu đang được đọc sẽ được bảo vệ khỏi cập nhật bởi các transaction khác
 - Serializable - mức an toàn cao - TT1 đang sửa đổi một bảng dữ liệu thì TT2 không thể làm bất cứ hành động gì với bảng dữ liệu đó như: INSERT, UPDATE, DELETE,.....
+- Snapshot - mức an toàn cao nhất - hoạt động tương tự Serializable, TT1 vẫn hoạt động, TT2 sẽ sửa dữ liệu trên một bản ghi đã được Snapshot sao chép.
+
 
 * SET XACT_ABORT ON: nếu stored procedure này bị lỗi trong lúc chạy, toàn bộ câu lệnh này sẽ bị hủy bỏ & dữ liệu được phục hồi lại như trước khi hành động này diễn ra.
 
@@ -34,21 +36,21 @@ BEGIN TRY
 		SELECT @HONV = HO, @TENNV = TEN, @DIACHINV = DIACHI, @NGAYSINHNV = NGAYSINH, @LUONGNV = LUONG FROM NhanVien WHERE MANV = @MANV
 		-- Kiểm tra xem bên Site chuyển tới đã có dữ liệu nhân viên đó chưa. Nếu có rồi thì đổi trạng thái, chưa thì thêm vào
 		IF EXISTS(select MANV
-				from LINK1.QLVT.dbo.NhanVien
+				from LINK1.QLVT_DATHANG.dbo.NhanVien
 				where HO = @HONV and TEN = @TENNV and DIACHI = @DIACHINV
 				and NGAYSINH = @NGAYSINHNV and LUONG = @LUONGNV)
 		BEGIN
-				UPDATE LINK1.QLVT.dbo.NhanVien
+				UPDATE LINK1.QLVT_DATHANG.dbo.NhanVien
 				SET TrangThaiXoa = 0
 				WHERE MANV = (	select MANV
-								from LINK1.QLVT.dbo.NhanVien
+								from LINK1.QLVT_DATHANG.dbo.NhanVien
 								where HO = @HONV and TEN = @TENNV and DIACHI = @DIACHINV
 										and NGAYSINH = @NGAYSINHNV and LUONG = @LUONGNV)
 		END
 		ELSE
 		-- nếu chưa tồn tại thì thêm mới hoàn toàn vào chi nhánh mới với MANV sẽ là MANV lớn nhất hiện tại + 1
 		BEGIN
-			INSERT INTO LINK1.QLVT.dbo.NhanVien (MANV, HO, TEN, DIACHI, NGAYSINH, LUONG, MACN, TRANGTHAIXOA)
+			INSERT INTO LINK1.QLVT_DATHANG.dbo.NhanVien (MANV, HO, TEN, DIACHI, NGAYSINH, LUONG, MACN, TRANGTHAIXOA)
 			VALUES ((SELECT MAX(MANV) FROM LINK0.QLVT.dbo.NhanVien) + 1, @HONV, @TENNV, @DIACHINV, @NGAYSINHNV, @LUONGNV, @MACN, 0)
 		END
 		-- Đổi trạng thái xóa đối với tài khoản cũ ở site hiện tại

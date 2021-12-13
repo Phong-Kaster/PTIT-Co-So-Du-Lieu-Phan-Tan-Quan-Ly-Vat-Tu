@@ -329,10 +329,11 @@ Thầy cho em hỏi là có cần 2 cột đó không ạ ?
  
   
   ***
- >Câu Hỏi 9: Giao tác là gì ?
+ >Câu Hỏi 9: Giao tác là gì ? Để viết giao tác cần bật dịch vụ gì ?
  
- >Đáp: Giao tác là một dãy các thao tác đọc và ghi dữ liệu  cùng với các bước tính toán cần thiết ( Begin Trans, Commit , Rollback,Begin distributed trans) để đảm bảo tập lệnh như 1 đơn vị lệnh tối thiểu.
+ >Đáp: Giao tác là một dãy các thao tác đọc và ghi dữ liệu cùng với các bước tính toán nhất quán ( Begin Trans, Commit , Rollback,Begin distributed trans) để giải quyết các tình huống khi dữ liệu bị mất tính nhất quán khi có nhiều truy xuất đồng thời
  
+ > Để viết giao tác cần phải bật dịch vụ MSDTC - Miscrosoft Distribute Transaction Coordinator
  ***
  >Câu Hỏi 10: ý nghĩa của Begin trans, commit, rollback & Begin distributed trans là gì ?
  
@@ -456,9 +457,15 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
  
  >Có 3 bước để thực hiện phân tán cơ sở dữ liệu
  
- >(1) Định nghĩa Server Distributor : chứa DB distribution
+ >(1) Định nghĩa Server Distributor : chứa Database distribution
  
- >(2) Định nghĩa publication : 1 container chứa các article (table, view, stored procedure, UDF). Trong đó, phải chỉ rõ server : Publisher - chứa bản cơ sở dữ liệu gốc 
+ >(2) Định nghĩa publication : 1 container chứa các article (table, view, stored procedure, UDF). 
+  
+ > Trong đó, phải chỉ rõ các server : 
+ 
+ > Publisher - chứa bản gốc cơ sở dữ liệu
+ 
+ > Distributor - điều phối phân tán dữ liệu
  
  >(3) Định nghĩa subscription (database): 1 container nhận publication. Trong đó, phải chỉ rõ server Subscriber - chứa cơ sở dữ liệu sau khi phân tán
  ***
@@ -471,6 +478,10 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
  
  > Đáp: Trong phân mảnh ngang bao gồm phân mảnh ngang nguyên thủy &  phân mảnh ngang dẫn xuất
  
+ > *Phân mảnh ngang nguyên thủy* là phân mảnh của 1 quan hệ dựa trên 1 vị từ được định nghĩa trên quan hệ đó
+ 
+ > *Phân mảnh ngang dẫn xuất* là phân mảng của 1 quan hệ dựa trên vị từ được định nghĩa trên quan hệ khác.
+ 
  > Ví dụ với đề quản lý vật tư thì 
  
  > MaChiNhanh = 'CN1' -> phân mảnh ngang nguyên thủy
@@ -482,7 +493,7 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
  ***
  >Câu Hỏi 24: Nêu đặc điểm của phân mảnh dọc ? 
  
- > Đáp: Chia các thuộc tính của một quan hệ theo một số trường dữ liệu nhất định. Để có khả năng tái thiết quan hệ nguyên thủy thì mỗi phân mảnh dọc phải chứa khóa chính của nó.
+ > Đáp: phân mảnh dựa trên khóa chính của một quan hệ ( phải có khóa chính để đảm bảo tính tái thiết)
  
  > Gỉa sử, NHANVIEN( id, ho , ten, dia chi, luong, ngay sinh, ma chi nhanh ) thì khi tạo phân mảnh dọc sẽ thành 
   
@@ -500,7 +511,7 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
  
  >(1) Tính đầy đủ: xét trên góc độ là QUAN HỆ. Mỗi mục dữ liệu ít nhất phải nằm ở 1 phân mảnh. Thì không bị mất thông tin
  
- >(2) Tính tái thiết: thường thì thỏa mản tính đầy đủ sẽ thỏa mãn tính tái thiết 
+ >(2) Tính tái thiết: thường thì thỏa mản tính đầy đủ sẽ thỏa mãn tính tái thiết.
  
  >(3) Tính tách biệt: mỗi mục dữ liệu chỉ nằm ở một phân mảnh duy nhất. Khi ghép các phân mảnh thì database sẽ đầy đủ như ban đầu. Tức nếu TEN ở phân mảnh 1 thì sẽ không xuất hiện ở phân mảnh 2
 
@@ -533,6 +544,101 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
  > value member chứa field dữ liệu mình muốn lấy
  
  > selected index change phương thức thay đổi giá trị 
+ 
+ ***
+ >Câu Hỏi 30: Vì sao ta phải dùng Remote Login ?
+ 
+ > Đáp: Cho phép truy cập dữ liệu khi đứng từ server này sang server khác.
+ 
+ ***
+ >Câu Hỏi 31: Có những cách nào để tối ưu hóa truy vấn ?
+ 
+ > Đáp: Có 5 cách để tối ưu hóa một câu truy vấn
+ 
+ > 1. Dùng phép chọn, chiếu trước, phép kết sau
+ 
+ > 2. Khử phép kết (nếu được)
+ 
+ > 3. Nếu 1 điều kiện xuất hiện nhiều lần trong WHERE thì dùng các phép biến đổi tương đương để cho điều kiện đó xuất hiện 1 lần
+ 
+ > 4. Trong mệnh đề AND, điều kiện nào có xác suất sai cao thì đặt ở đầu ; OR thì ngược lại.
+ 
+ > 5. Field tham gia trong điều kiện truy vấn nên được sắp thứ tự trước & thứ tự này phải đc sử dụng trong mệnh đề truy vấn  với WITH (INDEX=ten_index)
+
+ ***
+ >Câu Hỏi 32: Thế nào là một Stored Procedure trong suốt ? Điều kiện để viết Stored Procedure trong suốt ?
+ 
+ > Đáp: Stored Procedure được coi là trong suốt nếu ta cho thực thi ở 1 server thì vẫn cho thực thi được ở những server còn lại mà không cần chỉ rõ đường dẫn đến table cần truy xuất 
+ 
+ > Hoặc có thể trả lời 
+ 
+ > Stored Procedure trong suốt là Stored Procedure mà khi ta cho thực thi ở bất kì phân mảnh nào đều cho kết quả giống nhau
+	
+ > Điều kiện để viết Stored Procedure trong suốt là ta cần có LINK SERVER & tên database giống nhau
+ 
+ ***
+ >Câu Hỏi 33: Trong database, cái nào là nhân bản, cái nào là phân hoạch  ?
+ 
+ > Đáp: Mở cây dẫn xuất ra xem, cái nào không có trong cây dẫn xuất là nhân bản, cái đầu tiên là phân mảnh ngang nguyên thủy
+ 
+ ***
+ >Câu Hỏi 34: Nếu đã phân tán xong cơ sở dữ liệu, muốn thay đổi cấu trúc | thứ tự các cột trong table của server gốc thì làm sao  ?
+ 
+ > Đáp: Có thể thay đổi bằng cách viết stored procedure dùng lệnh ALTER TABLE ở server gốc sau đó đồng bộ xuống các server phân mảnh
+ 
+ ***
+ >Câu Hỏi 35: Dữ liệu sau khi nhập form sẽ được đẩy về đâu  ? 
+ 
+ > Đáp: Đẩy về publisher sau đó đồng bộ xuống các subcriber.
+ 
+ ***
+ >Câu Hỏi 36: Trong các table, cái nào mang tính đầy dủ, cái nào vi phạm tính tách biệt   ? 
+ 
+ > Đáp: Các table nhân bản thì vi phạm tính tách biệt, tất cả các table còn lại thì mang tính đầy đủ.
+ 
+ ***
+ >Câu Hỏi 37: Giao tác tập trung với giao tác phân tán giống và khác nhau như thế nào ?   
+ 
+ > Đáp: 
+ 
+ > Điểm khác : Giao tác thì thực thi trên môi trường cơ sở dữ liệu tập trung (gồm có giao tác phẳng và giao tác lồng), còn giao tác phân tán thì thực thi trên môi trường cơ sở dữ liệu phân tán. 
+ 
+ > Điểm giống : 4 tính chất giao tác.
+ 
+ ***
+ >Câu Hỏi 38: Login Name nằm trong table nào? 
+ 
+ > Đáp: Nằm trong table sys.sysuser trong Database đó
+ 
+ ***
+ >Câu Hỏi 39: Tại sao biết user liên kết với login nào? 
+ 
+ > Đáp: Username và loginname liên kết với nhau qua trường sid (trên user và login đều có sid) nên từ loginname biết được username từ sid
+ 
+ ***
+ >Câu Hỏi 40: Tên nhóm quyền nằm trong table nào ? 
+ 
+ > Đáp: Nằm trong table sys.sysuser trong Database đó
+ 
+ ***
+ >Câu Hỏi 41: Ưu | khuyết điểm của nhân bản ? 
+ 
+ > Đáp: Truy xuất nhanh, đứng ở đâu cũng có thể select được. Nhưng update chậm vì có quá nhiều bản sao
+ 
+ ***
+ >Câu Hỏi 42: Ưu | khuyết điểm của phân hoạch  ? 
+ 
+ > Đáp: Select chậm nhưng insert và update nhanh do chỉ thao thác trên server gốc hoặc server phân mảnh cần truy xuất.
+ 
+ ***
+ >Câu Hỏi 42: Tại sao table đó nhân bản?
+ 
+ > Đáp: 
+ 
+ > Trong đề vật tư thì vật tư nhân bản vì vật tư có thể có ở chi nhánh này cũng có thể có ở chi nhánh khác.
+
+ > Trong đề trắc nghiệm thì giáo viên nhân bản vì giáo viên có thể dạy ở cở sở này cũng có thể dạy ở cơ sở khác, bộ đề đi theo giáo viên nên cũng nhân bản. Giáo viên cở sở 1 có thể dạy ở cở sở 2 nhưng không thể đăng kí thi cho lớp ở cơ sở 2.
+
  
  Note: Lời khuyên chân thành tới các bạn là hãy dành toàn bộ thời gian khi còn đang có tiết học môn Cơ Sở Dữ Liệu Phân Tán ở lớp thì hãy làm hết sức mình và nhanh nhất có thể để nếu như các bạn có khó khăn hoặc thắc mắc gì cần thầy giải đáp thì sẽ nhanh được thầy giải đáp hơn. Tại thời điểm mình viết những dòng này - Mon, 11-10-2021, tức đã hết tiết học ở lớp nhưng có rất nhiều bạn hỏi thầy ở nhóm chat ZALO. Thầy trả lời rất chậm và thường là "phải xem trực tiếp mới biết được" 🙄. Bởi lẽ những câu hỏi của các bạn nhiều câu hỏi rất tối nghĩa hoặc phức tạp, cần xem trực tiếp trên máy tính mới có thể giải đáp được. Thầy chỉ có thể trả lời những câu hỏi ngắn kiểu đúng hoặc sai như: Nhân viên 1 thì không được quyền sửa đơn đặt hàng của nhân viên 2 phải không ạ ? Do vậy, các bạn hãy làm quyết liệt ngay tư đầu như mình. Đến tiết học thì mình mở micro, hỏi thầy trực tiếp thì chắc chắn được thầy phản hồi ngay lập tức.
 # [**Timeline**](#timeline)
