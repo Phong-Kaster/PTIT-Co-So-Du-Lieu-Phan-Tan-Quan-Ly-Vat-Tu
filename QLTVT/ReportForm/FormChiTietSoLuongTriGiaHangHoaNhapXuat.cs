@@ -24,14 +24,12 @@ namespace QLTVT.ReportForm
         {
             string vaiTro = Program.role;
             string loaiPhieu = (cmbLoaiPhieu.SelectedItem.ToString() == "NHAP") ? "NHAP" : "XUAT";
-            int fromYear = dteTuNgay.DateTime.Year;
-            int fromMonth = dteTuNgay.DateTime.Month;
-            int toYear = dteToiNgay.DateTime.Year;
-            int toMonth = dteToiNgay.DateTime.Month;
             
-            ReportChiTietSoLuongTriGiaHangHoaNhapXuat report = new ReportChiTietSoLuongTriGiaHangHoaNhapXuat(vaiTro,loaiPhieu,fromYear,fromMonth,toYear,toMonth);
+            DateTime fromDate = dteTuNgay.DateTime;
+            DateTime toDate = dteToiNgay.DateTime;
+            ReportChiTietSoLuongTriGiaHangHoa report = new ReportChiTietSoLuongTriGiaHangHoa(vaiTro,loaiPhieu,fromDate,toDate);
             /*GAN TEN CHI NHANH CHO BAO CAO*/
-            report.txtLoaiPhieu.Text = cmbLoaiPhieu.SelectedItem.ToString().ToUpper();
+            //report.txtLoaiPhieu.Text = cmbLoaiPhieu.SelectedItem.ToString("dd-MM-yyyy").ToUpper();
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();
         }
@@ -47,7 +45,10 @@ namespace QLTVT.ReportForm
 
             try
             {
-                ReportChiTietSoLuongTriGiaHangHoaNhapXuat report = new ReportChiTietSoLuongTriGiaHangHoaNhapXuat(vaiTro, loaiPhieu, fromYear, fromMonth, toYear, toMonth);
+
+                DateTime fromDate = dteTuNgay.DateTime;
+                DateTime toDate = dteToiNgay.DateTime;
+                ReportChiTietSoLuongTriGiaHangHoa report = new ReportChiTietSoLuongTriGiaHangHoa(vaiTro, loaiPhieu, fromDate, toDate);
 
                 if (File.Exists(@"D:\ReportChiTietSoLuongTriGiaHangHoaNhapXuat.pdf"))
                 {

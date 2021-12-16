@@ -168,11 +168,11 @@
     <Compile Include="ReportForm\FormTongHopNhapXuat.Designer.cs">
       <DependentUpon>FormTongHopNhapXuat.cs</DependentUpon>
     </Compile>
-    <Compile Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoaNhapXuat.cs">
+    <Compile Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoa.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoaNhapXuat.Designer.cs">
-      <DependentUpon>ReportChiTietSoLuongTriGiaHangHoaNhapXuat.cs</DependentUpon>
+    <Compile Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoa.Designer.cs">
+      <DependentUpon>ReportChiTietSoLuongTriGiaHangHoa.cs</DependentUpon>
     </Compile>
     <Compile Include="ReportForm\ReportDanhSachNhanVien.cs">
       <SubType>Component</SubType>
@@ -295,8 +295,8 @@
     <EmbeddedResource Include="ReportForm\FormTongHopNhapXuat.resx">
       <DependentUpon>FormTongHopNhapXuat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoaNhapXuat.resx">
-      <DependentUpon>ReportChiTietSoLuongTriGiaHangHoaNhapXuat.cs</DependentUpon>
+    <EmbeddedResource Include="ReportForm\ReportChiTietSoLuongTriGiaHangHoa.resx">
+      <DependentUpon>ReportChiTietSoLuongTriGiaHangHoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportForm\ReportDanhSachNhanVien.resx">
       <DependentUpon>ReportDanhSachNhanVien.cs</DependentUpon>

@@ -37,13 +37,15 @@ namespace QLTVT.ReportForm
         {
             string maNhanVien = txtMaNhanVien.Text;
             string loaiPhieu = (cmbLoaiPhieu.SelectedItem.ToString() == "NHAP") ? "NHAP" : "XUAT";
-
+            DateTime fromDate = dteTuNgay.DateTime;
+            DateTime toDate = dteToiNgay.DateTime;
+            /*
             int fromYear = dteTuNgay.DateTime.Year;
             int fromMonth = dteTuNgay.DateTime.Month;
             int toYear = dteToiNgay.DateTime.Year;
             int toMonth = dteToiNgay.DateTime.Month;
-
-            ReportHoatDongNhanVien report = new ReportHoatDongNhanVien(maNhanVien, loaiPhieu, fromYear, fromMonth, toYear, toMonth);
+            */
+            ReportHoatDongNhanVien report = new ReportHoatDongNhanVien(maNhanVien, loaiPhieu, fromDate, toDate);
             /*GAN TEN CHI NHANH CHO BAO CAO*/
             report.txtLoaiPhieu.Text = cmbLoaiPhieu.SelectedItem.ToString().ToUpper();
             report.txtMaNhanVien.Text = Program.maNhanVienDuocChon;
@@ -76,13 +78,16 @@ namespace QLTVT.ReportForm
                 string maNhanVien = txtMaNhanVien.Text;
                 string loaiPhieu = (cmbLoaiPhieu.SelectedItem.ToString() == "NHAP") ? "NHAP" : "XUAT";
 
+                DateTime fromDate = dteTuNgay.DateTime;
+                DateTime toDate = dteToiNgay.DateTime;
+                /*
                 int fromYear = dteTuNgay.DateTime.Year;
                 int fromMonth = dteTuNgay.DateTime.Month;
                 int toYear = dteToiNgay.DateTime.Year;
                 int toMonth = dteToiNgay.DateTime.Month;
+                */
+                ReportHoatDongNhanVien report = new ReportHoatDongNhanVien(maNhanVien, loaiPhieu, fromDate, toDate);
 
-                ReportHoatDongNhanVien report = new ReportHoatDongNhanVien(maNhanVien, loaiPhieu, fromYear, fromMonth, toYear, toMonth);
-                
                 report.txtLoaiPhieu.Text = cmbLoaiPhieu.SelectedItem.ToString().ToUpper();
                 report.txtMaNhanVien.Text = Program.maNhanVienDuocChon;
                 report.txtHoTen.Text = Program.hoTen;
