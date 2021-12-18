@@ -448,7 +448,7 @@ namespace QLTVT
 
                 cauTruyVan = "UPDATE DBO.CTDDH " +
                     "SET " +
-                    "SOLUONG = " + drv["SOLUONG"].ToString() + ", "+
+                    "SOLUONG = " + drv["SOLUONG"].ToString() + " , "+
                     "DONGIA = " + drv["DONGIA"].ToString() + " " +
                     "WHERE MasoDDH = '" + drv["MasoDDH"].ToString().Trim() + "'" + 
                     " AND MAVT = '" + drv["MAVT"].ToString().Trim() +"'";
@@ -475,8 +475,6 @@ namespace QLTVT
             /*lay maNhanVien & maDonDatHang de phong truong hop them chi tiet don hang thi se co ngay*/
             String maNhanVien = drv["MANV"].ToString();
             String maDonDatHang = drv["MasoDDH"].ToString().Trim();
-            //Console.WriteLine(maNhanVien);
-            //Console.WriteLine(Program.userName);
 
             if (Program.userName != maNhanVien && dangThemMoi == false)
             {

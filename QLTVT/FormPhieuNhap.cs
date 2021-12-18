@@ -242,7 +242,6 @@ namespace QLTVT
             /*Step 1*/
             bds = bdsChiTietPhieuNhap;
             gc = gcPhieuNhap;
-            //MessageBox.Show("Chế Độ Làm Việc Chi Tiết Đơn Đặt Hàng", "Thông báo", MessageBoxButtons.OK);
 
             /*Step 2*/
             /*Tat chuc nang cua chi tiet phieu nhap*/
@@ -257,10 +256,10 @@ namespace QLTVT
 
             /*Bat chuc nang cua chi tiet don hang*/
             txtMaVatTu.Enabled = false;
-            txtSoLuongChiTietPhieuNhap.Enabled = true;
-            txtDonGiaChiTietPhieuNhap.Enabled = true;
+            txtSoLuongChiTietPhieuNhap.Enabled = false;
+            txtDonGiaChiTietPhieuNhap.Enabled = false;
 
-            btnChonChiTietDonHang.Enabled = true;
+            btnChonChiTietDonHang.Enabled = false;
 
             /*Bat cac grid control len*/
             gcPhieuNhap.Enabled = true;
@@ -374,6 +373,9 @@ namespace QLTVT
 
                 this.txtDonGia.Enabled = true;
                 this.txtDonGia.EditValue = 1;
+
+                this.txtSoLuongChiTietPhieuNhap.Enabled = true;
+                this.txtDonGiaChiTietPhieuNhap.Enabled = true;
             }
 
 
@@ -483,8 +485,10 @@ namespace QLTVT
                     this.btnChonChiTietDonHang.Enabled = false;
 
                     this.txtMaVatChiTietPhieuNhap.Enabled = false;
-                    this.txtSoLuongChiTietPhieuNhap.Enabled = true;
-                    this.txtDonGiaChiTietPhieuNhap.Enabled = true;
+                    this.txtSoLuongChiTietPhieuNhap.Enabled = false;
+                    this.txtDonGiaChiTietPhieuNhap.Enabled = false;
+
+                    this.btnXOA.Enabled = false;
                 }
 
                 this.btnTHEM.Enabled = true;
@@ -572,8 +576,8 @@ namespace QLTVT
 
                 cauTruyVan = "UPDATE DBO.CTPN " +
                     "SET " +
-                    "SOLUONG = " + soLuong + " " +
-                    "DOGIA = " + donGia + " " +
+                    "SOLUONG = " + soLuong + ", " +
+                    "DONGIA = " + donGia + " " +
                     "WHERE MAPN = '"+ maPhieuNhap + "' " +
                     "AND MAVT = '" + maVatTu + "' ";
             }
@@ -703,8 +707,6 @@ namespace QLTVT
             }
             Program.myReader.Read();
             int result = int.Parse(Program.myReader.GetValue(0).ToString());
-            //Console.WriteLine("Line 574");
-            //Console.WriteLine(result);
             Program.myReader.Close();
 
 

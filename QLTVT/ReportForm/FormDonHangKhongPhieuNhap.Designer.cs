@@ -42,7 +42,7 @@ namespace QLTVT.ReportForm
             this.label1.Font = new System.Drawing.Font("Tahoma", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(92, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(499, 40);
+            this.label1.Size = new System.Drawing.Size(547, 43);
             this.label1.TabIndex = 0;
             this.label1.Text = "Đơn Hàng Không Phiếu Nhập";
             // 
@@ -63,7 +63,7 @@ namespace QLTVT.ReportForm
             this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(107, 121);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 24);
+            this.label2.Size = new System.Drawing.Size(115, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Chi Nhánh";
             // 
@@ -74,7 +74,7 @@ namespace QLTVT.ReportForm
             this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(140, 205);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(132, 35);
+            this.button1.Size = new System.Drawing.Size(174, 35);
             this.button1.TabIndex = 4;
             this.button1.Text = "XEM TRƯỚC";
             this.button1.UseVisualStyleBackColor = false;
@@ -85,9 +85,9 @@ namespace QLTVT.ReportForm
             this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(374, 205);
+            this.button2.Location = new System.Drawing.Point(377, 205);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(132, 35);
+            this.button2.Size = new System.Drawing.Size(174, 35);
             this.button2.TabIndex = 5;
             this.button2.Text = "XUẤT BẢN";
             this.button2.UseVisualStyleBackColor = false;
@@ -97,7 +97,7 @@ namespace QLTVT.ReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 280);
+            this.ClientSize = new System.Drawing.Size(674, 277);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbCHINHANH);

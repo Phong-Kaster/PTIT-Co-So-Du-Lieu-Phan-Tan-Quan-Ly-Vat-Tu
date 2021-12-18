@@ -700,6 +700,7 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
     <tr>
         <td align="center">
         <a href="https://github.com/ngdanghau">
+            <br/>
             <img src="./avatar/Hau.jpg" width="100px;" alt=""/>
             <br />
             <sub><b>Nguyễn Đăng Hậu</b></sub>
@@ -710,6 +711,13 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
             <img src="./avatar/Sang.jpg" width="100px;" alt=""/>
             <br />
             <sub><b>Huỳnh Phước Sang</b></sub>
+        </a>
+    </td>
+    <td align="center">
+        <a href="https://github.com/trinhnhi1306">
+            <img src="./avatar/Trinh.jpg" width="100px;" alt=""/>
+            <br />
+            <sub><b>Nguyễn Ngọc Phương Trinh</b></sub>
         </a>
     </td>
     </tr>

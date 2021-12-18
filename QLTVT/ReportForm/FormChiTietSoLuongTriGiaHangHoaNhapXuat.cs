@@ -29,7 +29,9 @@ namespace QLTVT.ReportForm
             DateTime toDate = dteToiNgay.DateTime;
             ReportChiTietSoLuongTriGiaHangHoa report = new ReportChiTietSoLuongTriGiaHangHoa(vaiTro,loaiPhieu,fromDate,toDate);
             /*GAN TEN CHI NHANH CHO BAO CAO*/
-            //report.txtLoaiPhieu.Text = cmbLoaiPhieu.SelectedItem.ToString("dd-MM-yyyy").ToUpper();
+            report.txtLoaiPhieu.Text = cmbLoaiPhieu.SelectedItem.ToString().ToUpper();
+            report.txtTuNgay.Text = fromDate.ToString("dd-MM-yyyy");
+            report.txtToiNgay.Text = toDate.ToString("dd-MM-yyyy");
             ReportPrintTool printTool = new ReportPrintTool(report);
             printTool.ShowPreviewDialog();
         }
@@ -38,17 +40,23 @@ namespace QLTVT.ReportForm
         {
             string vaiTro = Program.role;
             string loaiPhieu = (cmbLoaiPhieu.SelectedItem.ToString() == "NHAP") ? "NHAP" : "XUAT";
-            int fromYear = dteTuNgay.DateTime.Year;
-            int fromMonth = dteTuNgay.DateTime.Month;
-            int toYear = dteToiNgay.DateTime.Year;
-            int toMonth = dteToiNgay.DateTime.Month;
 
             try
             {
 
                 DateTime fromDate = dteTuNgay.DateTime;
                 DateTime toDate = dteToiNgay.DateTime;
+
+
+
                 ReportChiTietSoLuongTriGiaHangHoa report = new ReportChiTietSoLuongTriGiaHangHoa(vaiTro, loaiPhieu, fromDate, toDate);
+
+
+                /*GAN TEN CHI NHANH CHO BAO CAO*/
+                report.txtLoaiPhieu.Text = cmbLoaiPhieu.SelectedItem.ToString().ToUpper();
+                report.txtTuNgay.Text = fromDate.ToString("dd-MM-yyyy");
+                report.txtToiNgay.Text = toDate.ToString("dd-MM-yyyy");
+
 
                 if (File.Exists(@"D:\ReportChiTietSoLuongTriGiaHangHoaNhapXuat.pdf"))
                 {
@@ -75,6 +83,13 @@ namespace QLTVT.ReportForm
                     "Xác nhận", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 return;
             }
+        }
+
+        private void FormChiTietSoLuongTriGiaHangHoaNhapXuat_Load(object sender, EventArgs e)
+        {
+            this.cmbLoaiPhieu.SelectedIndex = 1;
+            this.dteTuNgay.EditValue = "01-05-2021";
+            this.dteToiNgay.EditValue = "21-12-2021";
         }
     }
 }
