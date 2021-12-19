@@ -720,6 +720,13 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
             <sub><b>Nguyễn Ngọc Phương Trinh</b></sub>
         </a>
     </td>
+    <td align="center">
+        <a href="https://github.com/Dau-Truong-Quan">
+            <img src="./avatar/Quan.jpg" width="200px;" alt=""/>
+            <br />
+            <sub><b>Đậu Trường Quân</b></sub>
+        </a>
+    </td>
     </tr>
 </table>
  
