@@ -479,7 +479,7 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
  
  > Đáp: Phân mảnh ngang là chia một quan hệ theo các bộ. Mỗi phân mảnh ngang là tập con của quan hệ. 
  
- Trong phân mảnh ngang bao gồm phân mảnh ngang nguyên thủy &  phân mảnh ngang dẫn xuất
+ > Trong phân mảnh ngang bao gồm phân mảnh ngang nguyên thủy &  phân mảnh ngang dẫn xuất
  
  > *Phân mảnh ngang nguyên thủy* là phân mảnh của 1 quan hệ dựa trên 1 vị từ được định nghĩa trên quan hệ đó
  
