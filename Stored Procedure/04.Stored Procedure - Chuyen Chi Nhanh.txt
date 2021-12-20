@@ -68,15 +68,6 @@ BEGIN TRY
 			EXEC SP_DROPLOGIN @LGNAME;
 		END	
 END TRY
--- bắt trường hợp nếu đã có trasaction mở rồi mà mở thêm
-BEGIN CATCH
-	--@@TRANCOUNT trả về số lượng transaction đang hoạt động
-	IF (@@TRANCOUNT > 0)
-	BEGIN
-		ROLLBACK TRAN;
-	END;
-	THROW;
-END CATCH
 *Chú ý: sau khi tạo ra sp_ChuyenChiNhanh và chạy thử lần đầu tiên, các bạn sẽ dính lỗi "MSDTC on server is unavailable". Lỗi này nghĩa là dịch vụ MSDTC chưa được bật. Để chữa lỗi này các bạn làm như sau:
 Bước 1. Nhấn nút Start( nút có hình logo Window ấy má) -> SETTINGS > CONTROL PANEL > ADMINISTRATIVE TOOLS > SERVICES.
 Bước 2. Tìm dòng chữ 'Distributed Transaction Coordinator' và chuột phải vào nó chọn start.

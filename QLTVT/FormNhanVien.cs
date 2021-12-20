@@ -265,7 +265,7 @@ namespace QLTVT
             /*Step 2*/
             bdsNhanVien.CancelEdit();
             String cauTruyVanHoanTac = undoList.Pop().ToString();
-            Console.WriteLine(cauTruyVanHoanTac);
+            //Console.WriteLine(cauTruyVanHoanTac);
 
             /*Step 2.1*/
             if ( cauTruyVanHoanTac.Contains("sp_ChuyenChiNhanh") )
@@ -291,7 +291,8 @@ namespace QLTVT
                     Program.serverName = chiNhanhHienTai;
                     Program.loginName = Program.currentLogin;
                     Program.loginPassword = Program.currentPassword;
-                }catch( Exception ex)
+                }
+                catch( Exception ex)
                 {
                     MessageBox.Show("Chuyển nhân viên thất bại \n"+ex.Message, "Thông báo", MessageBoxButtons.OK);
                     return;

@@ -306,7 +306,7 @@ namespace QLTVT.ReportForm
             this.tableCell6.Name = "tableCell6";
             this.tableCell6.StyleName = "DetailData1";
             this.tableCell6.StylePriority.UseTextAlignment = false;
-            this.tableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.tableCell6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.tableCell6.Weight = 0.22318450927734376D;
             // 
             // tableCell7
@@ -316,7 +316,7 @@ namespace QLTVT.ReportForm
             this.tableCell7.Name = "tableCell7";
             this.tableCell7.StyleName = "DetailData1";
             this.tableCell7.StylePriority.UseTextAlignment = false;
-            this.tableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.tableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.tableCell7.Weight = 0.22272628489236718D;
             // 
             // tableCell8
@@ -327,6 +327,7 @@ namespace QLTVT.ReportForm
             this.tableCell8.StyleName = "DetailData1";
             this.tableCell8.StylePriority.UseTextAlignment = false;
             this.tableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.tableCell8.TextFormatString = "{0:#,#}";
             this.tableCell8.Weight = 0.35293249571911117D;
             // 
             // ReportDanhSachVatTu

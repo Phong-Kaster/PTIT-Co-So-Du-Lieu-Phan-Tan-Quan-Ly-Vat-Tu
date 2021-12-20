@@ -390,11 +390,12 @@ namespace QLTVT
                     MessageBox.Show("Không thể nhỏ hơn 1", "Thông báo", MessageBoxButtons.OK);
                     return false;
                 }
+                /*
                 if( txtSoLuong.Value > Program.soLuongVatTu)
                 {
                     MessageBox.Show("Sô lượng đặt mua lớn hơn số lượng vật tư hiện có", "Thông báo", MessageBoxButtons.OK);
                     return false;
-                }
+                }*/
             }
             return true;
         }
@@ -568,7 +569,7 @@ namespace QLTVT
                             ((DataRowView)(bdsChiTietDonDatHang.Current))["SOLUONG"] =
                                 txtSoLuong.Value;
                             ((DataRowView)(bdsChiTietDonDatHang.Current))["DONGIA"] =
-                                txtDonGia.Value;
+                                (int)txtDonGia.Value;
 
                             cauTruyVanHoanTac =
                                 "DELETE FROM DBO.CTDDH " +

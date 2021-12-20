@@ -374,7 +374,7 @@ namespace QLTVT.ReportForm
             this.tableCell8.Name = "tableCell8";
             this.tableCell8.StyleName = "DetailData1";
             this.tableCell8.StylePriority.UseTextAlignment = false;
-            this.tableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.tableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.tableCell8.Weight = 0.10435344989483174D;
             // 
             // tableCell9
@@ -384,7 +384,7 @@ namespace QLTVT.ReportForm
             this.tableCell9.Name = "tableCell9";
             this.tableCell9.StyleName = "DetailData1";
             this.tableCell9.StylePriority.UseTextAlignment = false;
-            this.tableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.tableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.tableCell9.Weight = 0.12347216092623198D;
             // 
             // tableCell10
@@ -394,7 +394,7 @@ namespace QLTVT.ReportForm
             this.tableCell10.Name = "tableCell10";
             this.tableCell10.StyleName = "DetailData1";
             this.tableCell10.StylePriority.UseTextAlignment = false;
-            this.tableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            this.tableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.tableCell10.Weight = 0.17869985727163462D;
             // 
             // tableCell11
@@ -405,7 +405,7 @@ namespace QLTVT.ReportForm
             this.tableCell11.StyleName = "DetailData1";
             this.tableCell11.StylePriority.UseTextAlignment = false;
             this.tableCell11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.tableCell11.TextFormatString = "{0:ddd, dd-MM-yyyy}";
+            this.tableCell11.TextFormatString = "{0:dd-MM-yyyy}";
             this.tableCell11.Weight = 0.24882673997145433D;
             // 
             // tableCell12
@@ -416,6 +416,7 @@ namespace QLTVT.ReportForm
             this.tableCell12.StyleName = "DetailData1";
             this.tableCell12.StylePriority.UseTextAlignment = false;
             this.tableCell12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.tableCell12.TextFormatString = "{0:#,#}";
             this.tableCell12.Weight = 0.18506666917067308D;
             // 
             // ReportDanhSachNhanVien

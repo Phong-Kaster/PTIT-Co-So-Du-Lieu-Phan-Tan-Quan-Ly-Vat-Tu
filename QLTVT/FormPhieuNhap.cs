@@ -534,7 +534,7 @@ namespace QLTVT
 
 
 
-        private void capNhatSoLuongVatTu(string maVatTu, string soLuong)
+        private void capNhatSoLuongVatTu(string maVatTu, int soLuong)
         {
             string cauTruyVan = "EXEC sp_CapNhatSoLuongVatTu 'IMPORT','" + maVatTu + "', " + soLuong;
 
@@ -668,6 +668,7 @@ namespace QLTVT
             /*Step 1*/
             String cheDo = (btnMENU.Links[0].Caption == "Phiếu Nhập") ? "Phiếu Nhập" : "Chi Tiết Phiếu Nhập";
 
+
             /*Step 2*/
             bool ketQua = kiemTraDuLieuDauVao(cheDo);
             if (ketQua == false) return;
@@ -676,13 +677,11 @@ namespace QLTVT
 
             /*Step 3*/
             string cauTruyVanHoanTac = taoCauTruyVanHoanTac(cheDo);
-            //Console.WriteLine("CAU TRUY VAN HOAN TAC");
-            //Console.WriteLine(cauTruyVanHoanTac);
 
            
             /*Step 4*/
             String maPhieuNhap = txtMaPhieuNhap.Text.Trim();
-            Console.WriteLine(maPhieuNhap);
+            //Console.WriteLine(maPhieuNhap);
             String cauTruyVan =
                     "DECLARE	@result int " +
                     "EXEC @result = sp_KiemTraMaPhieuNhap '" +
@@ -747,7 +746,7 @@ namespace QLTVT
                                 "AND MAVT = '" + Program.maVatTuDuocChon + "'";
 
                             string maVatTu = txtMaVatChiTietPhieuNhap.Text.Trim();
-                            string soLuong = txtSoLuongChiTietPhieuNhap.Text.Trim();
+                            int soLuong = (int)txtSoLuongChiTietPhieuNhap.Value;
                      
                             capNhatSoLuongVatTu(maVatTu, soLuong);
                         }
@@ -775,6 +774,9 @@ namespace QLTVT
 
                         this.gcPhieuNhap.Enabled = true;
                         this.gcChiTietPhieuNhap.Enabled = true;
+
+                        this.txtSoLuongChiTietPhieuNhap.Enabled = false;
+                        this.txtDonGiaChiTietPhieuNhap.Enabled = false;
                         /*cập nhật lại trạng thái thêm mới cho chắc*/
                         dangThemMoi = false;
                         MessageBox.Show("Ghi thành công", "Thông báo", MessageBoxButtons.OK);

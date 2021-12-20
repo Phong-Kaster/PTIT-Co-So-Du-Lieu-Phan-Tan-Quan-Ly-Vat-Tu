@@ -51,10 +51,11 @@
 # [**Link Server**](#link-server)
   Theo đề tài này chúng ta có 3 server phân mảnh. Server 1 và server 2 chứa thông tin của chi nhánh 1 và chi nhánh 2. Server chứa toàn bộ thông tin của kho & nhân viên. Do trong đề tài này chúng ta có hẳn một server phục vụ cho việc tra cứu. Do đó trong quá trình viết [**Stored Procedure**](#stored-procedure), chúng ta bắt buộc phải viết sao cho có sự tham gia của phân mảnh 3 trong một số Stored Procedure. Ví dụ như tìm kiếm xem mã nhân viên đã tồn tại hay chưa thì dùng server 3 thay vì quay về server chủ.
  
- Chúng ta sẽ có 2 LINK cho mỗi server phân mảnh 1 và 2 như sau
+ Chúng ta sẽ có 3 LINK cho mỗi server phân mảnh 1 & 2 như sau
  
     LINK0 đi từ phân mảnh này tới phân mảnh 3
     LINK1 đi từ phân mảnh này tới phân mảnh còn lại
+	LINK2 đi từ phân mảnh này tới phân mảnh gốc
   
  >Note: nếu bài không có phân mảnh 3 thì chúng ta quay trở về server gốc để tìm.
 # [**Authorization**](#authorization)
@@ -476,7 +477,9 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
  ***
  >Câu Hỏi 24: Nêu đặc điểm của phân mảnh ngang ? 
  
- > Đáp: Trong phân mảnh ngang bao gồm phân mảnh ngang nguyên thủy &  phân mảnh ngang dẫn xuất
+ > Đáp: Phân mảnh ngang là chia một quan hệ theo các bộ. Mỗi phân mảnh ngang là tập con của quan hệ. 
+ 
+ Trong phân mảnh ngang bao gồm phân mảnh ngang nguyên thủy &  phân mảnh ngang dẫn xuất
  
  > *Phân mảnh ngang nguyên thủy* là phân mảnh của 1 quan hệ dựa trên 1 vị từ được định nghĩa trên quan hệ đó
  
@@ -493,7 +496,7 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
  ***
  >Câu Hỏi 24: Nêu đặc điểm của phân mảnh dọc ? 
  
- > Đáp: phân mảnh dựa trên khóa chính của một quan hệ ( phải có khóa chính để đảm bảo tính tái thiết)
+ > Đáp: Phân mảnh dọc là phân mảnh dựa trên khóa chính của một quan hệ ( phải có khóa chính để đảm bảo tính tái thiết)
  
  > Gỉa sử, NHANVIEN( id, ho , ten, dia chi, luong, ngay sinh, ma chi nhanh ) thì khi tạo phân mảnh dọc sẽ thành 
   
