@@ -1,0 +1,25 @@
+Mục đích: kiểm tra xem chi tiết phiếu nhập với
+mã phiếu nhập X và mã vật tư Y đã có chưa
+
+Cú pháp:
+
+create proc sp_KiemTraChiTietPhieuNhap
+@MAPN NCHAR(10),
+@MAVT NCHAR(10)
+AS 
+BEGIN
+	-- lấy chỉ cột mã vật tư mà thôi
+	-- kiểm tra mẫ vật tư ở phân mảnh hiện tại
+	IF EXISTS(SELECT 1 
+			  FROM CTPN AS CT  
+			  WHERE CT.MAPN = @MAPN
+			  AND CT.MAVT = @MAVT)
+			RETURN 1; -- Mã Vattu đang dùng ở phân mảnh hiện tại
+	-- -- kiểm tra mẫ vật tư ở phân mảnh khác
+	ELSE IF EXISTS(SELECT 1
+				   FROM LINK1.QLVT_DATHANG.DBO.CTPN AS CT
+				   WHERE CT.MAPN = @MAPN
+					AND CT.MAVT = @MAVT)
+			RETURN 1; -- Mã Vattu đang dùng ở phân mảnh khác
+	RETURN 0; -- Chưa tồn tại
+END

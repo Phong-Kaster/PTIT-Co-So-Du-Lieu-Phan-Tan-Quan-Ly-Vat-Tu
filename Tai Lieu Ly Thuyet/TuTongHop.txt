@@ -1,0 +1,82 @@
+0. Để phân tán cơ sở dữ liệu có 3 bước
+Bước 1: định nghĩa distributor
++) Publisher chứa cơ sở dữ liệu gốc 
++) Distribor chứa dữ liệu trung gian giữa cơ sở dữ liệu gốc và các phân mảnh 
++) Subcriber chứa cơ sở dữ liệu sau khi phân tán 
+Bước 2: định nghĩa publication chứa các article ( sp, view, table ) 
+Bước 3: định nghĩa subcrition chứa publication 
+
+
+1.Có 3 hình thức phân mảnh là phân mảnh ngang , dọc & hỗn hợp
+
+2.Phân mảnh ngang là chia một quan hệ thành các bộ. Mỗi bộ là tập con của quan hệ.
+Phân mảnh ngang có 2 kiểu gồm 
++) Phân mảnh ngang nguyên thủy là phân mảnh dựa trên một vị từ được định nghĩa từ chính quan hệ đó.VD: MACN='CN1'
++) Phân mảnh ngang dẫn xuất là phân mảnh dựa trên một vị từ được định nghĩa dựa trên quan hệ khác.VD: NHANVIEN.MaKho = KHOHANG.MaKho
+
+3.Phân mảnh dọc là dựa trên quan hệ kèm theo khóa chính ( bắt buộc phải có khóa chính để bảo toàn tính tái thiết)
+	 
+	 
+  Phân mảnh hỗn hợp là kết hợp của phân mảnh ngang & phân mảnh dọc 
+  
+4. Có 3 quy tắc phân mảnh
+- Tính đầy đủ: mỗi mục dữ liệu nằm trên ít nhất một phân mảnh.
+- Tính tái thiết: khi một cơ sở dữ liệu chia thành nhiều phân mảnh thì khi hợp các phân mảnh lại ta sẽ có phân mảnh gốc.
+- Tính tách biệt: mỗi mục dữ liệu chỉ nằm ở một phân mảnh duy nhất
+
+Tính tách biệt có thể bị vi phạm nếu đó là nhân bản 
+
+Để phân tán thì cần có dịch vụ SQL Agent.
+
+5. Khi xây dựng cơ sở dữ liệu phân tán phải đảm bảo 2 tiêu chí.
++) Tiêu chí cực tiểu: một phân mảnh khi sinh ra thì có ít nhất một ứng dụng sẽ sử dụng tới.
++) Tiêu chí đầy đủ: xác suất để một ứng dụng sử dụng tới các phân mảnh là như nhau.
+
+6. Sự trong suốt phân tán là khi một sp chạy ở bất kì phân mảnh nào cũng cho kết quả tương tự. Người dùng không có cảm giác là đang
+thao tác trên môi trường phân tán
+
+Điều này đạt được khi có LINK Server giống nhau & tên database giống nhau.
+
+7. Có 4 mức trong suốt phân tán 
++) Trong suốt phân tán : không cần chỉ ra đường dẫn, nơi cấp phát phân mảnh. Người dùng cảm giác như đang thao tác trên cơ sở 
+dữ liệu tập trung
++) Trong suốt vị trí: cần chỉ rõ tên table cần truy vấn.
++) Trong suốt ánh xạ cục bộ: cần chỉ rõ tên phân mảnh và vị trí cấp phát
++) Không trong suốt: cần phải chỉ rõ tên database cần thao tác 
+
+Người lập trình đứng ở mức 3 & làm sao cho tạo ra mức 1.
+
+8. Giao tác là một chuỗi các hành động đọc & ghi dữ liệu, kết hợp với các bước tính toán nhất quán ( begin transaction, rollback,
+begin distributed transaction , commit) để xử lý các trường hợp dữ liệu bị thiếu sự nhất quán khi có nhiều truy vấn đồng thời.
+
+9. Có 2 loại giao tác chính là giao tác tập trung & phân tán
++) Giao tác tập trung là giao tác hoạt động trên môi trường tập trung.Nếu xảy ra sự cố thì mọi hành động đều dừng
+	Gồm 2 loại là 
+	(*) Giao tác phẳng: có điểm khởi đầu duy nhất ( begin transaction ) và một điểm kết thúc duy nhất ( end transaction ) 
+	(*) Giao tác lồng: chứa nhiều giao tác với điểm khởi đầu và duy nhất riêng biệt.
+	
++) Giao tác phân tán hoạt động trên môi trường phân tán.Chúng có thể chạy đồng thời ở các phân mảnh được.
+Nếu 1 trong 2 cái xảy ra sự cố thì cái còn lại vẫn hoạt động bình thường. Chỉ có một loại là giao tác phẳng
+
+10. Giao tác có 4 tính chất
++) Tính nguyên tử: mọi lệnh sẽ được thực hiện thành công hoặc nếu một lệnh thất bại thì tất cả thất bại
++) Tính nhất quán: mọi rằng buộc được bảo toàn. Tính nhất quán được giữ nguyên.
++) Tính biệt lập: khi một giao tác đang hoạt động thì nó sẽ không để lộ kết quả cho giao tác khác.
++) Tính bền vững: khi một giao tác kết thúc thì kết quả của nó không thể bị đảo ngược.
+
+11. Để sử dụng được giao tác phân tán cần có dịch vụ MS DTC - MicroSoft Distributed Transaction Cordinator.
+
+12. Có 5 cách để tối ưu hóa truy vấn 
++) Chọn trước, chiếu sau
++) Khử phép kết 
++) Mệnh đề AND nào sai thì để ở đầu. Mệnh đề OR thì để ở cuối
++) Một điều kiện WHERE xuất hiện nhiều lần thì dùng các phép biến đổi tương đương để rút gọn lại 
++) Field tham gia trong mệnh đề quan hệ nên được sắp xếp thứ tự trước và 
+thứ tự này phải được sử dụng trong mệnh đề truy vấn với mệnh đề WITH(Index_Tên Index)
+
+13.Các mức cô lập dữ liệu
+- Read Uncommitted - mức yếu nhất - TT1 đang sửa đổi & TT2 có thể vào xem dữ liệu ngay cả khi TT1 chưa lưu thay đổi lại. Nói nôm na là “tôi không cần biết dữ liệu có đang được cập nhật hay không, hãy cho tôi dữ liệu hiện có ngay tại thời điểm này”. 
+- Read Commited - mức mặc định - TT1 đang sửa đổi dữ liệu thì TT2 không thể xem dữ liệu này. Chỉ khi TT1 xong thì TT2 mới xem được dữ liệu. Nếu TT2 sửa dữ liệu thì TT1 sẽ có được dữ liệu được sửa đổi từ TT2.
+- Repeatable Read - mức an toàn - TT2 đang đọc một bảng dữ liệu thì TT1 không thể chỉnh sửa bảng dữ liệu này cho đến khi TT2 hoàn tất việc đọc dữ liệu đó. Nói nôm na là dữ liệu đang được đọc sẽ được bảo vệ khỏi cập nhật bởi các transaction khác
+- Serializable - mức an toàn cao - TT1 đang sửa đổi một bảng dữ liệu thì TT2 không thể làm bất cứ hành động gì với bảng dữ liệu đó như: INSERT, UPDATE, DELETE,.....
+- Snapshot - mức an toàn cao nhất - hoạt động tương tự Serializable, TT1 vẫn hoạt động, TT2 sẽ sửa dữ liệu trên một bản ghi đã được Snapshot sao chép.

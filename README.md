@@ -20,6 +20,7 @@
 - [**FAQ**](#faq)
   - [**1.Confusing Questions**](#1confusing-questions)
   - [**2.Interview Questions**](#2interview-questions)
+- [**Video**](#video)
 - [**Timeline**](#timeline)
   - [**Phase 1** : **01-09-2021 to 05-09-2021**](#phase-1--01-09-2021-to-05-09-2021)
   - [**Phase 2** : **06-09-2021 to 16-09-2021**](#phase-2--06-09-2021-to-16-09-2021)
@@ -644,6 +645,11 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
 
  
  Note: Lời khuyên chân thành tới các bạn là hãy dành toàn bộ thời gian khi còn đang có tiết học môn Cơ Sở Dữ Liệu Phân Tán ở lớp thì hãy làm hết sức mình và nhanh nhất có thể để nếu như các bạn có khó khăn hoặc thắc mắc gì cần thầy giải đáp thì sẽ nhanh được thầy giải đáp hơn. Tại thời điểm mình viết những dòng này - Mon, 11-10-2021, tức đã hết tiết học ở lớp nhưng có rất nhiều bạn hỏi thầy ở nhóm chat ZALO. Thầy trả lời rất chậm và thường là "phải xem trực tiếp mới biết được" 🙄. Bởi lẽ những câu hỏi của các bạn nhiều câu hỏi rất tối nghĩa hoặc phức tạp, cần xem trực tiếp trên máy tính mới có thể giải đáp được. Thầy chỉ có thể trả lời những câu hỏi ngắn kiểu đúng hoặc sai như: Nhân viên 1 thì không được quyền sửa đơn đặt hàng của nhân viên 2 phải không ạ ? Do vậy, các bạn hãy làm quyết liệt ngay tư đầu như mình. Đến tiết học thì mình mở micro, hỏi thầy trực tiếp thì chắc chắn được thầy phản hồi ngay lập tức.
+
+# [**Video**](#video)
+
+Dưới đây là video tóm tắt phần đồ án của mình
+
 # [**Timeline**](#timeline)
 ## **Phase 1** : **01-09-2021 to 05-09-2021**
  

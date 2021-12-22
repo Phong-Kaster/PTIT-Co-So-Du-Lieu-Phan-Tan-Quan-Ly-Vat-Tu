@@ -63,6 +63,10 @@ namespace QLTVT.SubForm
                 return;
             }
 
+            /**
+             * Viết 1 đoạn code chạy stored procedure kiểm tra xem mã PN10 và mã vật tư W8
+             * đã tồn tại hay chưa ???
+             */
 
 
             Program.maVatTuDuocChon = maVatTu;
