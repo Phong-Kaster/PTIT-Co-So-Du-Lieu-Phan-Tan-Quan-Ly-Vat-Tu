@@ -648,7 +648,12 @@ các phân mảnh hoặc trong trường hợp lỗi thì xem như chưa thực 
 
 # [**Video**](#video)
 
-Dưới đây là video tóm tắt phần đồ án của mình
+Dưới đây là video tóm tắt phần đồ án của mình kèm theo những lưu ý cần thiết. Tiếp theo đó còn có hình thức thi vấn đáp với thầy Lưu Nguyễn Kì Thư nhé.
+
+<div align="center">
+  [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/SEzoqzogl4Y/0.jpg)](https://youtu.be/SEzoqzogl4Y)
+</div>
+
 
 # [**Timeline**](#timeline)
 ## **Phase 1** : **01-09-2021 to 05-09-2021**
