@@ -26,9 +26,10 @@
   - [**Phase 2** : **06-09-2021 to 16-09-2021**](#phase-2--06-09-2021-to-16-09-2021)
   - [**Phase 3** : **16-09-2021 to 25-09-2021**](#phase-3--16-09-2021-to-25-09-2021)
   - [**Phase 4** : **26-09-2021 to 30-09-2021**](#phase-4--26-09-2021-to-30-09-2021)
-- [**Special Thank**](#special-thank)
 - [**Post Script**](#post-script)
+- [**Score**](#score)
 - [**Tools**](#tools)
+- [**Special Thank**](#special-thank)
 - [**Made with 💘 and C# <img src="https://www.vectorlogo.zone/logos/dotnet/dotnet-ar21.svg" width="60">**](#made-with--and-c-)
 
 # [**Introduce**](#introduce)
@@ -709,6 +710,46 @@ Dưới đây là video tóm tắt phần đồ án của mình kèm theo nhữn
   5. Hoàn thiện toàn bộ báo cáo chi tiết số lượng - trị giá hàng hóa nhập xuất
   
   6. Hoàn thiện toàn bộ báo cáo tổng hợp nhập xuất
+ 
+# [**Post Script**](#post-script)
+ Ngày bắt đầu: 01-09-2021
+ 
+ Ngày kết thúc: 30-09-2021
+ 
+ 6h42 PM ngày 30-09-2021: ui cha, cuối cùng mình cũng hoàn thành được cái của nợ này rồi. Một tháng ròng rã cuối cùng cũng có sản phẩm cuối cùng. Thật là hạnh phúc quá đi 🤪🤪🤪. Còn 1 buổi học nữa mới hết nhưng làm xong là zui rồi. Giờ còn đồ án lập trình mạng, lập trình web nữa. Haiz, cứ từ từ mà tính vậy. Đi nghỉ thôi. Chờ ngày thi môn này xong rồi vào cập nhật tiếp !
+ 
+ 3h42 PM ngày 04-10-2021: hmm, hôm nay buổi học cuối mất rồi. May quá coi kĩ lại mà mình đã bắt được mấy lỗi nhập dữ liệu đầu vào kiểu tên thì không có số. Nhanh quá. Chắc thêm một thoáng nữa là hết học kì mất 🤨
+ 
+ 03:40 PM ngày 25-11-2021: đến hôm nay là sắp thi rồi mà vẫn có nhiều đứa hỏi bài trên ZALO quớ (><). May mà làm từ đầu nên giờ nhàn ghê
+
+# [**Score**](#score)
+
+Bất kì ai học những môn do thầy Thư dạy sẽ nhận được một mã gồm 3 chữ số abc thay vì điểm thông thường. Theo như mình biết thì có 2 cách tính điểm sau. Tuy nhiên, cách 1 thường phổ biển hơn & sau khi học đến năm 4 thì mình thấy là cách tính này là ko đổi đối với mọi niên khóa.
+
+Mã điểm là a b c 
+
+Cách 1: ( b + c ) % 10
+
+Cách 2: ( a + b + c ) % 10
+
+Ví dụ: mã điểm là 4 6 0 thì theo 
+
+Cách 1: ( 6 + 0 ) % 10 = 0 dư 6. Tức bạn được 6 điểm.
+
+Cách 2: ( 4 + 6 + 0 ) % 10 = 1 dư 0. Tức bạn được 0 điểm.
+
+# [**Tools**](#tools)
+  
+  **Visual Studio 2019** - cái này thì quen thuộc quá rồi, ai học đến năm 4 rồi mà chưa cài thì toang CMNR
+  
+  **DevExpress** - thư viện hỗ trợ làm Winform siêu đẹp, siên tiện. Các bạn nhấn vào [**đây**](https://drive.google.com/file/d/1Rik18mGgDjt2xVSKkcWv3HTw5raQ2lRn/view) để tải nha. Cái này đã crack tận 16 năm rồi, dùng tẹt cmn bô luôn.
+  
+  **SQL Server 2014** - cái này do thầy Thư chia sẻ cho sinh viên tụi mình. Bao uy tín. Tải tại [**đây**](https://drive.google.com/file/d/12r_yzyKRxnyIA1Q2ZajFsUAMAJ_6DoA8/view) nhé.
+  
+  **Database Script** - cái này là phần script tiêu chuẩn do chính thầy Thư gửi cho tụi mình nha. Tải tại [**đây**](https://drive.google.com/file/d/1ahRASX5mvGY8v4JLNmdPdiXirotPikhQ/view?usp=sharing)
+  
+  > Note: Mình rất khuyến khích các bạn cài đặt toàn bộ những phần mềm bên trên bởi trong quá trình học thì thầy hướng dẫn trên những phần mềm này. Ngoài ra, nếu chẳng may gặp lỗi gì đó, các bạn có thể hỏi thầy hoặc bạn bè của mình dễ hơn so với việc chọn làm bằng một phần mềm khác.
+
 # [**Special Thank**](#special-thank)
  <table>
     <tr>
@@ -743,29 +784,5 @@ Dưới đây là video tóm tắt phần đồ án của mình kèm theo nhữn
     </td>
     </tr>
 </table>
- 
-# [**Post Script**](#post-script)
- Ngày bắt đầu: 01-09-2021
- 
- Ngày kết thúc: 30-09-2021
- 
- 6h42 PM ngày 30-09-2021: ui cha, cuối cùng mình cũng hoàn thành được cái của nợ này rồi. Một tháng ròng rã cuối cùng cũng có sản phẩm cuối cùng. Thật là hạnh phúc quá đi 🤪🤪🤪. Còn 1 buổi học nữa mới hết nhưng làm xong là zui rồi. Giờ còn đồ án lập trình mạng, lập trình web nữa. Haiz, cứ từ từ mà tính vậy. Đi nghỉ thôi. Chờ ngày thi môn này xong rồi vào cập nhật tiếp !
- 
- 3h42 PM ngày 04-10-2021: hmm, hôm nay buổi học cuối mất rồi. May quá coi kĩ lại mà mình đã bắt được mấy lỗi nhập dữ liệu đầu vào kiểu tên thì không có số. Nhanh quá. Chắc thêm một thoáng nữa là hết học kì mất 🤨
- 
- 03:40 PM ngày 25-11-2021: đến hôm nay là sắp thi rồi mà vẫn có nhiều đứa hỏi bài trên ZALO quớ (><). May mà làm từ đầu nên giờ nhàn ghê
-# [**Tools**](#tools)
-  
-  **Visual Studio 2019** - cái này thì quen thuộc quá rồi, ai học đến năm 4 rồi mà chưa cài thì toang CMNR
-  
-  **DevExpress** - thư viện hỗ trợ làm Winform siêu đẹp, siên tiện. Các bạn nhấn vào [**đây**](https://drive.google.com/file/d/1Rik18mGgDjt2xVSKkcWv3HTw5raQ2lRn/view) để tải nha. Cái này đã crack tận 16 năm rồi, dùng tẹt cmn bô luôn.
-  
-  **SQL Server 2014** - cái này do thầy Thư chia sẻ cho sinh viên tụi mình. Bao uy tín. Tải tại [**đây**](https://drive.google.com/file/d/12r_yzyKRxnyIA1Q2ZajFsUAMAJ_6DoA8/view) nhé.
-  
-  **Database Script** - cái này là phần script tiêu chuẩn do chính thầy Thư gửi cho tụi mình nha. Tải tại [**đây**](https://drive.google.com/file/d/1ahRASX5mvGY8v4JLNmdPdiXirotPikhQ/view?usp=sharing)
-  
-  > Note: Mình rất khuyến khích các bạn cài đặt toàn bộ những phần mềm bên trên bởi trong quá trình học thì thầy hướng dẫn trên những phần mềm này. Ngoài ra, nếu chẳng may gặp lỗi gì đó, các bạn có thể hỏi thầy hoặc bạn bè của mình dễ hơn so với việc chọn làm bằng một phần mềm khác.
-
-
  
  # [**Made with 💘 and C# <img src="https://www.vectorlogo.zone/logos/dotnet/dotnet-ar21.svg" width="60">**](#made-with-love-and-c)
