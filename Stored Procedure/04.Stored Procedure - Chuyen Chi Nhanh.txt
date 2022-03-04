@@ -25,7 +25,7 @@ DECLARE @LGNAME VARCHAR(50)
 DECLARE @USERNAME VARCHAR(50)
 SET XACT_ABORT ON;
 SET TRANSACTION ISOLATION LEVEL SERIALIZABLE;
-BEGIN TRY
+BEGIN
 	BEGIN DISTRIBUTED TRAN
 		DECLARE @HONV NVARCHAR(40)
 		DECLARE @TENNV NVARCHAR(10)
@@ -67,7 +67,7 @@ BEGIN TRY
 			EXEC SP_DROPUSER @USERNAME;
 			EXEC SP_DROPLOGIN @LGNAME;
 		END	
-END TRY
+END
 *Chú ý: sau khi tạo ra sp_ChuyenChiNhanh và chạy thử lần đầu tiên, các bạn sẽ dính lỗi "MSDTC on server is unavailable". Lỗi này nghĩa là dịch vụ MSDTC chưa được bật. Để chữa lỗi này các bạn làm như sau:
 Bước 1. Nhấn nút Start( nút có hình logo Window ấy má) -> SETTINGS > CONTROL PANEL > ADMINISTRATIVE TOOLS > SERVICES.
 Bước 2. Tìm dòng chữ 'Distributed Transaction Coordinator' và chuột phải vào nó chọn start.

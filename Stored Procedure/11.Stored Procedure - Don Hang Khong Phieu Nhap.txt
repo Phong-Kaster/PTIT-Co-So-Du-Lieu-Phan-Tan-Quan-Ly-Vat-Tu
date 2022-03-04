@@ -11,6 +11,9 @@ Chú ý: đơn đặt hàng ko có chi tiết đơn đặt hàng thì cũng ko h
 
 
 * Cú pháp tạo Stored Procedure:
+CREATE PROCEDURE [dbo].[sp_DonHangKhongPhieuNhap]
+AS
+BEGIN
 SELECT DH.MasoDDH, 
 	DH.Ngay, 
 	DH.NhaCC, 
@@ -20,8 +23,8 @@ SELECT DH.MasoDDH,
 	DONGIA
 FROM 
 (SELECT MasoDDH, NGAY, NhaCC, HOTEN = (SELECT HOTEN = HO + ' ' + TEN 
-				       FROM NhanVien 
-				       WHERE DatHang.MANV = NhanVien.MANV) 
+										FROM NhanVien 
+										WHERE DatHang.MANV = NhanVien.MANV) 
 	FROM DBO.DatHang) DH,
  (SELECT MasoDDH,MAVT,SOLUONG,DONGIA FROM CTDDH ) CT,
  (SELECT TENVT, MAVT FROM Vattu ) VT
