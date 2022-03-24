@@ -714,6 +714,9 @@ Dưới đây là video tóm tắt phần đồ án của mình kèm theo nhữn
   6. Hoàn thiện toàn bộ báo cáo tổng hợp nhập xuất
  
 # [**Post Script**](#post-script)
+
+ > Nếu các bạn thấy bài viết & đồ án này hữu ích. Đừng ngần ngại tặng một ngôi sao ⭐ cho mình nha !
+
  Ngày bắt đầu: 01-09-2021
  
  Ngày kết thúc: 30-09-2021
