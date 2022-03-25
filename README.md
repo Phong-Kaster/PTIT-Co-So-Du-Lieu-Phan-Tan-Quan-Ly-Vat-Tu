@@ -51,15 +51,23 @@
 
  
 # [**Link Server**](#link-server)
-  Theo đề tài này chúng ta có 3 server phân mảnh. Server 1 và server 2 chứa thông tin của chi nhánh 1 và chi nhánh 2. Server chứa toàn bộ thông tin của kho & nhân viên. Do trong đề tài này chúng ta có hẳn một server phục vụ cho việc tra cứu. Do đó trong quá trình viết [**Stored Procedure**](#stored-procedure), chúng ta bắt buộc phải viết sao cho có sự tham gia của phân mảnh 3 trong một số Stored Procedure. Ví dụ như tìm kiếm xem mã nhân viên đã tồn tại hay chưa thì dùng server 3 thay vì quay về server chủ.
+   Theo đề tài này chúng ta có 3 server phân mảnh:
+  
+   Server 1 và server 2 chứa thông tin của chi nhánh 1 và chi nhánh 2. 
+
+   Server 3 chứa toàn bộ thông tin của kho & nhân viên. 
+
+   Do trong đề tài này chúng ta có hẳn một server phục vụ cho việc tra cứu. Do đó trong quá trình viết [**Stored Procedure**](#stored-procedure), chúng ta bắt buộc phải viết sao cho có sự tham gia của phân mảnh 3 trong một số Stored Procedure. Ví dụ như tìm kiếm xem mã nhân viên đã tồn tại hay chưa thì dùng server 3 thay vì quay về server chủ.
  
- Chúng ta sẽ có 3 LINK cho mỗi server phân mảnh 1 & 2 như sau
+  Chúng ta sẽ có 3 LINK cho mỗi server phân mảnh 1 & 2 như sau
  
     LINK0 đi từ phân mảnh này tới phân mảnh 3
     LINK1 đi từ phân mảnh này tới phân mảnh còn lại
-	LINK2 đi từ phân mảnh này tới phân mảnh gốc
+	  LINK2 đi từ phân mảnh này tới phân mảnh gốc
   
  >Note: nếu bài không có phân mảnh 3 thì chúng ta quay trở về server gốc để tìm.
+
+ >Note: Server 3 không cần LINK Server vì được sử dụng để tra cứu thông tin & không tham gia vào quá trình thay đổi dữ liệu 
 # [**Authorization**](#authorization)
    Đối với phân quyền, chúng ta sẽ cùng nhau phân tích đề bài:
    > Phân quyền: Chương trình có 3 nhóm : Công ty , ChiNhanh, User
@@ -743,6 +751,7 @@ Cách 1: ( 6 + 0 ) % 10 = 0 dư 6. Tức bạn được 6 điểm.
 
 Cách 2: ( 4 + 6 + 0 ) % 10 = 1 dư 0. Tức bạn được 0 điểm.
 
+> Môn này mình gần tuyệt đối nha các bạn 😎😎😎
 # [**Tools**](#tools)
   
   **Visual Studio 2019** - cái này thì quen thuộc quá rồi, ai học đến năm 4 rồi mà chưa cài thì toang CMNR
