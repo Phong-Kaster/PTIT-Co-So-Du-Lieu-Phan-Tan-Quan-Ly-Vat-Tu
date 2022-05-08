@@ -38,7 +38,7 @@
   
  Thôi, không vòng vo Tam Quốc nữa. Mình sẽ giới thiệu cho các bạn cách xem và tham khảo đồ án của mình sao cho hiệu quả nhất nhé. Nào chúng ta bắt đầu thôi !!
  
-  >Nếu các bạn thấy bài viết & đồ án này hữu ích. Đừng ngần ngại tặng một ngôi sao ⭐ cho mình nha !
+  >Nếu các bạn thấy bài viết & đồ án này hữu ích. Hãy tặng một ngôi sao ⭐ cho mình nha !
 	
 # [**Publication and Subcription**](#publication-and-subcription)
   Với đề tài này chúng ta cần 3 server phân mảnh đề làm việc. Các bạn coi hình ảnh bên dưới để dễ hình dung
